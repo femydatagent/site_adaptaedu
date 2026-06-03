@@ -76,7 +76,7 @@ const dashboardStats = [
   { label: 'Conteúdos Cadastrados', value: '1.247', icon: FileText, color: 'text-amber-600', bg: 'bg-amber-50' },
   { label: 'Adaptações Geradas', value: '855', icon: Sparkles, color: 'text-teal-600', bg: 'bg-teal-50' },
   { label: 'Professores Ativos', value: '24', icon: Users, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-  { label: 'Perfis Atendidos', value: '9/9', icon: Eye, color: 'text-violet-600', bg: 'bg-violet-50' },
+  { label: 'Perfis Atendidos', value: '8/8', icon: Eye, color: 'text-violet-600', bg: 'bg-violet-50' },
 ];
 
 const recentAdaptations = [
@@ -296,7 +296,7 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-5 h-5 text-emerald-500" />
                     <div>
-                      <p className="text-xs font-bold text-slate-900">9/9</p>
+                      <p className="text-xs font-bold text-slate-900">8/8</p>
                       <p className="text-xs text-slate-500">Perfis Ativos</p>
                     </div>
                   </div>

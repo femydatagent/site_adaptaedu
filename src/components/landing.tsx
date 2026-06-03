@@ -42,7 +42,7 @@ const accessibilityProfiles = [
   { name: 'TEA', full: 'Transtorno do Espectro Autista', icon: Brain, color: 'bg-sky-100 text-sky-700 border-sky-200', accent: 'bg-sky-500' },
   { name: 'TDAH', full: 'Transtorno de Déficit de Atenção e Hiperatividade', icon: Zap, color: 'bg-orange-100 text-orange-700 border-orange-200', accent: 'bg-orange-500' },
   { name: 'TPAC', full: 'Transtorno de Processamento Auditivo Central', icon: Ear, color: 'bg-violet-100 text-violet-700 border-violet-200', accent: 'bg-violet-500' },
-  { name: 'TAG', full: 'Transtorno de Ansiedade Generalizada', icon: Heart, color: 'bg-rose-100 text-rose-700 border-rose-200', accent: 'bg-rose-500' },
+
   { name: 'DI', full: 'Deficiência Intelectual', icon: Lightbulb, color: 'bg-amber-100 text-amber-700 border-amber-200', accent: 'bg-amber-500' },
   { name: 'Baixa Visão', full: 'Baixa Visão', icon: Eye, color: 'bg-teal-100 text-teal-700 border-teal-200', accent: 'bg-teal-500' },
   { name: 'Dislexia', full: 'Dislexia', icon: BookOpen, color: 'bg-pink-100 text-pink-700 border-pink-200', accent: 'bg-pink-500' },
@@ -106,7 +106,7 @@ const plans = [
     target: 'Escolas particulares e públicas',
     price: 'R$ 299',
     period: '/mês',
-    features: ['Adaptações ilimitadas', '9 perfis de acessibilidade', 'Todas as exportações', 'Gestão de conteúdos', 'Até 30 usuários', 'Painel administrativo', 'Suporte prioritário'],
+    features: ['Adaptações ilimitadas', '8 perfis de acessibilidade', 'Todas as exportações', 'Gestão de conteúdos', 'Até 30 usuários', 'Painel administrativo', 'Suporte prioritário'],
     highlight: true,
   },
   {
@@ -220,7 +220,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
               <div className="mt-12 flex items-center justify-center gap-8 text-sm text-slate-500">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                  <span>9 perfis de acessibilidade</span>
+                  <span>8 perfis de acessibilidade</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500" />
@@ -280,7 +280,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
           <FadeIn>
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                9 Perfis de <span className="text-amber-600">Acessibilidade</span>
+                8 Perfis de <span className="text-amber-600">Acessibilidade</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                 Cada perfil recebe uma adaptação personalizada que respeita suas necessidades específicas, garantindo que nenhum estudante fique para trás.
