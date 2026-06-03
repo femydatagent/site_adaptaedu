@@ -186,10 +186,10 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
 
             <FadeIn delay={0.1}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
-                Adaptação inteligente de conteúdo escolar{' '}
                 <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-teal-500 bg-clip-text text-transparent">
-                  para todos
-                </span>
+                  Adaptação inteligente
+                </span>{' '}
+                de conteúdo escolar
               </h1>
             </FadeIn>
 
