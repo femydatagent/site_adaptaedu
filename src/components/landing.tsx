@@ -3,54 +3,41 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  BookOpen,
-  Upload,
-  Search,
-  Merge,
-  Wand2,
-  FileText,
-  Sparkles,
-  Download,
-  Brain,
-  Eye,
-  Lightbulb,
-  Target,
-  GraduationCap,
-  Palette,
-  Calculator,
-  PenTool,
   Accessibility,
-  Users,
-  Building2,
-  School,
-  CheckCircle2,
-  Star,
   ArrowRight,
+  BookOpen,
+  Brain,
+  Calculator,
+  CheckCircle2,
+  ChevronRight,
+  Download,
+  Eye,
+  FileText,
+  Heart,
+  Layers,
+  Lightbulb,
+  Merge,
+  PenTool,
+  Play,
+  Search,
   Shield,
+  Sparkles,
+  Star,
+  Upload,
+  Users,
+  Wand2,
+  School,
+  Building2,
+  Zap,
+  Quote,
   Scale,
   FileCheck,
-  Heart,
-  Zap,
-  BookMarked,
   BarChart3,
-  ChevronRight,
-  Quote,
+  Target,
 } from 'lucide-react';
 import FadeIn from './fade-in';
 
-const accessibilityProfiles = [
-  { name: 'TEA', full: 'Transtorno do Espectro Autista', icon: Brain, color: 'bg-sky-100 text-sky-700 border-sky-200', accent: 'bg-sky-500' },
-  { name: 'TDAH', full: 'Transtorno de Déficit de Atenção e Hiperatividade', icon: Zap, color: 'bg-orange-100 text-orange-700 border-orange-200', accent: 'bg-orange-500' },
-  { name: 'TPAC', full: 'Transtorno de Processamento Auditivo Central', icon: Ear, color: 'bg-violet-100 text-violet-700 border-violet-200', accent: 'bg-violet-500' },
-
-  { name: 'DI', full: 'Deficiência Intelectual', icon: Lightbulb, color: 'bg-amber-100 text-amber-700 border-amber-200', accent: 'bg-amber-500' },
-  { name: 'Baixa Visão', full: 'Baixa Visão', icon: Eye, color: 'bg-teal-100 text-teal-700 border-teal-200', accent: 'bg-teal-500' },
-  { name: 'Dislexia', full: 'Dislexia', icon: BookOpen, color: 'bg-pink-100 text-pink-700 border-pink-200', accent: 'bg-pink-500' },
-  { name: 'Discalculia', full: 'Discalculia', icon: Calculator, color: 'bg-emerald-100 text-emerald-700 border-emerald-200', accent: 'bg-emerald-500' },
-  { name: 'Disgrafia', full: 'Disgrafia', icon: PenTool, color: 'bg-indigo-100 text-indigo-700 border-indigo-200', accent: 'bg-indigo-500' },
-];
-
-function Ear(props: React.SVGProps<SVGSVGElement>) {
+function EarIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-5 6-5 10a3.5 3.5 0 1 1-7 0" />
@@ -59,615 +46,729 @@ function Ear(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+const profiles = [
+  { name: 'TEA', full: 'Transtorno do Espectro Autista', icon: Brain, desc: 'Estrutura visual previsível, redução de estímulos excessivos, instruções claras e literais, apoios visuais consistentes.' },
+  { name: 'TDAH', full: 'Transtorno de Déficit de Atenção e Hiperatividade', icon: Zap, desc: 'Conteúdo segmentado em blocos curtos, destaque de informações-chave, pausas visuais e estímulos direcionados.' },
+  { name: 'TPAC', full: 'Transtorno de Processamento Auditivo Central', icon: EarIcon, desc: 'Priorização de conteúdo visual, legendas descritivas, redução de dependência de áudio, instruções escritas detalhadas.' },
+  { name: 'DI', full: 'Deficiência Intelectual', icon: Lightbulb, desc: 'Linguagem simplificada, exemplos concretos, repetição de conceitos-chave, apoio visual abundante e passo a passo.' },
+  { name: 'Baixa Visão', full: 'Baixa Visão', icon: Eye, desc: 'Alto contraste, fontes ampliadas, descrições de imagens em texto, layout limpo sem poluição visual.' },
+  { name: 'Dislexia', full: 'Dislexia', icon: BookOpen, desc: 'Fontes amigáveis para dislexia, espaçamento generoso, divisão silábica opcional, cores para orientação visual.' },
+  { name: 'Discalculia', full: 'Discalculia', icon: Calculator, desc: 'Representações visuais de números, material concreto, passo a passo detalhado, eliminação de ambiguidades numéricas.' },
+  { name: 'Disgrafia', full: 'Disgrafia', icon: PenTool, desc: 'Espaços ampliados para escrita, linhas-guia, atividades com menor demanda motora, alternativas de resposta digital.' },
+];
+
 const fluxoSteps = [
-  { icon: Upload, label: 'Envio', desc: 'Envie PDFs, DOCX ou imagens com o conteúdo original' },
-  { icon: Search, label: 'Análise', desc: 'A IA analisa e compreende a estrutura do conteúdo' },
-  { icon: Merge, label: 'Fusão', desc: 'Os dados são consolidados e preparados para adaptação' },
-  { icon: Wand2, label: 'Adaptação', desc: 'O conteúdo é transformado para o perfil de acessibilidade' },
-  { icon: FileText, label: 'Formatação', desc: 'O material adaptado é formatado para melhor leitura' },
-  { icon: Sparkles, label: 'Geração', desc: 'O documento final é gerado com qualidade profissional' },
-  { icon: Download, label: 'Exportação', desc: 'Baixe o material adaptado no formato desejado' },
+  { icon: Upload, label: 'Envio', desc: 'Envie PDFs, DOCX ou imagens' },
+  { icon: Search, label: 'Análise', desc: 'Extraia texto e estrutura' },
+  { icon: Merge, label: 'Fusão', desc: 'Una conteúdo e contexto' },
+  { icon: Wand2, label: 'Adaptação', desc: 'Aplique regras de acessibilidade' },
+  { icon: FileText, label: 'Formatação', desc: 'Gere layout adaptado' },
+  { icon: Sparkles, label: 'Geração', desc: 'Produza material final' },
+  { icon: Download, label: 'Exportação', desc: 'Baixe em PDF ou DOCX' },
 ];
 
 const contentTypes = [
-  { icon: FileText, title: 'Texto', desc: 'Textos narrativos, informativos e expositivos adaptados com linguagem simplificada, destaque de informações-chave e estrutura visual otimizada para cada perfil de acessibilidade.' },
-  { icon: BookMarked, title: 'Texto com Exercícios', desc: 'Materiais que combinam conteúdo teórico com atividades práticas, com exercícios adaptados em complexidade, formato e apresentação visual para garantir a compreensão e o engajamento.' },
-  { icon: GraduationCap, title: 'Ciências, História e Geografia', desc: 'Conteúdo multidisciplinar adaptado com mapas visuais, linhas do tempo interativas, vocabulário controlado e recursos visuais complementares que facilitam a compreensão de conceitos abstratos.' },
-  { icon: Calculator, title: 'Exercícios de Matemática', desc: 'Problemas matemáticos adaptados com suporte visual, passos detalhados, representações concretas e linguagem acessível que reduzem a carga cognitiva sem simplificar o conteúdo.' },
+  { title: 'Texto', desc: 'Textos narrativos e informativos' },
+  { title: 'Texto com Exercícios', desc: 'Conteúdo misto com atividades' },
+  { title: 'Ciências / História / Geografia', desc: 'Matérias com conteúdo discursivo' },
+  { title: 'Exercícios de Matemática', desc: 'Problemas numéricos e lógicos' },
 ];
 
 const adaptationStrategies = [
-  { icon: Target, title: 'Destacar informações-chave', desc: 'Identifica e realça os conceitos mais importantes do texto com cores, caixas ou marcadores visuais.' },
-  { icon: BarChart3, title: 'Dividir texto em blocos', desc: 'Segmenta conteúdos longos em parágrafos curtos e bem estruturados para reduzir a sobrecarga visual.' },
-  { icon: ListIcon, title: 'Converter texto em listas', desc: 'Transforma parágrafos densos em listas com marcadores para facilitar a leitura e a memorização.' },
-  { icon: BookOpen, title: 'Adicionar títulos', desc: 'Insere subtítulos e seções numeradas para criar uma hierarquia visual clara no documento.' },
-  { icon: Lightbulb, title: 'Simplificar linguagem', desc: 'Reduz a complexidade do vocabulário e das estruturas sintáticas mantendo o significado original.' },
+  'Destacar informações-chave',
+  'Dividir texto em blocos',
+  'Converter texto em listas com marcadores',
+  'Adicionar títulos e subtítulos claros',
+  'Simplificar linguagem',
 ];
 
-function ListIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <line x1="8" y1="6" x2="21" y2="6" /><line x1="8" y1="12" x2="21" y2="12" /><line x1="8" y1="18" x2="21" y2="18" /><line x1="3" y1="6" x2="3.01" y2="6" /><line x1="3" y1="12" x2="3.01" y2="12" /><line x1="3" y1="18" x2="3.01" y2="18" />
-    </svg>
-  );
-}
+const schoolTypes = [
+  {
+    title: 'Escolas Particulares',
+    desc: 'Adapte materiais para atender à demanda de famílias que buscam inclusão. Diferencial competitivo com responsabilidade social. Conta administrativa com gestão de professores e controle de uso.',
+  },
+  {
+    title: 'Escolas Públicas',
+    desc: 'Cumpra a legislação de educação inclusiva com ferramentas práticas. Adapte conteúdos para salas de recursos multifuncionais e atendimento educacional especializado. Acessível para orçamentos públicos.',
+  },
+  {
+    title: 'Professores Autônomos',
+    desc: 'Crie materiais adaptados em minutos, não horas. Planeje aulas inclusivas sem precisar de formação especializada em cada perfil. Fácil, rápido e adaptável para qualquer tipo de deficiência.',
+  },
+];
+
+const schoolFeatures = [
+  'Contas separadas por escola',
+  'Controle de acesso por professor',
+  'Geração de pacotes em lote',
+  'Dashboard de uso e métricas',
+];
 
 const plans = [
   {
-    name: 'Educador',
-    target: 'Professores autônomos',
-    price: 'R$ 49',
-    period: '/mês',
-    features: ['Até 50 adaptações/mês', '3 perfis de acessibilidade', 'Exportação PDF', 'Suporte por e-mail', '1 usuário'],
+    name: 'Professor',
+    desc: 'Para educadores que querem começar a adaptar conteúdos.',
+    price: 'Grátis',
+    features: ['3 adaptações/mês', '1 perfil de acessibilidade por vez', 'Upload de PDF e DOCX', 'Exportação em PDF', 'Suporte por email'],
     highlight: false,
+    cta: 'Começar Grátis',
   },
   {
     name: 'Escola',
-    target: 'Escolas particulares e públicas',
-    price: 'R$ 299',
+    desc: 'Para escolas que precisam de inclusão em escala.',
+    price: 'R$ 297',
     period: '/mês',
-    features: ['Adaptações ilimitadas', '8 perfis de acessibilidade', 'Todas as exportações', 'Gestão de conteúdos', 'Até 30 usuários', 'Painel administrativo', 'Suporte prioritário'],
+    features: ['Adaptações ilimitadas', 'Todos os 8 perfis de acessibilidade', 'Upload de PDF, DOCX e imagens', 'Multi-tenant com gestão de professores', 'Geração de pacotes em lote', 'Dashboard de métricas', 'Suporte prioritário', 'Todos os tipos de adaptação'],
     highlight: true,
+    cta: 'Teste Grátis por 14 Dias',
   },
   {
-    name: 'Rede',
-    target: 'Redes de ensino',
+    name: 'Rede de Ensino',
+    desc: 'Para redes municipais, estaduais e grupos escolares.',
     price: 'Sob consulta',
-    period: '',
-    features: ['Tudo do plano Escola', 'Usuários ilimitados', 'API de integração', 'Multi-tenant', 'SLA dedicado', 'Gerente de sucesso', 'Treinamento presencial'],
+    features: ['Tudo do plano Escola', 'Múltiplas unidades', 'API de integração', 'SLA garantido', 'Gerente de sucesso dedicado', 'Onboarding personalizado', 'Relatórios para gestão', 'Conformidade avançada'],
     highlight: false,
+    cta: 'Falar com Especialista',
   },
 ];
 
 const testimonials = [
-  { name: 'Ana Maria Silva', role: 'Professora de Educação Especial', school: 'EMEF Monteiro Lobato', text: 'O AdaptaIA transformou minha rotina. Antes eu passava horas adaptando materiais à mão, agora consigo personalizar para cada aluno em minutos. A qualidade das adaptações é impressionante.' },
-  { name: 'Carlos Eduardo Mendes', role: 'Coordenador Pedagógico', school: 'Colégio Sapiens', text: 'Implementamos na escola inteira e os resultados foram imediatos. Professores mais confiantes, alunos mais engajados. A centralização dos conteúdos no painel facilitou tudo.' },
-  { name: 'Fernanda Rocha', role: 'Diretora', school: 'CMEI Pequeno Mundo', text: 'Como gestora, poder acompanhar as adaptações de toda a equipe em um só lugar mudou nossa forma de trabalhar. A conformidade com a legislação de inclusão ficou garantida.' },
+  {
+    text: 'Antes, eu levava horas para adaptar uma única atividade para meus alunos com TEA. Com o AdaptaIA, faço o upload e em minutos tenho o material pronto. Meus alunos estão mais engajados e eu tenho tempo para o que realmente importa: estar presente com eles.',
+    name: 'Carla Mendes',
+    initials: 'CM',
+    role: 'Professora de Educação Especial',
+    school: 'EMEF Monteiro Lobato — São Paulo',
+  },
+  {
+    text: 'Implementamos o AdaptaIA na escola inteira. Os professores do ensino regular agora adaptam sozinhos os materiais para alunos com TDAH e dislexia. A inclusão deixou de ser uma tarefa da educação especial e passou a ser responsabilidade de todos — como deveria ser.',
+    name: 'Ricardo Almeida',
+    initials: 'RA',
+    role: 'Coordenador Pedagógico',
+    school: 'Colégio Sapiens — Curitiba',
+  },
+  {
+    text: 'Na educação infantil, a adaptação precisa ser visual e muito concreta. O AdaptaIA entende isso e gera materiais que realmente funcionam para crianças com baixa visão e deficiência intelectual. Os pais perceberam a diferença nas atividades que mandamos para casa.',
+    name: 'Ana Paula Ferreira',
+    initials: 'AF',
+    role: 'Diretora',
+    school: 'CMEI Cantinho do Saber — Belo Horizonte',
+  },
 ];
 
 export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () => void }) {
-  const [activeProfile, setActiveProfile] = useState<number | null>(null);
+  const [selectedContentType, setSelectedContentType] = useState<string | null>(null);
+  const [selectedAdaptations, setSelectedAdaptations] = useState<string[]>([]);
+
+  const toggleAdaptation = (a: string) => {
+    setSelectedAdaptations(prev =>
+      prev.includes(a) ? prev.filter(x => x !== a) : [...prev, a]
+    );
+  };
 
   return (
-    <div className="min-h-screen">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-amber-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-2">
-              <div className="w-9 h-9 bg-gradient-to-br from-amber-500 to-teal-500 rounded-lg flex items-center justify-center">
-                <Accessibility className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-amber-600 to-teal-600 bg-clip-text text-transparent">
-                AdaptaIA
-              </span>
+    <div className="min-h-screen flex flex-col bg-background">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+          <a href="#" className="flex items-center gap-3 group">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
+              <Accessibility className="w-5 h-5 text-white" />
             </div>
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#fluxo" className="text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors">Fluxo</a>
-              <a href="#perfis" className="text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors">Perfis</a>
-              <a href="#conteudos" className="text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors">Conteúdos</a>
-              <a href="#planos" className="text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors">Planos</a>
-              <button
-                onClick={onNavigateEscolas}
-                className="text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors flex items-center gap-1"
-              >
-                <Building2 className="w-4 h-4" />
-                Para Escolas
-              </button>
-            </div>
-            <div className="flex items-center gap-3">
-              <button className="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-amber-700 hover:bg-amber-50 rounded-lg transition-colors">
-                Entrar
-              </button>
-              <button className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 rounded-lg shadow-md shadow-amber-200 transition-all">
-                Começar Grátis
-              </button>
-            </div>
+            <span className="text-xl font-bold tracking-tight">
+              Adapta<span className="text-gradient-warm">IA</span>
+            </span>
+          </a>
+          <div className="hidden md:flex items-center gap-7">
+            <a href="#pipeline" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Fluxo</a>
+            <a href="#perfis" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Perfis</a>
+            <a href="#conteudo" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Conteúdo</a>
+            <a href="#escolas" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Escolas</a>
+            <a href="#legal" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Legal</a>
+            <a href="#planos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Planos</a>
           </div>
-        </div>
-      </nav>
+          <div className="hidden md:flex items-center gap-3">
+            <button className="inline-flex items-center justify-center text-sm font-medium transition-all h-8 rounded-md gap-1.5 px-3 hover:bg-accent hover:text-accent-foreground">
+              Entrar
+            </button>
+            <button className="inline-flex items-center justify-center text-sm font-medium transition-all shadow-xs hover:bg-primary/90 h-8 rounded-md gap-1.5 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0">
+              Começar Grátis <ArrowRight className="w-4 h-4 ml-1" />
+            </button>
+          </div>
+        </nav>
+      </header>
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        {/* Background decorations */}
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-teal-50" />
-        <div className="absolute top-20 right-0 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-200/30 rounded-full blur-3xl" />
-        <div className="absolute top-40 left-1/4 w-64 h-64 bg-orange-200/20 rounded-full blur-2xl" />
+      <main className="flex-1">
+        {/* Hero - Full viewport height */}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+          <div className="absolute inset-0 bg-pattern-dots" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-amber-400/10 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-teal-400/8 rounded-full blur-[100px]" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
+          <div className="relative max-w-7xl mx-auto px-6 py-20 text-center">
             <FadeIn>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 text-amber-700 rounded-full text-sm font-medium mb-8">
-                <Sparkles className="w-4 h-4" />
+              <span className="inline-flex items-center justify-center rounded-md border font-medium w-fit whitespace-nowrap shrink-0 gap-1.5 mb-6 border-amber-500/30 bg-amber-500/10 text-amber-700 px-4 py-1.5 text-sm">
+                <Heart className="w-3.5 h-3.5 mr-1.5" />
                 Educação para todos
-              </div>
+              </span>
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
-                <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-teal-500 bg-clip-text text-transparent">
-                  Adaptação inteligente
-                </span>{' '}
-                de conteúdo escolar
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
+                Transforme conteúdo<br />educacional com{' '}
+                <span className="text-gradient-warm">Adaptação inteligente</span>
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <p className="text-lg sm:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Adapte automaticamente conteúdo escolar para estudantes com necessidades de acessibilidade.
-                IA que transforma educação em inclusão, respeitando cada perfil e garantindo aprendizagem significativa.
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
+                Faça upload de PDFs, DOCX e imagens. Nossa IA adapta automaticamente o conteúdo para{' '}
+                <strong className="text-foreground">8 perfis de acessibilidade</strong>. De professor para professor — rápido, fácil e inclusivo.
               </p>
             </FadeIn>
 
+            {/* Profile badges */}
             <FadeIn delay={0.3}>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 rounded-xl shadow-lg shadow-amber-200 transition-all hover:shadow-xl hover:shadow-amber-300 flex items-center justify-center gap-2">
-                  Começar Agora
-                  <ArrowRight className="w-5 h-5" />
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+                {profiles.map(p => (
+                  <span key={p.name} className="inline-flex items-center justify-center rounded-md border border-transparent bg-secondary text-secondary-foreground px-3 py-1 text-xs font-medium">
+                    {p.name}
+                  </span>
+                ))}
+              </div>
+            </FadeIn>
+
+            {/* CTA Buttons */}
+            <FadeIn delay={0.4}>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <button className="inline-flex items-center justify-center gap-2 font-medium shadow-xs bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0 px-8 py-6 text-lg rounded-xl warm-glow">
+                  Adaptar Conteúdo Grátis
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </button>
-                <button
-                  onClick={onNavigateEscolas}
-                  className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-xl border border-amber-200 transition-all flex items-center justify-center gap-2"
-                >
-                  <Building2 className="w-5 h-5" />
-                  Sou Escola
+                <button className="inline-flex items-center justify-center gap-2 font-medium border bg-background shadow-xs hover:text-accent-foreground px-8 py-6 text-lg rounded-xl border-border hover:bg-secondary">
+                  <Play className="w-5 h-5 mr-2" />
+                  Ver Como Funciona
                 </button>
               </div>
             </FadeIn>
 
-            <FadeIn delay={0.4}>
-              <div className="mt-12 flex items-center justify-center gap-8 text-sm text-slate-500">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                  <span>8 perfis de acessibilidade</span>
+            {/* Hero Image Placeholder */}
+            <FadeIn delay={0.5}>
+              <div className="relative max-w-4xl mx-auto">
+                <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/15 via-orange-400/10 to-teal-500/10 rounded-2xl blur-xl" />
+                <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-gradient-to-br from-amber-50 to-teal-50 aspect-video flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <Accessibility className="w-16 h-16 text-amber-500 mx-auto mb-4" />
+                    <p className="text-lg font-semibold text-foreground">AdaptaIA em ação</p>
+                    <p className="text-sm text-muted-foreground mt-2">Adaptação inteligente de conteúdo em tempo real</p>
+                  </div>
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 flex items-center gap-2 text-sm shadow-sm">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-emerald-700 font-medium">IA adaptando em tempo real</span>
+                  </div>
+                  <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 flex items-center gap-2 text-sm shadow-sm">
+                    <Accessibility className="w-4 h-4 text-amber-600" />
+                    <span className="text-amber-700 font-medium">8 perfis de acessibilidade</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                  <span>Conforme LGPD</span>
+              </div>
+            </FadeIn>
+
+            {/* Social proof */}
+            <FadeIn delay={0.6}>
+              <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-muted-foreground">
+                <div className="flex items-center gap-2 text-sm">
+                  <Shield className="w-4 h-4 text-teal-600" />
+                  LGPD Compliant
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                  <span>ADE LBI/BNCC</span>
+                <div className="flex items-center gap-2 text-sm">
+                  <School className="w-4 h-4 text-amber-600" />
+                  +500 Escolas
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Users className="w-4 h-4 text-orange-600" />
+                  +12.000 Alunos Impactados
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Star className="w-4 h-4 text-amber-500" />
+                  4.9/5 Professores
                 </div>
               </div>
             </FadeIn>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Fluxo de Transformação */}
-      <section id="fluxo" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                Fluxo de <span className="text-amber-600">Transformação</span>
-              </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Do envio do material original até a exportação adaptada, cada etapa é automatizada pela nossa IA para garantir a melhor adaptação possível.
-              </p>
-            </div>
-          </FadeIn>
+        {/* Fluxo de Transformação */}
+        <section id="pipeline" className="relative py-24 md:py-32 bg-pattern-grid">
+          <div className="max-w-7xl mx-auto px-6">
+            <FadeIn>
+              <div className="text-center mb-16">
+                <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
+                  Fluxo de Transformação
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Como funciona a adaptação</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Em 7 etapas automatizadas, seu conteúdo original é transformado em material acessível e adaptado ao perfil do aluno.
+                </p>
+              </div>
+            </FadeIn>
 
-          <div className="relative">
-            {/* Connecting line */}
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-200 via-teal-200 to-amber-200 -translate-y-1/2" />
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-6">
+            {/* Desktop: horizontal steps */}
+            <div className="hidden md:grid grid-cols-7 gap-4">
               {fluxoSteps.map((step, i) => (
-                <FadeIn key={step.label} delay={i * 0.1}>
+                <FadeIn key={step.label} delay={i * 0.08}>
                   <div className="relative flex flex-col items-center text-center">
-                    <div className="relative z-10 w-16 h-16 bg-gradient-to-br from-amber-500 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg shadow-amber-200/50 mb-4">
-                      <step.icon className="w-7 h-7 text-white" />
+                    <div className="relative z-10 w-14 h-14 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg mb-4">
+                      <step.icon className="w-6 h-6 text-white" />
                     </div>
                     <span className="absolute -top-2 -right-2 w-6 h-6 bg-white border-2 border-amber-400 rounded-full flex items-center justify-center text-xs font-bold text-amber-600 z-20">
                       {i + 1}
                     </span>
-                    <h3 className="font-bold text-slate-900 mb-1">{step.label}</h3>
-                    <p className="text-sm text-slate-500 leading-relaxed">{step.desc}</p>
+                    <h3 className="font-bold text-sm mb-1">{step.label}</h3>
+                    <p className="text-xs text-muted-foreground">{step.desc}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+
+            {/* Mobile: stacked */}
+            <div className="md:hidden space-y-4">
+              {fluxoSteps.map((step, i) => (
+                <FadeIn key={step.label} delay={i * 0.05}>
+                  <div className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border">
+                    <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <step.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-sm">{step.label}</h3>
+                      <p className="text-xs text-muted-foreground">{step.desc}</p>
+                    </div>
                   </div>
                 </FadeIn>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Accessibility Profiles */}
-      <section id="perfis" className="py-20 bg-gradient-to-b from-amber-50/50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                8 Perfis de <span className="text-amber-600">Acessibilidade</span>
-              </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Cada perfil recebe uma adaptação personalizada que respeita suas necessidades específicas, garantindo que nenhum estudante fique para trás.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {accessibilityProfiles.map((profile, i) => (
-              <FadeIn key={profile.name} delay={i * 0.05}>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  onHoverStart={() => setActiveProfile(i)}
-                  onHoverEnd={() => setActiveProfile(null)}
-                  className={`relative p-6 rounded-xl border-2 cursor-pointer transition-all ${profile.color} ${
-                    activeProfile === i ? 'shadow-lg' : 'shadow-sm'
-                  }`}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 rounded-xl ${profile.accent} flex items-center justify-center flex-shrink-0`}>
-                      <profile.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg">{profile.name}</h3>
-                      <p className="text-sm opacity-80 mt-1">{profile.full}</p>
-                    </div>
-                  </div>
-                  {activeProfile === i && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="mt-3 pt-3 border-t border-current/10 text-sm"
-                    >
-                      Adaptação personalizada com estratégias específicas para este perfil.
-                    </motion.div>
-                  )}
-                </motion.div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Content Types */}
-      <section id="conteudos" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                Tipos de <span className="text-amber-600">Conteúdo</span>
-              </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Adapte qualquer tipo de material escolar com inteligência. Cada conteúdo recebe tratamento específico para manter a qualidade pedagógica.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {contentTypes.map((ct, i) => (
-              <FadeIn key={ct.title} delay={i * 0.1}>
-                <div className="group p-8 rounded-2xl bg-gradient-to-br from-white to-amber-50/50 border border-amber-100 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-100/50 transition-all">
-                  <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-teal-400 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                    <ct.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{ct.title}</h3>
-                  <p className="text-slate-600 leading-relaxed">{ct.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Adaptation Strategies */}
-      <section className="py-20 bg-gradient-to-b from-teal-50/50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                Estratégias de <span className="text-teal-600">Adaptação</span>
-              </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Combine diferentes estratégias para criar o material ideal. Cada adaptação pode usar uma ou mais técnicas conforme a necessidade do estudante.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {adaptationStrategies.map((strat, i) => (
-              <FadeIn key={strat.title} delay={i * 0.08}>
-                <div className="p-6 bg-white rounded-xl border border-teal-100 hover:border-teal-300 hover:shadow-md transition-all">
-                  <div className="w-11 h-11 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center mb-4">
-                    <strat.icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-bold text-slate-900 mb-2">{strat.title}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">{strat.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Multi-tenant / For Schools */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <FadeIn direction="left">
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-teal-100 text-teal-700 rounded-full text-sm font-medium mb-6">
-                  <Building2 className="w-4 h-4" />
-                  Multi-tenant
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
-                  Controle centralizado{' '}
-                  <span className="text-teal-600">para escolas</span>
-                </h2>
-                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                  Cada escola tem seu ambiente próprio com gestão completa de usuários, conteúdos e adaptações.
-                  Diretores e coordenadores acompanham tudo em tempo real por um painel administrativo unificado.
+        {/* Perfis de Acessibilidade */}
+        <section id="perfis" className="py-24 md:py-32 bg-background">
+          <div className="max-w-7xl mx-auto px-6">
+            <FadeIn>
+              <div className="text-center mb-16">
+                <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
+                  Perfis de Acessibilidade
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">8 perfis. Cada aluno no centro.</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Cada perfil possui regras de adaptação específicas, baseadas em evidências científicas e desenvolvidas com especialistas em educação especial.
                 </p>
-                <div className="space-y-4">
-                  {[
-                    'Ambiente isolado por escola com dados protegidos',
-                    'Painel administrativo com visão geral de todas as adaptações',
-                    'Gestão de professores, turmas e matérias centralizada',
-                    'Relatórios de uso e conformidade com a legislação',
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-slate-700">{item}</span>
+              </div>
+            </FadeIn>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {profiles.map((profile, i) => (
+                <FadeIn key={profile.name} delay={i * 0.06}>
+                  <div className="group p-5 rounded-xl border border-border bg-card hover:shadow-lg hover:border-amber-300 transition-all">
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <profile.icon className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-foreground">{profile.name}</h3>
+                        <p className="text-xs text-muted-foreground">{profile.full}</p>
+                      </div>
                     </div>
-                  ))}
+                    <p className="text-sm text-muted-foreground leading-relaxed">{profile.desc}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Tipos de Conteúdo e Adaptação */}
+        <section id="conteudo" className="py-24 md:py-32 bg-muted/30">
+          <div className="max-w-7xl mx-auto px-6">
+            <FadeIn>
+              <div className="text-center mb-16">
+                <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
+                  Tipos de Conteúdo e Adaptação
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Adapte qualquer material</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Escolha o tipo de conteúdo e, opcionalmente, estratégias de adaptação para orientar a IA — ou deixe as regras do perfil trabalharem sozinhas.
+                </p>
+              </div>
+            </FadeIn>
+
+            <div className="max-w-3xl mx-auto">
+              <FadeIn>
+                <div className="bg-card rounded-2xl border border-border p-8 shadow-sm">
+                  {/* Tipo de Conteúdo */}
+                  <div className="mb-8">
+                    <label className="block text-sm font-semibold text-foreground mb-3">Tipo de Conteúdo</label>
+                    <p className="text-xs text-muted-foreground mb-4">Selecione o formato do material que deseja adaptar.</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {contentTypes.map(ct => (
+                        <button
+                          key={ct.title}
+                          onClick={() => setSelectedContentType(ct.title === selectedContentType ? null : ct.title)}
+                          className={`text-left p-4 rounded-xl border transition-all ${
+                            selectedContentType === ct.title
+                              ? 'border-amber-400 bg-amber-50 shadow-sm'
+                              : 'border-border hover:border-amber-200 hover:bg-amber-50/50'
+                          }`}
+                        >
+                          <p className="font-medium text-sm text-foreground">{ct.title}</p>
+                          <p className="text-xs text-muted-foreground mt-1">{ct.desc}</p>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Tipo de Adaptação */}
+                  <div>
+                    <label className="block text-sm font-semibold text-foreground mb-1">Tipo de Adaptação</label>
+                    <p className="text-xs text-muted-foreground mb-4">Opcional. Estratégias extras para orientar a adaptação. Deixe em branco para usar só as regras do perfil.</p>
+                    <div className="space-y-2">
+                      {adaptationStrategies.map(a => (
+                        <button
+                          key={a}
+                          onClick={() => toggleAdaptation(a)}
+                          className={`w-full text-left flex items-center gap-3 p-3 rounded-lg border transition-all text-sm ${
+                            selectedAdaptations.includes(a)
+                              ? 'border-amber-400 bg-amber-50 text-foreground'
+                              : 'border-border hover:border-amber-200 text-muted-foreground'
+                          }`}
+                        >
+                          <div className={`w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 ${
+                            selectedAdaptations.includes(a)
+                              ? 'bg-amber-500 border-amber-500'
+                              : 'border-border'
+                          }`}>
+                            {selectedAdaptations.includes(a) && (
+                              <CheckCircle2 className="w-3.5 h-3.5 text-white" />
+                            )}
+                          </div>
+                          {a}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
+              </FadeIn>
+            </div>
+          </div>
+        </section>
+
+        {/* Multi-tenant para Escolas */}
+        <section id="escolas" className="py-24 md:py-32 bg-background">
+          <div className="max-w-7xl mx-auto px-6">
+            <FadeIn>
+              <div className="text-center mb-16">
+                <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-teal-500/30 bg-teal-500/10 text-teal-700 px-3 py-1 text-xs">
+                  Multi-tenant para Escolas
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Cada escola. Sua conta. Seus pacotes.</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Escolas particulares, públicas e redes de ensino podem criar contas separadas, gerenciar professores e gerar pacotes de adaptação de conteúdo sob demanda.
+                </p>
+              </div>
+            </FadeIn>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              {schoolTypes.map((st, i) => (
+                <FadeIn key={st.title} delay={i * 0.1}>
+                  <div className="p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-all h-full">
+                    <h3 className="font-bold text-lg text-foreground mb-3">{st.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{st.desc}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+
+            <FadeIn>
+              <div className="flex flex-col items-center">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 max-w-md">
+                  {schoolFeatures.map(f => (
+                    <li key={f} className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="w-4 h-4 text-teal-500 flex-shrink-0" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
                 <button
                   onClick={onNavigateEscolas}
-                  className="mt-8 px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-md shadow-teal-200 transition-all flex items-center gap-2"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-teal-500 to-teal-600 text-white font-medium shadow-xs hover:from-teal-600 hover:to-teal-700 transition-all"
                 >
-                  Conhecer solução para escolas
-                  <ChevronRight className="w-5 h-5" />
+                  Ver Gestão Completa para Escolas
+                  <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
             </FadeIn>
+          </div>
+        </section>
 
-            <FadeIn direction="right">
-              <div className="relative">
-                <div className="bg-gradient-to-br from-teal-50 to-amber-50 rounded-2xl p-6 border border-teal-100 shadow-xl">
-                  <div className="bg-white rounded-xl p-5 shadow-sm">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2">
-                        <School className="w-5 h-5 text-teal-600" />
-                        <span className="font-bold text-slate-900">Colégio Exemplo</span>
-                      </div>
-                      <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Ativo</span>
-                    </div>
-                    <div className="grid grid-cols-3 gap-3 mb-4">
-                      <div className="text-center p-3 bg-amber-50 rounded-lg">
-                        <div className="text-2xl font-bold text-amber-600">24</div>
-                        <div className="text-xs text-slate-500">Professores</div>
-                      </div>
-                      <div className="text-center p-3 bg-teal-50 rounded-lg">
-                        <div className="text-2xl font-bold text-teal-600">156</div>
-                        <div className="text-xs text-slate-500">Adaptações</div>
-                      </div>
-                      <div className="text-center p-3 bg-emerald-50 rounded-lg">
-                        <div className="text-2xl font-bold text-emerald-600">9</div>
-                        <div className="text-xs text-slate-500">Perfis</div>
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      {['Matemática - 6º ano', 'Português - 3º ano', 'Ciências - 5º ano'].map((item, i) => (
-                        <div key={i} className="flex items-center justify-between py-2 px-3 bg-slate-50 rounded-lg">
-                          <span className="text-sm text-slate-700">{item}</span>
-                          <ChevronRight className="w-4 h-4 text-slate-400" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+        {/* Marco Legal */}
+        <section id="legal" className="py-24 md:py-32 bg-muted/30">
+          <div className="max-w-7xl mx-auto px-6">
+            <FadeIn>
+              <div className="text-center mb-16">
+                <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
+                  Marco Legal & Inclusão
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Acessibilidade é um direito</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  A legislação brasileira garante que serviços e recursos de apoio estudantil são direitos — e o AdaptaIA ajuda escolas a cumprirem esse compromisso.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn>
+              <div className="max-w-3xl mx-auto bg-card rounded-2xl border border-border p-8 shadow-sm">
+                <div className="flex items-center gap-2 mb-4">
+                  <Scale className="w-5 h-5 text-amber-500" />
+                  <span className="text-sm font-semibold text-foreground">Educação Inclusiva é Lei</span>
                 </div>
-                {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-teal-200/40 rounded-full blur-2xl" />
-                <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-amber-200/40 rounded-full blur-2xl" />
+                <p className="text-xs text-muted-foreground mb-4">Baseado na legislação brasileira e orientações de especialistas</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                  Os serviços e recursos de apoio aos estudantes com deficiência são direitos garantidos pela legislação brasileira em todas as etapas, níveis e modalidades da Educação Básica. Esses dispositivos não substituem o ensino na sala comum; ao contrário, complementam e qualificam o processo educativo, auxiliando a eliminar barreiras — atitudinais, arquitetônicas, de comunicação, informacionais, tecnológicas, pedagógicas — e a promover a plena participação no ambiente escolar.
+                </p>
+                <blockquote className="border-l-4 border-amber-400 pl-4 py-2 mb-6">
+                  <p className="text-sm text-muted-foreground italic leading-relaxed mb-2">
+                    &ldquo;Os serviços e recursos da Educação Especial são muito importantes para lidar com o que é específico de cada estudante na sua realidade. Quais são suas características, modos de interagir, agir, perceber e conhecer o mundo? Quais são os materiais, modos de apresentação, expressão, representação que podem ser mais efetivos? Mas é fundamental lembrar que para que eles cumpram a finalidade prevista, precisa de muito diálogo, estudo sobre e com os estudantes, profissionais que atuam junto com ele na comunidade escolar e família.&rdquo;
+                  </p>
+                  <cite className="text-xs font-semibold text-foreground not-italic">— Deigles Amaro</cite>
+                  <span className="text-xs text-muted-foreground">, especialista em gestão escolar no Instituto Rodrigo Mendes (IRM)</span>
+                </blockquote>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Entre os serviços que devem ser ofertados estão o atendimento educacional especializado (AEE), o profissional de apoio escolar, as salas de recursos multifuncionais (SRMs). A diversificação de estratégias pedagógicas, materiais pedagógicos acessíveis e tecnologias assistivas também são fundamentais. O AdaptaIA se posiciona exatamente aí: como uma tecnologia assistiva que transforma materiais pedagógicos em recursos acessíveis de forma automática e escalável.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn>
+              <div className="flex flex-wrap items-center justify-center gap-6 mt-12">
+                {[
+                  { icon: Shield, label: 'Conformidade LGPD', sub: 'Dados protegidos' },
+                  { icon: FileCheck, label: 'Baseado em evidências', sub: '' },
+                ].map(item => (
+                  <div key={item.label} className="flex items-center gap-2 text-sm">
+                    <item.icon className="w-4 h-4 text-teal-600" />
+                    <span className="font-medium">{item.label}</span>
+                    {item.sub && <span className="text-muted-foreground">— {item.sub}</span>}
+                  </div>
+                ))}
               </div>
             </FadeIn>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Legal Framework */}
-      <section className="py-20 bg-gradient-to-b from-amber-50/30 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                Conforme a <span className="text-amber-600">Legislação</span>
-              </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                O AdaptaIA foi projetado para atender aos marcos legais da educação inclusiva brasileira, garantindo conformidade e segurança jurídica para escolas e redes de ensino.
-              </p>
+        {/* Stats */}
+        <section className="py-16 bg-gradient-to-r from-amber-500 to-orange-500">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+              {[
+                { value: '8', label: 'Perfis de Acessibilidade cobertos pela plataforma' },
+                { value: '500+', label: 'Escolas Atendidas particulares e públicas' },
+                { value: '80%', label: 'Menos Tempo para adaptar um material' },
+                { value: '12K+', label: 'Alunos Impactados com conteúdo adaptado' },
+              ].map((stat, i) => (
+                <FadeIn key={stat.label} delay={i * 0.1}>
+                  <div>
+                    <p className="text-4xl md:text-5xl font-bold mb-2">{stat.value}</p>
+                    <p className="text-sm text-white/80">{stat.label}</p>
+                  </div>
+                </FadeIn>
+              ))}
             </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Shield, title: 'LBI - Lei Brasileira de Inclusão', desc: 'Lei 13.146/2015 que garante o direito à educação inclusiva e ao atendimento educacional especializado.' },
-              { icon: Scale, title: 'Convenção sobre Direitos das Pessoas com Deficiência', desc: 'Convenção da ONU ratificada pelo Brasil, que assegura educação inclusiva em todos os níveis.' },
-              { icon: FileCheck, title: 'BNCC e ADE', desc: 'Alinhamento com a Base Nacional Comum Curricular e as Adequações Curriculares para a Educação Especial.' },
-              { icon: Users, title: 'AEE e SRMs', desc: 'Suporte ao Atendimento Educacional Especializado e Salas de Recursos Multifuncionais conforme regulamentação.' },
-            ].map((item, i) => (
-              <FadeIn key={item.title} delay={i * 0.1}>
-                <div className="p-6 bg-white rounded-xl border border-amber-100 hover:shadow-md transition-all h-full">
-                  <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-4">
-                    <item.icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-bold text-slate-900 mb-2 text-sm">{item.title}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Plans */}
-      <section id="planos" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                Planos para cada <span className="text-amber-600">realidade</span>
-              </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Do professor autônomo à grande rede de ensino, temos o plano ideal para transformar a educação inclusiva na sua realidade.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {plans.map((plan, i) => (
-              <FadeIn key={plan.name} delay={i * 0.15}>
-                <div className={`relative p-8 rounded-2xl border-2 h-full flex flex-col ${
-                  plan.highlight
-                    ? 'border-amber-400 bg-gradient-to-b from-amber-50 to-white shadow-xl shadow-amber-100/50'
-                    : 'border-slate-200 bg-white hover:border-amber-200'
-                } transition-all`}>
-                  {plan.highlight && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-semibold rounded-full">
-                      Mais Popular
-                    </div>
-                  )}
-                  <div className="mb-6">
-                    <h3 className="text-xl font-bold text-slate-900">{plan.name}</h3>
-                    <p className="text-sm text-slate-500 mt-1">{plan.target}</p>
-                  </div>
-                  <div className="mb-6">
-                    <span className="text-4xl font-bold text-slate-900">{plan.price}</span>
-                    <span className="text-slate-500">{plan.period}</span>
-                  </div>
-                  <ul className="space-y-3 mb-8 flex-grow">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2 text-sm text-slate-700">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <button className={`w-full py-3 rounded-xl font-semibold transition-all ${
-                    plan.highlight
-                      ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md shadow-amber-200 hover:shadow-lg'
-                      : 'bg-slate-100 text-slate-700 hover:bg-amber-50 hover:text-amber-700'
-                  }`}>
-                    {plan.price === 'Sob consulta' ? 'Falar com Vendas' : 'Começar Agora'}
-                  </button>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 bg-gradient-to-b from-teal-50/50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                Quem usa, <span className="text-teal-600">recomenda</span>
-              </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Educadores de todo o Brasil já transformaram suas aulas com o AdaptaIA.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <FadeIn key={t.name} delay={i * 0.1}>
-                <div className="p-6 bg-white rounded-xl border border-teal-100 hover:shadow-md transition-all h-full flex flex-col">
-                  <Quote className="w-8 h-8 text-teal-300 mb-4" />
-                  <p className="text-slate-600 leading-relaxed flex-grow mb-4">{t.text}</p>
-                  <div className="pt-4 border-t border-teal-50">
-                    <div className="flex items-center gap-1 mb-2">
-                      {[...Array(5)].map((_, j) => (
-                        <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <p className="font-semibold text-slate-900">{t.name}</p>
-                    <p className="text-sm text-slate-500">{t.role} — {t.school}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="relative overflow-hidden bg-gradient-to-br from-amber-500 via-orange-500 to-teal-500 rounded-3xl p-10 sm:p-14 text-center">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)] pointer-events-none" />
-              <div className="relative">
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                  Transforme a educação na sua escola
-                </h2>
-                <p className="text-lg text-white/90 mb-8 max-w-xl mx-auto">
-                  Comece gratuitamente e veja como a adaptação inteligente pode mudar a vida dos seus estudantes.
+        {/* Depoimentos */}
+        <section className="py-24 md:py-32 bg-background">
+          <div className="max-w-7xl mx-auto px-6">
+            <FadeIn>
+              <div className="text-center mb-16">
+                <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
+                  Depoimentos
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Professores aprovam</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Educadores de escolas públicas e particulares já transformam seus materiais com o AdaptaIA.
                 </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <button className="w-full sm:w-auto px-8 py-4 text-lg font-semibold bg-white text-amber-600 rounded-xl shadow-lg hover:shadow-xl transition-all">
-                    Começar Grátis
-                  </button>
-                  <button className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white bg-white/20 hover:bg-white/30 rounded-xl border border-white/30 transition-all">
-                    Falar com Especialista
-                  </button>
-                </div>
               </div>
+            </FadeIn>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {testimonials.map((t, i) => (
+                <FadeIn key={t.name} delay={i * 0.1}>
+                  <div className="p-6 rounded-xl border border-border bg-card h-full flex flex-col">
+                    <Quote className="w-8 h-8 text-amber-300 mb-4 flex-shrink-0" />
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-grow mb-6">{t.text}</p>
+                    <div className="flex items-center gap-3 pt-4 border-t border-border">
+                      <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                        {t.initials}
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">{t.name}</p>
+                        <p className="text-xs text-muted-foreground">{t.role} — {t.school}</p>
+                      </div>
+                    </div>
+                  </div>
+                </FadeIn>
+              ))}
             </div>
-          </FadeIn>
-        </div>
-      </section>
+          </div>
+        </section>
+
+        {/* Planos */}
+        <section id="planos" className="py-24 md:py-32 bg-muted/30">
+          <div className="max-w-7xl mx-auto px-6">
+            <FadeIn>
+              <div className="text-center mb-16">
+                <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
+                  Planos
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Fácil, rápido e adaptável</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Comece gratuitamente. Escale quando sua escola precisar. Sem surpresas, sem taxas ocultas.
+                </p>
+              </div>
+            </FadeIn>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {plans.map((plan, i) => (
+                <FadeIn key={plan.name} delay={i * 0.15}>
+                  <div className={`relative p-8 rounded-2xl border-2 h-full flex flex-col ${
+                    plan.highlight
+                      ? 'border-amber-400 bg-card shadow-xl'
+                      : 'border-border bg-card'
+                  }`}>
+                    {plan.highlight && (
+                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-semibold rounded-full">
+                        Mais Popular
+                      </div>
+                    )}
+                    <div className="mb-6">
+                      <h3 className="text-xl font-bold text-foreground">{plan.name}</h3>
+                      <p className="text-sm text-muted-foreground mt-1">{plan.desc}</p>
+                    </div>
+                    <div className="mb-6">
+                      <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                      {plan.period && <span className="text-muted-foreground">{plan.period}</span>}
+                    </div>
+                    <ul className="space-y-3 mb-8 flex-grow">
+                      {plan.features.map(f => (
+                        <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <CheckCircle2 className="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <button className={`w-full py-3 rounded-xl font-medium transition-all ${
+                      plan.highlight
+                        ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md warm-glow'
+                        : 'bg-secondary text-foreground hover:bg-amber-50'
+                    }`}>
+                      {plan.cta}
+                    </button>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="py-24 md:py-32 bg-background">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <FadeIn>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Todo aluno merece conteúdo adaptado</h2>
+              <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
+                Faça upload de qualquer material e receba versões acessíveis para 8 perfis. Gratuito para começar, sem cartão de crédito.
+              </p>
+              <p className="text-sm text-muted-foreground mb-6">Inclusão começa com um clique.</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button className="inline-flex items-center justify-center gap-2 font-medium shadow-xs bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0 px-8 py-6 text-lg rounded-xl warm-glow">
+                  Adaptar Meu Primeiro Material
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </button>
+                <button className="inline-flex items-center justify-center gap-2 font-medium border bg-background shadow-xs hover:text-accent-foreground px-8 py-6 text-lg rounded-xl border-border hover:bg-secondary">
+                  Falar com Especialista
+                </button>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      </main>
 
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-8">
+            <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-teal-500 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center">
                   <Accessibility className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-lg font-bold text-white">AdaptaIA</span>
+                <span className="text-lg font-bold text-white">
+                  Adapta<span className="text-gradient-warm">IA</span>
+                </span>
               </div>
               <p className="text-sm leading-relaxed">
-                Adaptação inteligente de conteúdo escolar para uma educação verdadeiramente inclusiva.
+                Transforme conteúdo educacional com acessibilidade. IA que adapta materiais para alunos com diferentes perfis de necessidade, de professor para professor.
               </p>
             </div>
             <div>
               <h4 className="font-semibold text-white mb-3">Produto</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#fluxo" className="hover:text-amber-400 transition-colors">Fluxo</a></li>
                 <li><a href="#perfis" className="hover:text-amber-400 transition-colors">Perfis</a></li>
-                <li><a href="#planos" className="hover:text-amber-400 transition-colors">Planos</a></li>
-                <li><button onClick={onNavigateEscolas} className="hover:text-amber-400 transition-colors">Para Escolas</button></li>
+                <li><a href="#pipeline" className="hover:text-amber-400 transition-colors">Pipeline</a></li>
+                <li><a href="#conteudo" className="hover:text-amber-400 transition-colors">Tipos de Conteúdo</a></li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Integrações</a></li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">API</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-white mb-3">Para Escolas</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Particulares</a></li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Públicas</a></li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Redes de Ensino</a></li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Pacotes</a></li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Onboarding</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-white mb-3">Recursos</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Documentação</a></li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Tutoriais</a></li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Blog</a></li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Webinars</a></li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Suporte</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-white mb-3">Legal</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Política de Privacidade</a></li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Privacidade</a></li>
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Termos de Uso</a></li>
                 <li><a href="#" className="hover:text-amber-400 transition-colors">LGPD</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-3">Contato</h4>
-              <ul className="space-y-2 text-sm">
-                <li>contato@adaptaia.com.br</li>
-                <li>(11) 99999-0000</li>
-                <li>São Paulo, SP</li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Acessibilidade</a></li>
+                <li><a href="#" className="hover:text-amber-400 transition-colors">Cookies</a></li>
               </ul>
             </div>
           </div>
-          <div className="pt-8 border-t border-slate-800 text-sm text-center">
-            2025 AdaptaIA. Todos os direitos reservados.
+          <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+            <p>&copy; 2026 AdaptaIA. Todos os direitos reservados.</p>
+            <div className="flex items-center gap-4">
+              <a href="#" className="hover:text-amber-400 transition-colors">LinkedIn</a>
+              <a href="#" className="hover:text-amber-400 transition-colors">Instagram</a>
+              <a href="#" className="hover:text-amber-400 transition-colors">YouTube</a>
+              <a href="#" className="hover:text-amber-400 transition-colors">Fale Conosco</a>
+            </div>
           </div>
         </div>
       </footer>
