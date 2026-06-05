@@ -69,18 +69,18 @@ const fluxoSteps = [
 ];
 
 const contentTypes = [
-  { title: 'Texto', desc: 'Textos narrativos e informativos' },
-  { title: 'Texto com Exercícios', desc: 'Conteúdo misto com atividades' },
-  { title: 'Ciências / História / Geografia', desc: 'Matérias com conteúdo discursivo' },
-  { title: 'Exercícios de Matemática', desc: 'Problemas numéricos e lógicos' },
+  { title: 'Texto', desc: 'Textos narrativos e informativos', icon: FileText },
+  { title: 'Texto com Exercícios', desc: 'Conteúdo misto com atividades', icon: BookOpen },
+  { title: 'Ciências / História / Geografia', desc: 'Matérias com conteúdo discursivo', icon: Search },
+  { title: 'Exercícios de Matemática', desc: 'Problemas numéricos e lógicos', icon: Calculator },
 ];
 
 const adaptationStrategies = [
-  'Destacar informações-chave',
-  'Dividir texto em blocos',
-  'Converter texto em listas com marcadores',
-  'Adicionar títulos e subtítulos claros',
-  'Simplificar linguagem',
+  { label: 'Destacar informações-chave', icon: Star },
+  { label: 'Dividir texto em blocos', icon: Layers },
+  { label: 'Converter texto em listas com marcadores', icon: CheckCircle2 },
+  { label: 'Adicionar títulos e subtítulos claros', icon: Target },
+  { label: 'Simplificar linguagem', icon: Wand2 },
 ];
 
 const schoolTypes = [
@@ -550,8 +550,15 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                               : 'border-border hover:border-amber-200 hover:bg-amber-50/50'
                           }`}
                         >
-                          <p className="font-medium text-sm text-foreground">{ct.title}</p>
-                          <p className="text-xs text-muted-foreground mt-1">{ct.desc}</p>
+                          <div className="flex items-center gap-2 mb-1.5">
+                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                              selectedContentType === ct.title ? 'bg-amber-500' : 'bg-amber-100'
+                            }`}>
+                              <ct.icon className={`w-3.5 h-3.5 ${selectedContentType === ct.title ? 'text-white' : 'text-amber-600'}`} />
+                            </div>
+                            <p className="font-medium text-sm text-foreground">{ct.title}</p>
+                          </div>
+                          <p className="text-xs text-muted-foreground pl-9">{ct.desc}</p>
                         </button>
                       ))}
                     </div>
@@ -564,25 +571,23 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                     <div className="space-y-2">
                       {adaptationStrategies.map(a => (
                         <button
-                          key={a}
-                          onClick={() => toggleAdaptation(a)}
-                          aria-pressed={selectedAdaptations.includes(a)}
+                          key={a.label}
+                          onClick={() => toggleAdaptation(a.label)}
+                          aria-pressed={selectedAdaptations.includes(a.label)}
                           className={`w-full text-left flex items-center gap-3 p-3 rounded-lg border transition-all text-sm ${
-                            selectedAdaptations.includes(a)
+                            selectedAdaptations.includes(a.label)
                               ? 'border-amber-400 bg-amber-50 text-foreground'
                               : 'border-border hover:border-amber-200 text-muted-foreground'
                           }`}
                         >
-                          <div className={`w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 ${
-                            selectedAdaptations.includes(a)
-                              ? 'bg-amber-500 border-amber-500'
-                              : 'border-border'
+                          <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${
+                            selectedAdaptations.includes(a.label)
+                              ? 'bg-amber-500'
+                              : 'bg-muted'
                           }`}>
-                            {selectedAdaptations.includes(a) && (
-                              <CheckCircle2 className="w-3.5 h-3.5 text-white" />
-                            )}
+                            <a.icon className={`w-3.5 h-3.5 ${selectedAdaptations.includes(a.label) ? 'text-white' : 'text-muted-foreground'}`} />
                           </div>
-                          {a}
+                          {a.label}
                         </button>
                       ))}
                     </div>
