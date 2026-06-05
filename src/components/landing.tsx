@@ -124,10 +124,12 @@ const plans = [
   {
     name: 'Professor',
     desc: 'Para educadores que querem começar a adaptar conteúdos.',
-    price: 'Grátis',
-    features: ['3 adaptações teste', '1 perfil de acessibilidade por vez', 'Upload de PDF e DOCX', 'Exportação em PDF', 'Suporte por email'],
+    price: 'R$ 50',
+    period: '/mês',
+    trial: '3 adaptações grátis para testar',
+    features: ['25 adaptações/mês', 'Todos os perfis de acessibilidade', 'Upload de PDF e DOCX', 'Exportação em PDF', 'Suporte por email'],
     highlight: false,
-    cta: 'Começar Grátis',
+    cta: 'Testar Grátis',
   },
   {
     name: 'Escola',
@@ -661,7 +663,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             </div>
 
             <FadeIn>
-              <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="bg-gradient-to-r from-teal-700 to-emerald-700 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 flex-1">
                   {schoolFeatures.map((f, i) => {
                     const icons = [Users, Shield, Layers, BarChart3];
@@ -838,6 +840,12 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                       <h3 className="text-xl font-bold text-foreground">{plan.name}</h3>
                       <p className="text-sm text-muted-foreground mt-1">{plan.desc}</p>
                     </div>
+                    {'trial' in plan && plan.trial && (
+                      <div className="mb-4 px-3 py-2 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center gap-2">
+                        <Sparkles className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                        <span className="text-xs text-emerald-700 font-medium">{plan.trial}</span>
+                      </div>
+                    )}
                     <div className="mb-6">
                       <span className="text-4xl font-bold text-foreground">{plan.price}</span>
                       {plan.period && <span className="text-muted-foreground">{plan.period}</span>}
