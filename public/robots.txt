@@ -1,14 +1,55 @@
+# AdaptaIA — robots.txt
+# https://adaptaia.com.br
+
+# ── Motores de busca tradicionais ──────────────────────────────────────────────
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 2
 
+# ── Redes sociais ──────────────────────────────────────────────────────────────
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
+# ── AI / GEO crawlers (ChatGPT, Perplexity, Claude, Gemini) ───────────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# ── Todos os outros ────────────────────────────────────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# ── Sitemap ────────────────────────────────────────────────────────────────────
+Sitemap: https://adaptaia.com.br/sitemap.xml

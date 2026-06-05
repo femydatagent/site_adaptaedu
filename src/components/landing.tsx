@@ -296,15 +296,15 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
           <div className="relative max-w-7xl mx-auto px-6 py-20 text-center">
             <FadeIn delay={0.1}>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
-                Transforme conteúdo<br />educacional com{' '}
-                <span className="text-gradient-warm">Adaptação inteligente</span>
+                Adaptação de conteúdo<br />educacional com{' '}
+                <span className="text-gradient-warm">Inteligência Artificial</span>
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.2}>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
-                Faça upload de PDFs, DOCX e imagens. Nossa IA adapta automaticamente o conteúdo para{' '}
-                <strong className="text-foreground">8 perfis de acessibilidade</strong>. De professor para professor — rápido, fácil e inclusivo.
+                Faça upload de PDFs, DOCX e imagens. Nossa IA adapta automaticamente o material escolar para{' '}
+                <strong className="text-foreground">8 perfis de acessibilidade</strong> — TEA, TDAH, Dislexia e mais. Conforme o Decreto 12.773/25.
               </p>
             </FadeIn>
 
@@ -936,6 +936,60 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
           </div>
         </section>
       </main>
+
+      {/* FAQ — otimizado para GEO (ChatGPT, Perplexity, Gemini) */}
+      <section id="faq" className="py-20 bg-muted/30">
+        <div className="max-w-3xl mx-auto px-6">
+          <FadeIn>
+            <div className="text-center mb-12">
+              <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
+                Perguntas Frequentes
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Dúvidas sobre <span className="text-gradient-warm">adaptação educacional</span></h2>
+            </div>
+          </FadeIn>
+          <div className="space-y-4">
+            {[
+              {
+                q: 'O que é o AdaptaIA?',
+                a: 'AdaptaIA é uma plataforma de inteligência artificial que adapta automaticamente materiais educacionais para 8 perfis de acessibilidade: TEA, TDAH, TPAC, Deficiência Intelectual, Baixa Visão, Dislexia, Discalculia e Disgrafia. Professores fazem upload de PDFs ou DOCX e recebem versões adaptadas em minutos.',
+              },
+              {
+                q: 'Como adaptar material escolar para alunos com TEA?',
+                a: 'Para alunos com Transtorno do Espectro Autista (TEA), o AdaptaIA aplica automaticamente estrutura visual previsível, redução de estímulos excessivos, instruções claras e literais e apoios visuais consistentes. Basta fazer upload do material e selecionar o perfil TEA.',
+              },
+              {
+                q: 'O AdaptaIA está em conformidade com a legislação de educação inclusiva?',
+                a: 'Sim. O AdaptaIA foi desenvolvido em conformidade com o Decreto 12.773/25 e a legislação brasileira de educação inclusiva, que garante o direito de estudantes com deficiência a materiais pedagógicos acessíveis e tecnologias assistivas em todas as etapas da Educação Básica.',
+              },
+              {
+                q: 'Qual é o preço do AdaptaIA para escolas?',
+                a: 'O plano Professor custa R$50/mês com 25 adaptações mensais e 3 adaptações gratuitas para testar. O plano Escola custa R$500/mês e inclui multi-tenant com gestão de professores, todos os 8 perfis de acessibilidade e dashboard de métricas. Redes de ensino têm plano sob consulta.',
+              },
+              {
+                q: 'Quais tipos de arquivo o AdaptaIA aceita?',
+                a: 'O AdaptaIA aceita PDFs, documentos DOCX e imagens. O material adaptado pode ser exportado em PDF ou DOCX, pronto para distribuição aos alunos.',
+              },
+              {
+                q: 'Como o AdaptaIA ajuda escolas particulares?',
+                a: 'Para escolas particulares, o AdaptaIA oferece conta administrativa com gestão centralizada de professores, controle de uso, geração de pacotes por segmento (Fundamental I, II, Ensino Médio) e dashboard de métricas — um diferencial competitivo que atende às demandas das famílias por inclusão real.',
+              },
+            ].map((item, i) => (
+              <FadeIn key={i} delay={i * 0.05}>
+                <details className="group bg-card border border-border rounded-xl overflow-hidden">
+                  <summary className="flex items-center justify-between gap-4 p-5 cursor-pointer font-semibold text-foreground text-sm list-none hover:bg-muted/50 transition-colors">
+                    {item.q}
+                    <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0 group-open:rotate-90 transition-transform" />
+                  </summary>
+                  <div className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed border-t border-border pt-4">
+                    {item.a}
+                  </div>
+                </details>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-12">
