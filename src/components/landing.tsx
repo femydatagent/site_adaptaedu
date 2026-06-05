@@ -86,15 +86,30 @@ const adaptationStrategies = [
 const schoolTypes = [
   {
     title: 'Escolas Particulares',
-    desc: 'Atenda às demandas das famílias e dos alunos que buscam inclusão de verdade. Diferencial competitivo com responsabilidade social. Conta administrativa com gestão de professores e controle de uso.',
+    desc: 'Atenda às demandas das famílias e dos alunos que buscam inclusão de verdade. Diferencial competitivo com responsabilidade social.',
+    icon: Building2,
+    color: 'from-amber-400 to-orange-500',
+    bg: 'bg-amber-50',
+    border: 'border-amber-200',
+    features: ['Conta administrativa completa', 'Gestão de professores', 'Controle de uso e métricas', 'Diferencial competitivo'],
   },
   {
     title: 'Escolas Públicas',
-    desc: 'Adapte conteúdo para as necessidades dos alunos com conformidade à legislação de educação inclusiva. Ferramentas práticas para salas de recursos multifuncionais e atendimento educacional especializado.',
+    desc: 'Adapte conteúdo para as necessidades dos alunos com conformidade à legislação. Ferramentas práticas para salas de recursos multifuncionais.',
+    icon: School,
+    color: 'from-teal-400 to-emerald-500',
+    bg: 'bg-teal-50',
+    border: 'border-teal-200',
+    features: ['Conformidade com Decreto 12.773/25', 'Salas de recursos multifuncionais', 'Atendimento educacional especializado', 'Acessível para orçamentos públicos'],
   },
   {
     title: 'Professores Autônomos',
-    desc: 'Crie materiais adaptados em minutos, não horas. Planeje aulas inclusivas sem precisar de formação especializada em cada perfil. Fácil, rápido e adaptável para qualquer tipo de deficiência.',
+    desc: 'Crie materiais adaptados em minutos, não horas. Planeje aulas inclusivas sem precisar de formação especializada em cada perfil.',
+    icon: Users,
+    color: 'from-violet-400 to-purple-500',
+    bg: 'bg-violet-50',
+    border: 'border-violet-200',
+    features: ['Adaptações rápidas e simples', 'Todos os perfis de acessibilidade', 'Export em PDF e DOCX', 'Sem formação especializada necessária'],
   },
 ];
 
@@ -614,32 +629,58 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
               </div>
             </FadeIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               {schoolTypes.map((st, i) => (
                 <FadeIn key={st.title} delay={i * 0.1}>
-                  <div className="p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-all h-full">
-                    <h3 className="font-bold text-lg text-foreground mb-3">{st.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{st.desc}</p>
+                  <div className={`relative rounded-2xl border ${st.border} bg-card hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden group`}>
+                    {/* Colored top bar */}
+                    <div className={`h-1.5 w-full bg-gradient-to-r ${st.color}`} />
+                    <div className="p-7 flex flex-col flex-1">
+                      {/* Icon */}
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${st.color} flex items-center justify-center mb-5 shadow-md group-hover:scale-105 transition-transform`}>
+                        <st.icon className="w-7 h-7 text-white" />
+                      </div>
+                      {/* Title + desc */}
+                      <h3 className="font-bold text-xl text-foreground mb-3">{st.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-6">{st.desc}</p>
+                      {/* Features */}
+                      <ul className="space-y-2.5 mt-auto">
+                        {st.features.map(f => (
+                          <li key={f} className="flex items-center gap-2.5 text-sm text-foreground">
+                            <div className={`w-5 h-5 rounded-full bg-gradient-to-br ${st.color} flex items-center justify-center flex-shrink-0`}>
+                              <CheckCircle2 className="w-3 h-3 text-white" />
+                            </div>
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </FadeIn>
               ))}
             </div>
 
             <FadeIn>
-              <div className="flex flex-col items-center">
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 max-w-md">
-                  {schoolFeatures.map(f => (
-                    <li key={f} className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-teal-500 flex-shrink-0" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 flex-1">
+                  {schoolFeatures.map((f, i) => {
+                    const icons = [Users, Shield, Layers, BarChart3];
+                    const Icon = icons[i];
+                    return (
+                      <div key={f} className="flex flex-col items-center text-center gap-2">
+                        <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                          <Icon className="w-5 h-5 text-amber-400" />
+                        </div>
+                        <span className="text-xs text-slate-300 leading-snug">{f}</span>
+                      </div>
+                    );
+                  })}
+                </div>
                 <button
                   onClick={onNavigateEscolas}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-teal-500 to-teal-600 text-white font-medium shadow-xs hover:from-teal-600 hover:to-teal-700 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium shadow-md hover:from-amber-600 hover:to-orange-600 transition-all whitespace-nowrap flex-shrink-0"
                 >
-                  Ver Gestão Completa para Escolas
+                  Ver Gestão Completa
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
