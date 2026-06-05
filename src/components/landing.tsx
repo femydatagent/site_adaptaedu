@@ -203,6 +203,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
     { href: '#escolas', label: 'Escolas' },
     { href: '#legal', label: 'Legal' },
     { href: '#planos', label: 'Planos' },
+    { href: '/blog', label: 'Blog' },
   ];
 
   return (
@@ -1033,7 +1034,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
               <ul className="space-y-2 text-sm">
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Documentação</a></li>
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Tutoriais</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Blog</a></li>
+                <li><a href="/blog" className="hover:text-amber-400 transition-colors font-medium text-amber-300">Blog</a></li>
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Webinars</a></li>
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Suporte</a></li>
               </ul>
