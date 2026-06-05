@@ -89,6 +89,7 @@
 
 /* Custom gradients and patterns from the original design */
 .text-gradient-warm {
+  color: #f97316; /* fallback for browsers without bg-clip-text support */
   background: linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ea580c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -678,7 +678,7 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
               <a href="#" className="hover:text-amber-400 transition-colors">Termos de Uso</a>
               <a href="#" className="hover:text-amber-400 transition-colors">LGPD</a>
             </div>
-            <p className="text-sm">2025 AdaptaIA. Todos os direitos reservados.</p>
+            <p className="text-sm">2026 AdaptaIA. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>

@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Menu, X, ChevronUp } from 'lucide-react';
 import {
   Accessibility,
   ArrowRight,
@@ -159,6 +160,18 @@ const testimonials = [
 export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () => void }) {
   const [selectedContentType, setSelectedContentType] = useState<string | null>(null);
   const [selectedAdaptations, setSelectedAdaptations] = useState<string[]>([]);
+  const [scrolled, setScrolled] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => {
+      setScrolled(window.scrollY > 10);
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handler, { passive: true });
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
 
   const toggleAdaptation = (a: string) => {
     setSelectedAdaptations(prev =>
@@ -166,12 +179,21 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
     );
   };
 
+  const navLinks = [
+    { href: '#pipeline', label: 'Fluxo' },
+    { href: '#perfis', label: 'Perfis' },
+    { href: '#conteudo', label: 'Conteúdo' },
+    { href: '#escolas', label: 'Escolas' },
+    { href: '#legal', label: 'Legal' },
+    { href: '#planos', label: 'Planos' },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-lg border-b border-border shadow-sm' : 'bg-transparent'}`}>
         <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-          <a href="#" className="flex items-center gap-3 group">
+          <a href="#" className="flex items-center gap-3 group" aria-label="AdaptaIA - Página inicial">
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
               <Accessibility className="w-5 h-5 text-white" />
             </div>
@@ -180,23 +202,64 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             </span>
           </a>
           <div className="hidden md:flex items-center gap-7">
-            <a href="#pipeline" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Fluxo</a>
-            <a href="#perfis" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Perfis</a>
-            <a href="#conteudo" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Conteúdo</a>
-            <a href="#escolas" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Escolas</a>
-            <a href="#legal" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Legal</a>
-            <a href="#planos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Planos</a>
+            {navLinks.map(link => (
+              <a key={link.href} href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{link.label}</a>
+            ))}
           </div>
           <div className="hidden md:flex items-center gap-3">
-            <button className="inline-flex items-center justify-center text-sm font-medium transition-all h-8 rounded-md gap-1.5 px-3 hover:bg-accent hover:text-accent-foreground">
+            <button aria-label="Entrar na plataforma" className="inline-flex items-center justify-center text-sm font-medium transition-all h-8 rounded-md gap-1.5 px-3 hover:bg-accent hover:text-accent-foreground">
               Entrar
             </button>
-            <button className="inline-flex items-center justify-center text-sm font-medium transition-all shadow-xs hover:bg-primary/90 h-8 rounded-md gap-1.5 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0">
+            <button aria-label="Começar a usar o AdaptaIA gratuitamente" className="inline-flex items-center justify-center text-sm font-medium transition-all shadow-xs hover:bg-primary/90 h-8 rounded-md gap-1.5 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0">
               Começar Grátis <ArrowRight className="w-4 h-4 ml-1" />
             </button>
           </div>
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-md hover:bg-accent transition-colors"
+            aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu de navegação'}
+            onClick={() => setMobileMenuOpen(prev => !prev)}
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </nav>
+        {/* Mobile nav drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white/95 backdrop-blur-lg border-b border-border px-6 pb-4">
+            <div className="flex flex-col gap-3 pt-2">
+              {navLinks.map(link => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="flex flex-col gap-2 pt-2 border-t border-border">
+                <button aria-label="Entrar na plataforma" className="inline-flex items-center justify-center text-sm font-medium transition-all h-9 rounded-md px-3 hover:bg-accent hover:text-accent-foreground">
+                  Entrar
+                </button>
+                <button aria-label="Começar a usar o AdaptaIA gratuitamente" className="inline-flex items-center justify-center text-sm font-medium transition-all h-9 rounded-md px-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white">
+                  Começar Grátis <ArrowRight className="w-4 h-4 ml-1" />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
+
+      {/* Scroll-to-top button */}
+      {showScrollTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Voltar ao topo da página"
+          className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-lg flex items-center justify-center hover:from-amber-600 hover:to-orange-600 transition-all warm-glow"
+        >
+          <ChevronUp className="w-5 h-5" />
+        </button>
+      )}
 
       <main className="flex-1">
         {/* Hero - Full viewport height */}
@@ -435,6 +498,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                         <button
                           key={a}
                           onClick={() => toggleAdaptation(a)}
+                          aria-pressed={selectedAdaptations.includes(a)}
                           className={`w-full text-left flex items-center gap-3 p-3 rounded-lg border transition-all text-sm ${
                             selectedAdaptations.includes(a)
                               ? 'border-amber-400 bg-amber-50 text-foreground'
@@ -455,6 +519,29 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                       ))}
                     </div>
                   </div>
+
+                  {/* Preview output — shown when content type is selected */}
+                  {selectedContentType && (
+                    <div className="mt-6 pt-6 border-t border-border">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Sparkles className="w-4 h-4 text-amber-500" />
+                        <span className="text-sm font-semibold text-foreground">Prévia da Adaptação</span>
+                        <span className="ml-auto text-xs text-muted-foreground">{selectedContentType}</span>
+                      </div>
+                      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-foreground leading-relaxed">
+                        <p className="font-semibold mb-2 text-amber-800">Exemplo adaptado para TEA / TDAH:</p>
+                        <ul className="space-y-1 text-muted-foreground">
+                          <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5" /> Texto dividido em blocos curtos e objetivos</li>
+                          <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5" /> Palavras-chave destacadas em negrito</li>
+                          <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5" /> Instruções numeradas passo a passo</li>
+                          {selectedAdaptations.length > 0 && (
+                            <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" /> + {selectedAdaptations.length} estratégia{selectedAdaptations.length > 1 ? 's' : ''} extra aplicada{selectedAdaptations.length > 1 ? 's' : ''}</li>
+                          )}
+                        </ul>
+                        <p className="mt-3 text-xs text-amber-700 font-medium">✓ Material pronto para download em PDF ou DOCX</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </FadeIn>
             </div>
@@ -764,9 +851,9 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
           <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
             <p>&copy; 2026 AdaptaIA. Todos os direitos reservados.</p>
             <div className="flex items-center gap-4">
-              <a href="#" className="hover:text-amber-400 transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-amber-400 transition-colors">Instagram</a>
-              <a href="#" className="hover:text-amber-400 transition-colors">YouTube</a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="AdaptaIA no LinkedIn" className="hover:text-amber-400 transition-colors">LinkedIn</a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="AdaptaIA no Instagram" className="hover:text-amber-400 transition-colors">Instagram</a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="AdaptaIA no YouTube" className="hover:text-amber-400 transition-colors">YouTube</a>
               <a href="#" className="hover:text-amber-400 transition-colors">Fale Conosco</a>
             </div>
           </div>
