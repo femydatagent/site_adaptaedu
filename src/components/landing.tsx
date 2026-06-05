@@ -136,7 +136,7 @@ const plans = [
     desc: 'Para escolas que precisam de inclusão em escala.',
     price: 'R$ 500',
     period: '/mês',
-    features: ['3 adaptações teste incluídas', 'Todos os 7 perfis de acessibilidade', 'Upload de PDF, DOCX e imagens', 'Multi-tenant com gestão de professores', 'Dashboard de métricas', 'Suporte prioritário', 'Todos os tipos de adaptação'],
+    features: ['3 adaptações teste incluídas', 'Todos os 8 perfis de acessibilidade', 'Upload de PDF, DOCX e imagens', 'Multi-tenant com gestão de professores', 'Dashboard de métricas', 'Suporte prioritário', 'Todos os tipos de adaptação'],
     highlight: true,
     cta: 'Teste Grátis por 14 Dias',
   },
@@ -296,7 +296,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             <FadeIn delay={0.2}>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
                 Faça upload de PDFs, DOCX e imagens. Nossa IA adapta automaticamente o conteúdo para{' '}
-                <strong className="text-foreground">7 perfis de acessibilidade</strong>. De professor para professor — rápido, fácil e inclusivo.
+                <strong className="text-foreground">8 perfis de acessibilidade</strong>. De professor para professor — rápido, fácil e inclusivo.
               </p>
             </FadeIn>
 
@@ -489,7 +489,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
                   Perfis de Acessibilidade
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">7 perfis. Cada <span className="text-gradient-warm">aluno</span> no centro.</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">8 perfis. Cada <span className="text-gradient-warm">aluno</span> no centro.</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Cada perfil possui regras de adaptação específicas, baseadas em evidências científicas e desenvolvidas com especialistas em educação especial.
                 </p>
@@ -878,7 +878,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Todo aluno merece <span className="text-gradient-warm">conteúdo adaptado</span></h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-                Faça upload de qualquer material e receba versões acessíveis para 7 perfis. Gratuito para começar, sem cartão de crédito.
+                Faça upload de qualquer material e receba versões acessíveis para 8 perfis. Gratuito para começar, sem cartão de crédito.
               </p>
               <p className="text-sm text-muted-foreground mb-6">Inclusão começa com um clique.</p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
