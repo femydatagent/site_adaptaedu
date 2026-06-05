@@ -437,7 +437,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
                   Fluxo de Transformação
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Como funciona a adaptação</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Como funciona a <span className="text-gradient-warm">adaptação</span></h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Em 7 etapas automatizadas, seu conteúdo original é transformado em material acessível e adaptado ao perfil do aluno.
                 </p>
@@ -489,7 +489,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
                   Perfis de Acessibilidade
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">7 perfis. Cada aluno no centro.</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">7 perfis. Cada <span className="text-gradient-warm">aluno</span> no centro.</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Cada perfil possui regras de adaptação específicas, baseadas em evidências científicas e desenvolvidas com especialistas em educação especial.
                 </p>
@@ -525,7 +525,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
                   Tipos de Conteúdo e Adaptação
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Adapte qualquer material</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Adapte <span className="text-gradient-warm">qualquer material</span></h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Escolha o tipo de conteúdo e, opcionalmente, estratégias de adaptação para orientar a IA — ou deixe as regras do perfil trabalharem sozinhas.
                 </p>
@@ -624,7 +624,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-teal-500/30 bg-teal-500/10 text-teal-700 px-3 py-1 text-xs">
                   Pacotes
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Cada escola. Sua conta. Seus pacotes.</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Cada escola. <span className="text-gradient-warm">Sua conta.</span> Seus pacotes.</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Escolas particulares, públicas e redes de ensino podem criar contas separadas, gerenciar professores e gerar pacotes de adaptação de conteúdo sob demanda.
                 </p>
@@ -698,7 +698,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
                   Marco Legal & Inclusão
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Educação inclusiva é lei</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Acessibilidade é <span className="text-gradient-warm">um direito</span></h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   De acordo com o Decreto 12.773/25, a educação inclusiva é um direito garantido — e o AdaptaIA ajuda escolas a cumprirem esse compromisso na prática.
                 </p>
@@ -779,7 +779,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
                   Depoimentos
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Professores aprovam</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4"><span className="text-gradient-warm">Professores</span> aprovam</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Educadores de escolas públicas e particulares já transformam seus materiais com o AdaptaIA.
                 </p>
@@ -816,7 +816,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
                   Planos
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Fácil, rápido e adaptável</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Fácil, rápido e <span className="text-gradient-warm">adaptável</span></h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Comece gratuitamente. Escale quando sua escola precisar. Sem surpresas, sem taxas ocultas.
                 </p>
@@ -876,7 +876,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
         <section className="py-24 md:py-32 bg-background">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <FadeIn>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Todo aluno merece conteúdo adaptado</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Todo aluno merece <span className="text-gradient-warm">conteúdo adaptado</span></h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
                 Faça upload de qualquer material e receba versões acessíveis para 7 perfis. Gratuito para começar, sem cartão de crédito.
               </p>
