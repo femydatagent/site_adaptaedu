@@ -224,6 +224,14 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             ))}
           </div>
           <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={onNavigateEscolas}
+              aria-label="Solução para escolas particulares"
+              className="inline-flex items-center justify-center text-sm font-medium transition-all h-8 rounded-md gap-1.5 px-3 border border-teal-400 text-teal-700 hover:bg-teal-50"
+            >
+              <Building2 className="w-3.5 h-3.5" />
+              Para Escolas
+            </button>
             <button aria-label="Entrar na plataforma" className="inline-flex items-center justify-center text-sm font-medium transition-all h-8 rounded-md gap-1.5 px-3 hover:bg-accent hover:text-accent-foreground">
               Entrar
             </button>
@@ -668,28 +676,57 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             </div>
 
             <FadeIn>
-              <div className="bg-gradient-to-r from-teal-700 to-emerald-700 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 flex-1">
-                  {schoolFeatures.map((f, i) => {
-                    const icons = [Users, Shield, Layers, BarChart3];
-                    const Icon = icons[i];
-                    return (
-                      <div key={f} className="flex flex-col items-center text-center gap-2">
-                        <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                          <Icon className="w-5 h-5 text-amber-400" />
-                        </div>
-                        <span className="text-xs text-slate-300 leading-snug">{f}</span>
-                      </div>
-                    );
-                  })}
+              <div className="relative overflow-hidden bg-gradient-to-br from-teal-700 via-teal-600 to-emerald-600 rounded-2xl p-8 md:p-10">
+                {/* Background decoration */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+
+                <div className="relative flex flex-col md:flex-row items-center gap-8">
+                  {/* Left: copy */}
+                  <div className="flex-1 text-center md:text-left">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/15 rounded-full text-white/90 text-xs font-medium mb-4">
+                      <Building2 className="w-3.5 h-3.5" />
+                      Para diretores, coordenadores e donos de escola
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
+                      Sua escola pronta para a <span className="text-amber-300">inclusão real</span>
+                    </h3>
+                    <p className="text-teal-100 text-sm leading-relaxed mb-6 max-w-md">
+                      Centralize a gestão de conteúdos adaptados, controle o acesso de professores e mostre às famílias que sua escola é referência em educação inclusiva.
+                    </p>
+                    <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto md:mx-0">
+                      {schoolFeatures.map((f, i) => {
+                        const icons = [Users, Shield, Layers, BarChart3];
+                        const Icon = icons[i];
+                        return (
+                          <div key={f} className="flex items-center gap-2">
+                            <Icon className="w-4 h-4 text-amber-300 flex-shrink-0" />
+                            <span className="text-xs text-teal-100">{f}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Right: CTA */}
+                  <div className="flex flex-col items-center gap-3 flex-shrink-0">
+                    <button
+                      onClick={onNavigateEscolas}
+                      className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-teal-700 font-bold text-base shadow-lg hover:bg-amber-50 transition-all hover:scale-105"
+                    >
+                      <Building2 className="w-5 h-5" />
+                      Ver solução para escolas
+                    </button>
+                    <button
+                      onClick={onNavigateEscolas}
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-teal-900 font-semibold text-sm transition-all"
+                    >
+                      <Sparkles className="w-4 h-4" />
+                      Agendar demonstração gratuita
+                    </button>
+                    <p className="text-teal-200 text-xs">Sem compromisso · Resposta em 24h</p>
+                  </div>
                 </div>
-                <button
-                  onClick={onNavigateEscolas}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium shadow-md hover:from-amber-600 hover:to-orange-600 transition-all whitespace-nowrap flex-shrink-0"
-                >
-                  Ver Gestão Completa
-                  <ChevronRight className="w-4 h-4" />
-                </button>
               </div>
             </FadeIn>
           </div>
