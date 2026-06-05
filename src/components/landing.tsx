@@ -48,14 +48,14 @@ function EarIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 const profiles = [
-  { name: 'TEA', full: 'Transtorno do Espectro Autista', icon: Brain, desc: 'Estrutura visual previsível, redução de estímulos excessivos, instruções claras e literais, apoios visuais consistentes.' },
-  { name: 'TDAH', full: 'Transtorno de Déficit de Atenção e Hiperatividade', icon: Zap, desc: 'Conteúdo segmentado em blocos curtos, destaque de palavras-chave, pausas visuais e informações claras e diretas.' },
-  { name: 'TPAC', full: 'Transtorno de Processamento Auditivo Central', icon: EarIcon, desc: 'Priorização de conteúdo visual, legendas descritivas, instruções escritas detalhadas.' },
-  { name: 'DI', full: 'Deficiência Intelectual', icon: Lightbulb, desc: 'Linguagem simplificada, exemplos concretos, repetição de conceitos-chave, apoio visual abundante e passo a passo.' },
-  { name: 'Baixa Visão', full: 'Baixa Visão', icon: Eye, desc: 'Alto contraste, fontes ampliadas, descrições de imagens em texto, layout limpo sem poluição visual.' },
-  { name: 'Dislexia', full: 'Dislexia', icon: BookOpen, desc: 'Fontes amigáveis para dislexia, espaçamento generoso, divisão silábica opcional, cores para orientação visual.' },
-  { name: 'Discalculia', full: 'Discalculia', icon: Calculator, desc: 'Representações visuais de números, material concreto, passo a passo detalhado.' },
-  { name: 'Disgrafia', full: 'Disgrafia', icon: PenTool, desc: 'Espaços ampliados para escrita, linhas-guia, atividades com menor demanda motora, alternativas de resposta digital.' },
+  { name: 'TEA', full: 'Transtorno do Espectro Autista', icon: Brain, desc: 'Estrutura visual previsível, redução de estímulos excessivos, instruções claras e literais, apoios visuais consistentes.', iconBg: 'bg-blue-100', iconColor: 'text-blue-600', border: 'hover:border-blue-300' },
+  { name: 'TDAH', full: 'Transtorno de Déficit de Atenção e Hiperatividade', icon: Zap, desc: 'Conteúdo segmentado em blocos curtos, destaque de palavras-chave, pausas visuais e informações claras e diretas.', iconBg: 'bg-orange-100', iconColor: 'text-orange-500', border: 'hover:border-orange-300' },
+  { name: 'TPAC', full: 'Transtorno de Processamento Auditivo Central', icon: EarIcon, desc: 'Priorização de conteúdo visual, legendas descritivas, instruções escritas detalhadas.', iconBg: 'bg-purple-100', iconColor: 'text-purple-500', border: 'hover:border-purple-300' },
+  { name: 'DI', full: 'Deficiência Intelectual', icon: Lightbulb, desc: 'Linguagem simplificada, exemplos concretos, repetição de conceitos-chave, apoio visual abundante e passo a passo.', iconBg: 'bg-yellow-100', iconColor: 'text-yellow-500', border: 'hover:border-yellow-300' },
+  { name: 'Baixa Visão', full: 'Baixa Visão', icon: Eye, desc: 'Alto contraste, fontes ampliadas, descrições de imagens em texto, layout limpo sem poluição visual.', iconBg: 'bg-teal-100', iconColor: 'text-teal-600', border: 'hover:border-teal-300' },
+  { name: 'Dislexia', full: 'Dislexia', icon: BookOpen, desc: 'Fontes amigáveis para dislexia, espaçamento generoso, divisão silábica opcional, cores para orientação visual.', iconBg: 'bg-rose-100', iconColor: 'text-rose-500', border: 'hover:border-rose-300' },
+  { name: 'Discalculia', full: 'Discalculia', icon: Calculator, desc: 'Representações visuais de números, material concreto, passo a passo detalhado.', iconBg: 'bg-emerald-100', iconColor: 'text-emerald-600', border: 'hover:border-emerald-300' },
+  { name: 'Disgrafia', full: 'Disgrafia', icon: PenTool, desc: 'Espaços ampliados para escrita, linhas-guia, atividades com menor demanda motora, alternativas de resposta digital.', iconBg: 'bg-indigo-100', iconColor: 'text-indigo-500', border: 'hover:border-indigo-300' },
 ];
 
 const fluxoSteps = [
@@ -499,10 +499,10 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {profiles.map((profile, i) => (
                 <FadeIn key={profile.name} delay={i * 0.06}>
-                  <div className="group p-5 rounded-xl border border-border bg-card hover:shadow-lg hover:border-amber-300 transition-all">
+                  <div className={`group p-5 rounded-xl border border-border bg-card hover:shadow-lg ${profile.border} transition-all`}>
                     <div className="flex items-start gap-3 mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <profile.icon className="w-5 h-5 text-white" />
+                      <div className={`w-10 h-10 ${profile.iconBg} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                        <profile.icon className={`w-5 h-5 ${profile.iconColor}`} />
                       </div>
                       <div>
                         <h3 className="font-bold text-foreground">{profile.name}</h3>
