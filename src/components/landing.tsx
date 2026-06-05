@@ -49,12 +49,12 @@ function EarIcon(props: React.SVGProps<SVGSVGElement>) {
 
 const profiles = [
   { name: 'TEA', full: 'Transtorno do Espectro Autista', icon: Brain, desc: 'Estrutura visual previsível, redução de estímulos excessivos, instruções claras e literais, apoios visuais consistentes.' },
-  { name: 'TDAH', full: 'Transtorno de Déficit de Atenção e Hiperatividade', icon: Zap, desc: 'Conteúdo segmentado em blocos curtos, destaque de informações-chave, pausas visuais e estímulos direcionados.' },
-  { name: 'TPAC', full: 'Transtorno de Processamento Auditivo Central', icon: EarIcon, desc: 'Priorização de conteúdo visual, legendas descritivas, redução de dependência de áudio, instruções escritas detalhadas.' },
+  { name: 'TDAH', full: 'Transtorno de Déficit de Atenção e Hiperatividade', icon: Zap, desc: 'Conteúdo segmentado em blocos curtos, destaque de palavras-chave, pausas visuais e informações claras e diretas.' },
+  { name: 'TPAC', full: 'Transtorno de Processamento Auditivo Central', icon: EarIcon, desc: 'Priorização de conteúdo visual, legendas descritivas, instruções escritas detalhadas.' },
   { name: 'DI', full: 'Deficiência Intelectual', icon: Lightbulb, desc: 'Linguagem simplificada, exemplos concretos, repetição de conceitos-chave, apoio visual abundante e passo a passo.' },
   { name: 'Baixa Visão', full: 'Baixa Visão', icon: Eye, desc: 'Alto contraste, fontes ampliadas, descrições de imagens em texto, layout limpo sem poluição visual.' },
   { name: 'Dislexia', full: 'Dislexia', icon: BookOpen, desc: 'Fontes amigáveis para dislexia, espaçamento generoso, divisão silábica opcional, cores para orientação visual.' },
-  { name: 'Discalculia', full: 'Discalculia', icon: Calculator, desc: 'Representações visuais de números, material concreto, passo a passo detalhado, eliminação de ambiguidades numéricas.' },
+  { name: 'Discalculia', full: 'Discalculia', icon: Calculator, desc: 'Representações visuais de números, material concreto, passo a passo detalhado.' },
   { name: 'Disgrafia', full: 'Disgrafia', icon: PenTool, desc: 'Espaços ampliados para escrita, linhas-guia, atividades com menor demanda motora, alternativas de resposta digital.' },
 ];
 
@@ -86,11 +86,11 @@ const adaptationStrategies = [
 const schoolTypes = [
   {
     title: 'Escolas Particulares',
-    desc: 'Adapte materiais para atender à demanda de famílias que buscam inclusão. Diferencial competitivo com responsabilidade social. Conta administrativa com gestão de professores e controle de uso.',
+    desc: 'Atenda às demandas das famílias e dos alunos que buscam inclusão de verdade. Diferencial competitivo com responsabilidade social. Conta administrativa com gestão de professores e controle de uso.',
   },
   {
     title: 'Escolas Públicas',
-    desc: 'Cumpra a legislação de educação inclusiva com ferramentas práticas. Adapte conteúdos para salas de recursos multifuncionais e atendimento educacional especializado. Acessível para orçamentos públicos.',
+    desc: 'Adapte conteúdo para as necessidades dos alunos com conformidade à legislação de educação inclusiva. Ferramentas práticas para salas de recursos multifuncionais e atendimento educacional especializado.',
   },
   {
     title: 'Professores Autônomos',
@@ -110,16 +110,16 @@ const plans = [
     name: 'Professor',
     desc: 'Para educadores que querem começar a adaptar conteúdos.',
     price: 'Grátis',
-    features: ['3 adaptações/mês', '1 perfil de acessibilidade por vez', 'Upload de PDF e DOCX', 'Exportação em PDF', 'Suporte por email'],
+    features: ['3 adaptações teste', '1 perfil de acessibilidade por vez', 'Upload de PDF e DOCX', 'Exportação em PDF', 'Suporte por email'],
     highlight: false,
     cta: 'Começar Grátis',
   },
   {
     name: 'Escola',
     desc: 'Para escolas que precisam de inclusão em escala.',
-    price: 'R$ 297',
+    price: 'R$ 500',
     period: '/mês',
-    features: ['Adaptações ilimitadas', 'Todos os 8 perfis de acessibilidade', 'Upload de PDF, DOCX e imagens', 'Multi-tenant com gestão de professores', 'Geração de pacotes em lote', 'Dashboard de métricas', 'Suporte prioritário', 'Todos os tipos de adaptação'],
+    features: ['3 adaptações teste incluídas', 'Todos os 7 perfis de acessibilidade', 'Upload de PDF, DOCX e imagens', 'Multi-tenant com gestão de professores', 'Dashboard de métricas', 'Suporte prioritário', 'Todos os tipos de adaptação'],
     highlight: true,
     cta: 'Teste Grátis por 14 Dias',
   },
@@ -127,7 +127,7 @@ const plans = [
     name: 'Rede de Ensino',
     desc: 'Para redes municipais, estaduais e grupos escolares.',
     price: 'Sob consulta',
-    features: ['Tudo do plano Escola', 'Múltiplas unidades', 'API de integração', 'SLA garantido', 'Gerente de sucesso dedicado', 'Onboarding personalizado', 'Relatórios para gestão', 'Conformidade avançada'],
+    features: ['Tudo do plano Escola', 'Múltiplas unidades', 'API de integração', 'SLA garantido', 'Conformidade avançada', 'Gerente de sucesso dedicado', 'Onboarding personalizado', 'Relatórios para gestão'],
     highlight: false,
     cta: 'Falar com Especialista',
   },
@@ -269,13 +269,6 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
           <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-teal-400/8 rounded-full blur-[100px]" />
 
           <div className="relative max-w-7xl mx-auto px-6 py-20 text-center">
-            <FadeIn>
-              <span className="inline-flex items-center justify-center rounded-md border font-medium w-fit whitespace-nowrap shrink-0 gap-1.5 mb-6 border-amber-500/30 bg-amber-500/10 text-amber-700 px-4 py-1.5 text-sm">
-                <Heart className="w-3.5 h-3.5 mr-1.5" />
-                Educação para todos
-              </span>
-            </FadeIn>
-
             <FadeIn delay={0.1}>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
                 Transforme conteúdo<br />educacional com{' '}
@@ -286,7 +279,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             <FadeIn delay={0.2}>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
                 Faça upload de PDFs, DOCX e imagens. Nossa IA adapta automaticamente o conteúdo para{' '}
-                <strong className="text-foreground">8 perfis de acessibilidade</strong>. De professor para professor — rápido, fácil e inclusivo.
+                <strong className="text-foreground">7 perfis de acessibilidade</strong>. De professor para professor — rápido, fácil e inclusivo.
               </p>
             </FadeIn>
 
@@ -479,7 +472,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
                   Perfis de Acessibilidade
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">8 perfis. Cada aluno no centro.</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">7 perfis. Cada aluno no centro.</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Cada perfil possui regras de adaptação específicas, baseadas em evidências científicas e desenvolvidas com especialistas em educação especial.
                 </p>
@@ -612,7 +605,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             <FadeIn>
               <div className="text-center mb-16">
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-teal-500/30 bg-teal-500/10 text-teal-700 px-3 py-1 text-xs">
-                  Multi-tenant para Escolas
+                  Pacotes
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Cada escola. Sua conta. Seus pacotes.</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -662,9 +655,9 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
                   Marco Legal & Inclusão
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Acessibilidade é um direito</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Educação inclusiva é lei</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  A legislação brasileira garante que serviços e recursos de apoio estudantil são direitos — e o AdaptaIA ajuda escolas a cumprirem esse compromisso.
+                  De acordo com o Decreto 12.773/25, a educação inclusiva é um direito garantido — e o AdaptaIA ajuda escolas a cumprirem esse compromisso na prática.
                 </p>
               </div>
             </FadeIn>
@@ -675,16 +668,21 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                   <Scale className="w-5 h-5 text-amber-500" />
                   <span className="text-sm font-semibold text-foreground">Educação Inclusiva é Lei</span>
                 </div>
-                <p className="text-xs text-muted-foreground mb-4">Baseado na legislação brasileira e orientações de especialistas</p>
+                <p className="text-xs text-muted-foreground mb-4">De acordo com o Decreto 12.773/25</p>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                   Os serviços e recursos de apoio aos estudantes com deficiência são direitos garantidos pela legislação brasileira em todas as etapas, níveis e modalidades da Educação Básica. Esses dispositivos não substituem o ensino na sala comum; ao contrário, complementam e qualificam o processo educativo, auxiliando a eliminar barreiras — atitudinais, arquitetônicas, de comunicação, informacionais, tecnológicas, pedagógicas — e a promover a plena participação no ambiente escolar.
                 </p>
-                <blockquote className="border-l-4 border-amber-400 pl-4 py-2 mb-6">
+                <blockquote className="border-l-4 border-amber-400 pl-4 py-2 mb-4">
                   <p className="text-sm text-muted-foreground italic leading-relaxed mb-2">
-                    &ldquo;Os serviços e recursos da Educação Especial são muito importantes para lidar com o que é específico de cada estudante na sua realidade. Quais são suas características, modos de interagir, agir, perceber e conhecer o mundo? Quais são os materiais, modos de apresentação, expressão, representação que podem ser mais efetivos? Mas é fundamental lembrar que para que eles cumpram a finalidade prevista, precisa de muito diálogo, estudo sobre e com os estudantes, profissionais que atuam junto com ele na comunidade escolar e família.&rdquo;
+                    &ldquo;Educar é abrir portas, incluir é garantir que ninguém fique do lado de fora.&rdquo;
                   </p>
-                  <cite className="text-xs font-semibold text-foreground not-italic">— Deigles Amaro</cite>
-                  <span className="text-xs text-muted-foreground">, especialista em gestão escolar no Instituto Rodrigo Mendes (IRM)</span>
+                  <cite className="text-xs font-semibold text-foreground not-italic">— Malala Yousafzai</cite>
+                </blockquote>
+                <blockquote className="border-l-4 border-teal-400 pl-4 py-2 mb-6">
+                  <p className="text-sm text-muted-foreground italic leading-relaxed mb-2">
+                    &ldquo;Inclusão é a nossa capacidade de entender e reconhecer o outro e, assim, ter o privilégio de conviver e compartilhar com pessoas diferentes de nós.&rdquo;
+                  </p>
+                  <cite className="text-xs font-semibold text-foreground not-italic">— Maria Teresa Eglér Mantoan</cite>
                 </blockquote>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Entre os serviços que devem ser ofertados estão o atendimento educacional especializado (AEE), o profissional de apoio escolar, as salas de recursos multifuncionais (SRMs). A diversificação de estratégias pedagógicas, materiais pedagógicos acessíveis e tecnologias assistivas também são fundamentais. O AdaptaIA se posiciona exatamente aí: como uma tecnologia assistiva que transforma materiais pedagógicos em recursos acessíveis de forma automática e escalável.
@@ -831,7 +829,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Todo aluno merece conteúdo adaptado</h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-                Faça upload de qualquer material e receba versões acessíveis para 8 perfis. Gratuito para começar, sem cartão de crédito.
+                Faça upload de qualquer material e receba versões acessíveis para 7 perfis. Gratuito para começar, sem cartão de crédito.
               </p>
               <p className="text-sm text-muted-foreground mb-6">Inclusão começa com um clique.</p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
