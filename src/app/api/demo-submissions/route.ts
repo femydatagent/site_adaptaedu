@@ -22,6 +22,14 @@ export async function POST(req: Request) {
     }
 
     const supabase = getSupabase();
+    if (!supabase) {
+      console.error('Supabase not configured');
+      return NextResponse.json(
+        { error: 'Erro ao salvar agendamento. Tente novamente mais tarde.' },
+        { status: 500 }
+      );
+    }
+
     const { error } = await supabase.from('demo_submissions').insert({
       name,
       email,
