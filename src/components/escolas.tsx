@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Building2,
@@ -35,6 +36,8 @@ import {
   Tags,
 } from 'lucide-react';
 import FadeIn from './fade-in';
+import DemoModal from './demo-modal';
+import { useToast } from '@/hooks/use-toast';
 
 const subjects = [
   { name: 'Matemática', icon: Calculator, color: 'bg-emerald-100 text-emerald-700', count: 48, adaptations: 156 },
@@ -148,6 +151,8 @@ const howItWorks = [
 ];
 
 export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void }) {
+  const { toast } = useToast();
+  const [demoOpen, setDemoOpen] = useState(false);
   return (
     <div className="min-h-screen">
       {/* Navigation */}
@@ -649,7 +654,10 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
                   Agende uma demonstração gratuita e veja como o AdaptaIA pode transformar a gestão de conteúdo inclusivo na sua escola.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <button className="w-full sm:w-auto px-8 py-4 text-lg font-semibold bg-white text-teal-600 rounded-xl shadow-lg hover:shadow-xl transition-all">
+                  <button
+                    onClick={() => setDemoOpen(true)}
+                    className="w-full sm:w-auto px-8 py-4 text-lg font-semibold bg-white text-teal-600 rounded-xl shadow-lg hover:shadow-xl transition-all"
+                  >
                     Agendar Demonstração
                   </button>
                   <button className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white bg-white/20 hover:bg-white/30 rounded-xl border border-white/30 transition-all">
@@ -658,11 +666,13 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
                 </div>
               </div>
             </div>
-          </FadeIn>
-        </div>
-      </section>
+            </FadeIn>
+          </div>
+        </section>
 
-      {/* Footer */}
+        <DemoModal open={demoOpen} onOpenChange={setDemoOpen} />
+
+        {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">

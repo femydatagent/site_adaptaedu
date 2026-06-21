@@ -37,6 +37,8 @@ import {
   Target,
 } from 'lucide-react';
 import FadeIn from './fade-in';
+import DemoModal from './demo-modal';
+import { useToast } from '@/hooks/use-toast';
 
 function EarIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -175,6 +177,8 @@ const testimonials = [
 ];
 
 export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () => void }) {
+  const { toast } = useToast();
+  const [demoOpen, setDemoOpen] = useState(false);
   const [selectedContentType, setSelectedContentType] = useState<string | null>(null);
   const [selectedAdaptations, setSelectedAdaptations] = useState<string[]>([]);
   const [scrolled, setScrolled] = useState(false);
@@ -719,7 +723,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                       Ver solução para escolas
                     </button>
                     <button
-                      onClick={onNavigateEscolas}
+                      onClick={() => setDemoOpen(true)}
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-teal-900 font-semibold text-sm transition-all"
                     >
                       <Sparkles className="w-4 h-4" />
@@ -732,6 +736,8 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             </FadeIn>
           </div>
         </section>
+
+        <DemoModal open={demoOpen} onOpenChange={setDemoOpen} />
 
         {/* Marco Legal */}
         <section id="legal" className="py-24 md:py-32 bg-muted/30">
