@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { posts } from './posts';
 
 export const metadata: Metadata = {
-  title: 'Blog — Educação Inclusiva e Adaptação de Conteúdo | AdaptaIA',
+  title: 'Blog — Educação Inclusiva e Adaptação de Conteúdo | AdaptaEDU',
   description:
     'Artigos práticos sobre educação inclusiva, adaptação de materiais para TEA, TDAH, Dislexia e mais. Para professores, coordenadores e diretores de escola.',
   alternates: { canonical: 'https://adaptaia.com.br/blog' },
@@ -37,7 +37,7 @@ export default function BlogPage() {
         {/* Hero */}
         <div className="text-center mb-16">
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-700 mb-4">
-            Blog AdaptaIA
+            Blog AdaptaEDU
           </span>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Educação inclusiva na{' '}
@@ -85,7 +85,7 @@ export default function BlogPage() {
 
       {/* Footer simples */}
       <footer className="border-t border-border mt-20 py-8 text-center text-sm text-muted-foreground">
-        <p>© 2026 AdaptaIA. Todos os direitos reservados.</p>
+        <p>© 2026 AdaptaEDU. Todos os direitos reservados.</p>
       </footer>
     </div>
   );

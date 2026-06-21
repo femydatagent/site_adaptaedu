@@ -58,6 +58,7 @@ const profiles = [
   { name: 'Dislexia', full: 'Dislexia', icon: BookOpen, desc: 'Fontes amigáveis para dislexia, espaçamento generoso, divisão silábica opcional, cores para orientação visual.', iconBg: 'bg-rose-100', iconColor: 'text-rose-500', border: 'hover:border-rose-300' },
   { name: 'Discalculia', full: 'Discalculia', icon: Calculator, desc: 'Representações visuais de números, material concreto, passo a passo detalhado.', iconBg: 'bg-emerald-100', iconColor: 'text-emerald-600', border: 'hover:border-emerald-300' },
   { name: 'Disgrafia', full: 'Disgrafia', icon: PenTool, desc: 'Espaços ampliados para escrita, linhas-guia, atividades com menor demanda motora, alternativas de resposta digital.', iconBg: 'bg-indigo-100', iconColor: 'text-indigo-500', border: 'hover:border-indigo-300' },
+  { name: 'AH/SD', full: 'Altas Habilidades / Superdotação', icon: Sparkles, desc: 'Enriquecimento curricular, aprofundamento conceitual, atividades diferenciadas com maior complexidade, ritmo acelerado e projetos investigativos.', iconBg: 'bg-fuchsia-100', iconColor: 'text-fuchsia-600', border: 'hover:border-fuchsia-300' },
 ];
 
 const fluxoSteps = [
@@ -138,7 +139,7 @@ const plans = [
     desc: 'Para escolas que precisam de inclusão em escala.',
     price: 'R$ 500',
     period: '/mês',
-    features: ['3 adaptações teste incluídas', 'Todos os 8 perfis de acessibilidade', 'Upload de PDF, DOCX e imagens', 'Multi-tenant com gestão de professores', 'Dashboard de métricas', 'Suporte prioritário', 'Todos os tipos de adaptação'],
+    features: ['3 adaptações teste incluídas', 'Todos os 9 perfis de acessibilidade', 'Upload de PDF, DOCX e imagens', 'Multi-tenant com gestão de professores', 'Dashboard de métricas', 'Suporte prioritário', 'Todos os tipos de adaptação'],
     highlight: true,
     cta: 'Teste Grátis por 14 Dias',
   },
@@ -154,21 +155,21 @@ const plans = [
 
 const testimonials = [
   {
-    text: 'Antes, eu levava horas para adaptar uma única atividade para meus alunos com TEA. Com o AdaptaIA, faço o upload e em minutos tenho o material pronto. Meus alunos estão mais engajados e eu tenho tempo para o que realmente importa: estar presente com eles.',
+    text: 'Antes, eu levava horas para adaptar uma única atividade para meus alunos com TEA. Com o AdaptaEDU, faço o upload e em minutos tenho o material pronto. Meus alunos estão mais engajados e eu tenho tempo para o que realmente importa: estar presente com eles.',
     name: 'Carla Mendes',
     initials: 'CM',
     role: 'Professora de Educação Especial',
     school: 'EMEF Monteiro Lobato — São Paulo',
   },
   {
-    text: 'Implementamos o AdaptaIA na escola inteira. Os professores do ensino regular agora adaptam sozinhos os materiais para alunos com TDAH e dislexia. A inclusão deixou de ser uma tarefa da educação especial e passou a ser responsabilidade de todos — como deveria ser.',
+    text: 'Implementamos o AdaptaEDU na escola inteira. Os professores do ensino regular agora adaptam sozinhos os materiais para alunos com TDAH e dislexia. A inclusão deixou de ser uma tarefa da educação especial e passou a ser responsabilidade de todos — como deveria ser.',
     name: 'Ricardo Almeida',
     initials: 'RA',
     role: 'Coordenador Pedagógico',
     school: 'Colégio Sapiens — Curitiba',
   },
   {
-    text: 'Na educação infantil, a adaptação precisa ser visual e muito concreta. O AdaptaIA entende isso e gera materiais que realmente funcionam para crianças com baixa visão e deficiência intelectual. Os pais perceberam a diferença nas atividades que mandamos para casa.',
+    text: 'Na educação infantil, a adaptação precisa ser visual e muito concreta. O AdaptaEDU entende isso e gera materiais que realmente funcionam para crianças com baixa visão e deficiência intelectual. Os pais perceberam a diferença nas atividades que mandamos para casa.',
     name: 'Ana Paula Ferreira',
     initials: 'AF',
     role: 'Diretora',
@@ -215,7 +216,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
       {/* Header */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-lg border-b border-border shadow-sm' : 'bg-transparent'}`}>
         <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-          <a href="#" className="flex items-center gap-3 group" aria-label="AdaptaIA - Página inicial">
+          <a href="#" className="flex items-center gap-3 group" aria-label="AdaptaEDU - Página inicial">
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
               <Accessibility className="w-5 h-5 text-white" />
             </div>
@@ -240,7 +241,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             <button aria-label="Entrar na plataforma" className="inline-flex items-center justify-center text-sm font-medium transition-all h-8 rounded-md gap-1.5 px-3 hover:bg-accent hover:text-accent-foreground">
               Entrar
             </button>
-            <button aria-label="Começar a usar o AdaptaIA gratuitamente" className="inline-flex items-center justify-center text-sm font-medium transition-all shadow-xs hover:bg-primary/90 h-8 rounded-md gap-1.5 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0">
+            <button aria-label="Começar a usar o AdaptaEDU gratuitamente" className="inline-flex items-center justify-center text-sm font-medium transition-all shadow-xs hover:bg-primary/90 h-8 rounded-md gap-1.5 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0">
               Começar Grátis <ArrowRight className="w-4 h-4 ml-1" />
             </button>
           </div>
@@ -271,7 +272,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <button aria-label="Entrar na plataforma" className="inline-flex items-center justify-center text-sm font-medium transition-all h-9 rounded-md px-3 hover:bg-accent hover:text-accent-foreground">
                   Entrar
                 </button>
-                <button aria-label="Começar a usar o AdaptaIA gratuitamente" className="inline-flex items-center justify-center text-sm font-medium transition-all h-9 rounded-md px-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white">
+                <button aria-label="Começar a usar o AdaptaEDU gratuitamente" className="inline-flex items-center justify-center text-sm font-medium transition-all h-9 rounded-md px-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white">
                   Começar Grátis <ArrowRight className="w-4 h-4 ml-1" />
                 </button>
               </div>
@@ -309,7 +310,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             <FadeIn delay={0.2}>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
                 Faça upload de PDFs, DOCX e imagens. Nossa IA adapta automaticamente o material escolar para{' '}
-                <strong className="text-foreground">8 perfis de acessibilidade</strong> — TEA, TDAH, Dislexia e mais. Conforme o Decreto 12.773/25.
+                <strong className="text-foreground">9 perfis de acessibilidade</strong> — TEA, TDAH, Dislexia e mais. Conforme o Decreto 12.773/25.
               </p>
             </FadeIn>
 
@@ -502,7 +503,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
                   Perfis de Acessibilidade
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">8 perfis. Cada <span className="text-gradient-warm">aluno</span> no centro.</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">9 perfis. Cada <span className="text-gradient-warm">aluno</span> no centro.</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Cada perfil possui regras de adaptação específicas, baseadas em evidências científicas e desenvolvidas com especialistas em educação especial.
                 </p>
@@ -749,7 +750,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Acessibilidade é <span className="text-gradient-warm">um direito</span></h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  De acordo com o Decreto 12.773/25, a educação inclusiva é um direito garantido — e o AdaptaIA ajuda escolas a cumprirem esse compromisso na prática.
+                  De acordo com o Decreto 12.773/25, a educação inclusiva é um direito garantido — e o AdaptaEDU ajuda escolas a cumprirem esse compromisso na prática.
                 </p>
               </div>
             </FadeIn>
@@ -777,7 +778,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                   <cite className="text-xs font-semibold text-foreground not-italic">— Maria Teresa Eglér Mantoan</cite>
                 </blockquote>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Entre os serviços que devem ser ofertados estão o atendimento educacional especializado (AEE), o profissional de apoio escolar, as salas de recursos multifuncionais (SRMs). A diversificação de estratégias pedagógicas, materiais pedagógicos acessíveis e tecnologias assistivas também são fundamentais. O AdaptaIA se posiciona exatamente aí: como uma tecnologia assistiva que transforma materiais pedagógicos em recursos acessíveis de forma automática e escalável.
+                  Entre os serviços que devem ser ofertados estão o atendimento educacional especializado (AEE), o profissional de apoio escolar, as salas de recursos multifuncionais (SRMs). A diversificação de estratégias pedagógicas, materiais pedagógicos acessíveis e tecnologias assistivas também são fundamentais. O AdaptaEDU se posiciona exatamente aí: como uma tecnologia assistiva que transforma materiais pedagógicos em recursos acessíveis de forma automática e escalável.
                 </p>
               </div>
             </FadeIn>
@@ -830,7 +831,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4"><span className="text-gradient-warm">Professores</span> aprovam</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Educadores de escolas públicas e particulares já transformam seus materiais com o AdaptaIA.
+                  Educadores de escolas públicas e particulares já transformam seus materiais com o AdaptaEDU.
                 </p>
               </div>
             </FadeIn>
@@ -958,28 +959,28 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
           <div className="space-y-4">
             {[
               {
-                q: 'O que é o AdaptaIA?',
-                a: 'AdaptaIA é uma plataforma de inteligência artificial que adapta automaticamente materiais educacionais para 8 perfis de acessibilidade: TEA, TDAH, TPAC, Deficiência Intelectual, Baixa Visão, Dislexia, Discalculia e Disgrafia. Professores fazem upload de PDFs ou DOCX e recebem versões adaptadas em minutos.',
+                q: 'O que é o AdaptaEDU?',
+                a: 'AdaptaEDU é uma plataforma de inteligência artificial que adapta automaticamente materiais educacionais para 9 perfis de acessibilidade: TEA, TDAH, TPAC, Deficiência Intelectual, Baixa Visão, Dislexia, Discalculia, Disgrafia e Altas Habilidades/Superdotação. Professores fazem upload de PDFs ou DOCX e recebem versões adaptadas em minutos.',
               },
               {
                 q: 'Como adaptar material escolar para alunos com TEA?',
-                a: 'Para alunos com Transtorno do Espectro Autista (TEA), o AdaptaIA aplica automaticamente estrutura visual previsível, redução de estímulos excessivos, instruções claras e literais e apoios visuais consistentes. Basta fazer upload do material e selecionar o perfil TEA.',
+                a: 'Para alunos com Transtorno do Espectro Autista (TEA), o AdaptaEDU aplica automaticamente estrutura visual previsível, redução de estímulos excessivos, instruções claras e literais e apoios visuais consistentes. Basta fazer upload do material e selecionar o perfil TEA.',
               },
               {
-                q: 'O AdaptaIA está em conformidade com a legislação de educação inclusiva?',
-                a: 'Sim. O AdaptaIA foi desenvolvido em conformidade com o Decreto 12.773/25 e a legislação brasileira de educação inclusiva, que garante o direito de estudantes com deficiência a materiais pedagógicos acessíveis e tecnologias assistivas em todas as etapas da Educação Básica.',
+                q: 'O AdaptaEDU está em conformidade com a legislação de educação inclusiva?',
+                a: 'Sim. O AdaptaEDU foi desenvolvido em conformidade com o Decreto 12.773/25 e a legislação brasileira de educação inclusiva, que garante o direito de estudantes com deficiência a materiais pedagógicos acessíveis e tecnologias assistivas em todas as etapas da Educação Básica.',
               },
               {
-                q: 'Qual é o preço do AdaptaIA para escolas?',
-                a: 'O plano Professor custa R$50/mês com 25 adaptações mensais e 3 adaptações gratuitas para testar. O plano Escola custa R$500/mês e inclui multi-tenant com gestão de professores, todos os 8 perfis de acessibilidade e dashboard de métricas. Redes de ensino têm plano sob consulta.',
+                q: 'Qual é o preço do AdaptaEDU para escolas?',
+                a: 'O plano Professor custa R$50/mês com 25 adaptações mensais e 3 adaptações gratuitas para testar. O plano Escola custa R$500/mês e inclui multi-tenant com gestão de professores, todos os 9 perfis de acessibilidade e dashboard de métricas. Redes de ensino têm plano sob consulta.',
               },
               {
-                q: 'Quais tipos de arquivo o AdaptaIA aceita?',
-                a: 'O AdaptaIA aceita PDFs, documentos DOCX e imagens. O material adaptado pode ser exportado em PDF ou DOCX, pronto para distribuição aos alunos.',
+                q: 'Quais tipos de arquivo o AdaptaEDU aceita?',
+                a: 'O AdaptaEDU aceita PDFs, documentos DOCX e imagens. O material adaptado pode ser exportado em PDF ou DOCX, pronto para distribuição aos alunos.',
               },
               {
-                q: 'Como o AdaptaIA ajuda escolas particulares?',
-                a: 'Para escolas particulares, o AdaptaIA oferece conta administrativa com gestão centralizada de professores, controle de uso, geração de pacotes por segmento (Fundamental I, II, Ensino Médio) e dashboard de métricas — um diferencial competitivo que atende às demandas das famílias por inclusão real.',
+                q: 'Como o AdaptaEDU ajuda escolas particulares?',
+                a: 'Para escolas particulares, o AdaptaEDU oferece conta administrativa com gestão centralizada de professores, controle de uso, geração de pacotes por segmento (Fundamental I, II, Ensino Médio) e dashboard de métricas — um diferencial competitivo que atende às demandas das famílias por inclusão real.',
               },
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.05}>
@@ -1057,11 +1058,11 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             </div>
           </div>
           <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-            <p>&copy; 2026 AdaptaIA. Todos os direitos reservados.</p>
+            <p>&copy; 2026 AdaptaEDU. Todos os direitos reservados.</p>
             <div className="flex items-center gap-4">
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="AdaptaIA no LinkedIn" className="hover:text-amber-400 transition-colors">LinkedIn</a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="AdaptaIA no Instagram" className="hover:text-amber-400 transition-colors">Instagram</a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="AdaptaIA no YouTube" className="hover:text-amber-400 transition-colors">YouTube</a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="AdaptaEDU no LinkedIn" className="hover:text-amber-400 transition-colors">LinkedIn</a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="AdaptaEDU no Instagram" className="hover:text-amber-400 transition-colors">Instagram</a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="AdaptaEDU no YouTube" className="hover:text-amber-400 transition-colors">YouTube</a>
               <a href="#" className="hover:text-amber-400 transition-colors">Fale Conosco</a>
             </div>
           </div>

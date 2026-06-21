@@ -49,9 +49,9 @@ Use pictogramas, ícones e cores de forma consistente ao longo de todo o materia
 ### 5. Instruções em etapas numeradas
 Divida tarefas complexas em passos simples e numerados. "1. Leia o texto. 2. Sublinhe as palavras difíceis. 3. Escreva o significado."
 
-## Como o AdaptaIA automatiza esse processo
+## Como o AdaptaEDU automatiza esse processo
 
-Com o AdaptaIA, professores fazem upload do material original em PDF ou DOCX, selecionam o perfil TEA e recebem em minutos uma versão adaptada com todas essas estratégias aplicadas automaticamente.
+Com o AdaptaEDU, professores fazem upload do material original em PDF ou DOCX, selecionam o perfil TEA e recebem em minutos uma versão adaptada com todas essas estratégias aplicadas automaticamente.
 
 A plataforma é usada por mais de 500 escolas brasileiras e está em conformidade com o Decreto 12.773/25.
 
@@ -103,7 +103,7 @@ Escolas que implementaram adaptações sistemáticas para alunos com TDAH relata
 
 ## Como automatizar com IA
 
-O AdaptaIA aplica todas essas estratégias automaticamente ao selecionar o perfil TDAH. O resultado é um material com blocos curtos, palavras-chave em destaque e instruções simplificadas — pronto em minutos.
+O AdaptaEDU aplica todas essas estratégias automaticamente ao selecionar o perfil TDAH. O resultado é um material com blocos curtos, palavras-chave em destaque e instruções simplificadas — pronto em minutos.
     `,
   },
   {
@@ -144,9 +144,9 @@ Estudantes que necessitam de apoio para atividades de comunicação, interação
 
 Escolas que não cumprirem as exigências do decreto podem enfrentar sanções administrativas, além de ações judiciais movidas por famílias de estudantes com deficiência.
 
-## Como o AdaptaIA ajuda na conformidade
+## Como o AdaptaEDU ajuda na conformidade
 
-O AdaptaIA foi desenvolvido especificamente para ajudar escolas a cumprirem as exigências do Decreto 12.773/25. A plataforma:
+O AdaptaEDU foi desenvolvido especificamente para ajudar escolas a cumprirem as exigências do Decreto 12.773/25. A plataforma:
 
 - Adapta materiais para 8 perfis de acessibilidade automaticamente
 - Gera relatórios de uso para comprovação de conformidade
@@ -199,9 +199,9 @@ Limite os parágrafos a 3-4 linhas. Textos densos são especialmente difíceis p
 
 Estudos mostram que adaptações tipográficas simples podem aumentar em até 30% a velocidade de leitura de alunos com dislexia, sem comprometer a compreensão.
 
-## Automatize com o AdaptaIA
+## Automatize com o AdaptaEDU
 
-O perfil Dislexia do AdaptaIA aplica automaticamente todas essas adaptações: fonte adequada, espaçamento generoso, parágrafos curtos e cores de orientação visual. Em minutos, qualquer material está pronto para alunos com dislexia.
+O perfil Dislexia do AdaptaEDU aplica automaticamente todas essas adaptações: fonte adequada, espaçamento generoso, parágrafos curtos e cores de orientação visual. Em minutos, qualquer material está pronto para alunos com dislexia.
     `,
   },
   {
@@ -227,7 +227,7 @@ Tecnologia assistiva é qualquer recurso, produto ou estratégia que amplia as h
 ## Como a IA está mudando a educação inclusiva
 
 ### Adaptação em escala
-Antes da IA, adaptar um único material para um aluno com TEA podia levar horas. Hoje, plataformas como o AdaptaIA fazem isso em minutos — e para múltiplos perfis simultaneamente.
+Antes da IA, adaptar um único material para um aluno com TEA podia levar horas. Hoje, plataformas como o AdaptaEDU fazem isso em minutos — e para múltiplos perfis simultaneamente.
 
 ### Personalização real
 A IA permite adaptar o mesmo conteúdo para 8 perfis diferentes de forma automática, garantindo que cada aluno receba o material no formato mais adequado para seu aprendizado.
@@ -249,7 +249,7 @@ A tendência é que a adaptação de conteúdo se torne um processo completament
 
 ## Conclusão
 
-A tecnologia assistiva baseada em IA não substitui o professor — ela libera o professor para o que realmente importa: estar presente com os alunos. O AdaptaIA é um exemplo concreto dessa transformação em curso no Brasil.
+A tecnologia assistiva baseada em IA não substitui o professor — ela libera o professor para o que realmente importa: estar presente com os alunos. O AdaptaEDU é um exemplo concreto dessa transformação em curso no Brasil.
     `,
   },
 ];

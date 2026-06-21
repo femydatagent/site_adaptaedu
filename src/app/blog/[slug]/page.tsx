@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(slug);
   if (!post) return {};
   return {
-    title: `${post.title} | AdaptaIA`,
+    title: `${post.title} | AdaptaEDU`,
     description: post.description,
     keywords: post.keywords,
     alternates: { canonical: `https://adaptaia.com.br/blog/${post.slug}` },
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
       type: 'article',
       publishedTime: post.date,
-      authors: ['AdaptaIA'],
+      authors: ['AdaptaEDU'],
       tags: post.keywords,
     },
   };
@@ -83,8 +83,8 @@ export default async function BlogPost({ params }: Props) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    author: { '@type': 'Organization', name: 'AdaptaIA', url: 'https://adaptaia.com.br' },
-    publisher: { '@type': 'Organization', name: 'AdaptaIA', url: 'https://adaptaia.com.br' },
+    author: { '@type': 'Organization', name: 'AdaptaEDU', url: 'https://adaptaia.com.br' },
+    publisher: { '@type': 'Organization', name: 'AdaptaEDU', url: 'https://adaptaia.com.br' },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://adaptaia.com.br/blog/${post.slug}` },
     keywords: post.keywords.join(', '),
   };
@@ -131,13 +131,13 @@ export default async function BlogPost({ params }: Props) {
         <div className="mt-14 p-8 bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-2xl text-center">
           <h3 className="text-xl font-bold text-foreground mb-2">Automatize a adaptação de conteúdo</h3>
           <p className="text-sm text-muted-foreground mb-5">
-            O AdaptaIA aplica todas essas estratégias automaticamente. Teste grátis com 3 adaptações.
+            O AdaptaEDU aplica todas essas estratégias automaticamente. Teste grátis com 3 adaptações.
           </p>
           <Link
             href="/"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold hover:from-amber-600 hover:to-orange-600 transition-all"
           >
-            Testar o AdaptaIA grátis →
+            Testar o AdaptaEDU grátis →
           </Link>
         </div>
 
@@ -166,7 +166,7 @@ export default async function BlogPost({ params }: Props) {
       </main>
 
       <footer className="border-t border-border mt-16 py-8 text-center text-sm text-muted-foreground">
-        <p>© 2026 AdaptaIA. Todos os direitos reservados.</p>
+        <p>© 2026 AdaptaEDU. Todos os direitos reservados.</p>
       </footer>
     </div>
   );

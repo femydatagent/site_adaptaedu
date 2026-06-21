@@ -14,20 +14,20 @@ const siteUrl = "https://adaptaia.com.br";
 // Primary keyword: "adaptação de conteúdo educacional para acessibilidade"
 // Secondary: "educação inclusiva escolas", "material adaptado TEA TDAH"
 // Title: 58 chars — keyword-first, brand at end
-const siteTitle = "Adaptação de Conteúdo Educacional com IA | AdaptaIA";
+const siteTitle = "Adaptação de Conteúdo Educacional com IA | AdaptaEDU";
 
 // Description: 155 chars — action + value prop + social proof
 const siteDescription =
   "Adapte materiais escolares automaticamente para TEA, TDAH, Dislexia e mais 5 perfis. Usado por 500+ escolas brasileiras. Conforme o Decreto 12.773/25.";
 
-const ogTitle = "AdaptaIA — IA que adapta conteúdo educacional para inclusão";
+const ogTitle = "AdaptaEDU — IA que adapta conteúdo educacional para inclusão";
 const ogDescription =
   "Faça upload de PDFs e DOCX e receba versões acessíveis para 8 perfis de necessidade em minutos. Para escolas particulares, públicas e professores.";
 
 export const metadata: Metadata = {
   title: {
     default: siteTitle,
-    template: "%s | AdaptaIA",
+    template: "%s | AdaptaEDU",
   },
   description: siteDescription,
   keywords: [
@@ -50,12 +50,12 @@ export const metadata: Metadata = {
     "decreto 12773 educação inclusiva",
     "adaptação de atividades para alunos com deficiência intelectual",
     // Brand
-    "AdaptaIA",
+    "AdaptaEDU",
     "adapta ia",
   ],
-  authors: [{ name: "AdaptaIA", url: siteUrl }],
-  creator: "AdaptaIA",
-  publisher: "AdaptaIA",
+  authors: [{ name: "AdaptaEDU", url: siteUrl }],
+  creator: "AdaptaEDU",
+  publisher: "AdaptaEDU",
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: siteUrl,
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     title: ogTitle,
     description: ogDescription,
     url: siteUrl,
-    siteName: "AdaptaIA",
+    siteName: "AdaptaEDU",
     locale: "pt_BR",
     type: "website",
     images: [
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "AdaptaIA — Plataforma de adaptação de conteúdo educacional com IA",
+        alt: "AdaptaEDU — Plataforma de adaptação de conteúdo educacional com IA",
       },
     ],
   },
@@ -105,7 +105,7 @@ const jsonLdGraph = [
   {
     "@type": "Organization",
     "@id": `${siteUrl}/#organization`,
-    name: "AdaptaIA",
+    name: "AdaptaEDU",
     url: siteUrl,
     logo: {
       "@type": "ImageObject",
@@ -128,7 +128,7 @@ const jsonLdGraph = [
   {
     "@type": "SoftwareApplication",
     "@id": `${siteUrl}/#software`,
-    name: "AdaptaIA",
+    name: "AdaptaEDU",
     applicationCategory: "EducationApplication",
     applicationSubCategory: "Assistive Technology",
     operatingSystem: "Web",
@@ -185,7 +185,7 @@ const jsonLdGraph = [
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
     url: siteUrl,
-    name: "AdaptaIA",
+    name: "AdaptaEDU",
     description: siteDescription,
     inLanguage: "pt-BR",
     publisher: { "@id": `${siteUrl}/#organization` },
@@ -197,10 +197,10 @@ const jsonLdGraph = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "O que é o AdaptaIA?",
+        name: "O que é o AdaptaEDU?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "AdaptaIA é uma plataforma de inteligência artificial que adapta automaticamente materiais educacionais para 8 perfis de acessibilidade: TEA, TDAH, TPAC, Deficiência Intelectual, Baixa Visão, Dislexia, Discalculia e Disgrafia. Professores fazem upload de PDFs ou DOCX e recebem versões adaptadas em minutos.",
+          text: "AdaptaEDU é uma plataforma de inteligência artificial que adapta automaticamente materiais educacionais para 8 perfis de acessibilidade: TEA, TDAH, TPAC, Deficiência Intelectual, Baixa Visão, Dislexia, Discalculia e Disgrafia. Professores fazem upload de PDFs ou DOCX e recebem versões adaptadas em minutos.",
         },
       },
       {
@@ -208,20 +208,20 @@ const jsonLdGraph = [
         name: "Como adaptar material escolar para alunos com TEA?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Para alunos com Transtorno do Espectro Autista (TEA), o AdaptaIA aplica automaticamente estrutura visual previsível, redução de estímulos excessivos, instruções claras e literais e apoios visuais consistentes. Basta fazer upload do material e selecionar o perfil TEA.",
+          text: "Para alunos com Transtorno do Espectro Autista (TEA), o AdaptaEDU aplica automaticamente estrutura visual previsível, redução de estímulos excessivos, instruções claras e literais e apoios visuais consistentes. Basta fazer upload do material e selecionar o perfil TEA.",
         },
       },
       {
         "@type": "Question",
-        name: "O AdaptaIA está em conformidade com a legislação de educação inclusiva?",
+        name: "O AdaptaEDU está em conformidade com a legislação de educação inclusiva?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Sim. O AdaptaIA foi desenvolvido em conformidade com o Decreto 12.773/25 e a legislação brasileira de educação inclusiva, que garante o direito de estudantes com deficiência a materiais pedagógicos acessíveis e tecnologias assistivas em todas as etapas da Educação Básica.",
+          text: "Sim. O AdaptaEDU foi desenvolvido em conformidade com o Decreto 12.773/25 e a legislação brasileira de educação inclusiva, que garante o direito de estudantes com deficiência a materiais pedagógicos acessíveis e tecnologias assistivas em todas as etapas da Educação Básica.",
         },
       },
       {
         "@type": "Question",
-        name: "Qual é o preço do AdaptaIA para escolas?",
+        name: "Qual é o preço do AdaptaEDU para escolas?",
         acceptedAnswer: {
           "@type": "Answer",
           text: "O plano Professor custa R$50/mês com 25 adaptações mensais e 3 adaptações gratuitas para testar. O plano Escola custa R$500/mês e inclui multi-tenant com gestão de professores, todos os 8 perfis de acessibilidade e dashboard de métricas. Redes de ensino têm plano sob consulta.",
@@ -229,18 +229,18 @@ const jsonLdGraph = [
       },
       {
         "@type": "Question",
-        name: "Quais tipos de arquivo o AdaptaIA aceita?",
+        name: "Quais tipos de arquivo o AdaptaEDU aceita?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "O AdaptaIA aceita PDFs, documentos DOCX e imagens. O material adaptado pode ser exportado em PDF ou DOCX, pronto para distribuição aos alunos.",
+          text: "O AdaptaEDU aceita PDFs, documentos DOCX e imagens. O material adaptado pode ser exportado em PDF ou DOCX, pronto para distribuição aos alunos.",
         },
       },
       {
         "@type": "Question",
-        name: "Como o AdaptaIA ajuda escolas particulares?",
+        name: "Como o AdaptaEDU ajuda escolas particulares?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Para escolas particulares, o AdaptaIA oferece uma conta administrativa com gestão centralizada de professores, controle de uso, geração de pacotes de conteúdo adaptado por segmento (Fundamental I, II, Ensino Médio) e dashboard de métricas. É um diferencial competitivo que atende às demandas das famílias por inclusão real.",
+          text: "Para escolas particulares, o AdaptaEDU oferece uma conta administrativa com gestão centralizada de professores, controle de uso, geração de pacotes de conteúdo adaptado por segmento (Fundamental I, II, Ensino Médio) e dashboard de métricas. É um diferencial competitivo que atende às demandas das famílias por inclusão real.",
         },
       },
     ],

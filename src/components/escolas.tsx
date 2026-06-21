@@ -173,7 +173,7 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
                   <Building2 className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-xl font-bold bg-gradient-to-r from-teal-600 to-amber-600 bg-clip-text text-transparent">
-                  AdaptaIA Escolas
+                  AdaptaEDU Escolas
                 </span>
               </div>
             </div>
@@ -612,7 +612,7 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
           <FadeIn>
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                Por que escolas <span className="text-amber-600">escolhem o AdaptaIA</span>
+                Por que escolas <span className="text-amber-600">escolhem o AdaptaEDU</span>
               </h2>
             </div>
           </FadeIn>
@@ -651,7 +651,7 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
                   Pronto para centralizar as adaptações da sua escola?
                 </h2>
                 <p className="text-lg text-white/90 mb-8 max-w-xl mx-auto">
-                  Agende uma demonstração gratuita e veja como o AdaptaIA pode transformar a gestão de conteúdo inclusivo na sua escola.
+                  Agende uma demonstração gratuita e veja como o AdaptaEDU pode transformar a gestão de conteúdo inclusivo na sua escola.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <button
@@ -680,7 +680,7 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
               <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-amber-500 rounded-lg flex items-center justify-center">
                 <Building2 className="w-4 h-4 text-white" />
               </div>
-              <span className="text-lg font-bold text-white">AdaptaIA Escolas</span>
+              <span className="text-lg font-bold text-white">AdaptaEDU Escolas</span>
             </div>
             <div className="flex items-center gap-6 text-sm">
               <button onClick={onNavigateHome} className="hover:text-amber-400 transition-colors">Página Inicial</button>
@@ -688,7 +688,7 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
               <a href="#" className="hover:text-amber-400 transition-colors">Termos de Uso</a>
               <a href="#" className="hover:text-amber-400 transition-colors">LGPD</a>
             </div>
-            <p className="text-sm">2026 AdaptaIA. Todos os direitos reservados.</p>
+            <p className="text-sm">2026 AdaptaEDU. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>

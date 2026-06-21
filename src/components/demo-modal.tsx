@@ -215,7 +215,7 @@ export default function DemoModal({ open, onOpenChange }: DemoModalProps) {
                 <a href="#" className="underline underline-offset-4 text-foreground hover:text-amber-600">
                   Política de Privacidade
                 </a>{' '}
-                do AdaptaIA. *
+                do AdaptaEDU. *
               </Label>
             </div>
             {errors.terms && <p className="text-xs text-destructive">{errors.terms}</p>}
