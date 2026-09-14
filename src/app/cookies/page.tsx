@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import LegalPage from '@/components/legal/legal-page';
+import ManagePreferencesButton from '@/components/cookie-consent/manage-preferences-button';
 import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ const toc = [
   { id: 'site', label: 'Cookies no site adaptaedu.com' },
   { id: 'plataforma', label: 'Cookies na plataforma app.adaptaedu.com' },
   { id: 'categorias', label: 'Categorias e base legal' },
+  { id: 'preferencias', label: 'Suas preferências neste site' },
   { id: 'gerenciar', label: 'Como gerenciar cookies no navegador' },
   { id: 'nao-rastrear', label: 'Do Not Track e sinais de preferência' },
   { id: 'alteracoes', label: 'Alterações nesta política' },
@@ -46,9 +48,10 @@ export default function CookiesPage() {
           </p>
         </Callout>
         <P>
-          Se isso mudar — por exemplo, se passarmos a usar uma ferramenta de análise de audiência —
-          atualizaremos esta página e, quando a lei exigir, solicitaremos seu consentimento antes da
-          instalação.
+          Cookies de análise e de publicidade — estes últimos usados para direcionar campanhas de
+          marketing — só são instalados <strong className="text-foreground">após a sua autorização
+          expressa</strong>, dada no banner exibido na primeira visita. Enquanto você não decidir, ou se
+          recusar, nenhum script dessas categorias é carregado.
         </P>
       </Section>
 
@@ -80,9 +83,9 @@ export default function CookiesPage() {
         </P>
         <List
           items={[
-            'Não utilizamos Google Analytics, Meta Pixel, Hotjar ou ferramentas equivalentes.',
+            'Nenhum cookie é gravado enquanto você apenas navega, antes de qualquer decisão sua no banner.',
+            'Ferramentas de análise e de publicidade — como Google Analytics e Meta Pixel — só são carregadas se você autorizar a categoria correspondente. Se recusar, o script sequer é inserido na página.',
             'Não há botões de redes sociais que carreguem conteúdo de terceiros.',
-            'Não compartilhamos dados de navegação com plataformas de publicidade.',
             'O formulário de solicitação de demonstração envia os dados que você preenche, mas não grava cookies para isso.',
           ]}
         />
@@ -95,12 +98,12 @@ export default function CookiesPage() {
           </a>
           .
         </P>
-        <Callout tone="amber" title="A confirmar antes da publicação">
+        <Callout tone="amber" title="A preencher quando as campanhas forem ativadas">
           <p>
             <Fill>
-              Se houver qualquer ferramenta de análise, mapa de calor, chat de atendimento ou pixel de
-              campanha em uso ou previsto, listar aqui com nome, finalidade e duração — e implementar um
-              aviso de consentimento antes da instalação
+              Ao ligar Google Analytics, Meta Pixel ou outra ferramenta de campanha, listar aqui cada
+              cookie instalado: nome, fornecedor, finalidade e duração. A tabela de cookies por nome é o
+              que a ANPD espera encontrar numa política, e hoje ela só existe para a plataforma
             </Fill>
           </p>
         </Callout>
@@ -170,23 +173,39 @@ export default function CookiesPage() {
               'Analíticos',
               'Medir uso e desempenho de forma agregada',
               'Consentimento (art. 7º, I)',
-              'Não',
+              'Somente com seu aceite no banner',
             ],
             [
               'Publicidade',
-              'Personalizar anúncios e medir campanhas',
+              'Personalizar anúncios e medir o resultado de campanhas de marketing',
               'Consentimento (art. 7º, I)',
-              'Não',
+              'Somente com seu aceite no banner',
             ],
           ]}
         />
         <P>
-          Caso venhamos a adotar cookies analíticos ou de publicidade, eles só serão instalados após seu
-          consentimento livre, informado e inequívoco, que poderá ser revogado a qualquer momento.
+          Cookies analíticos e de publicidade só são instalados após consentimento livre, informado e
+          inequívoco. Nenhuma categoria opcional vem pré-marcada, recusar é tão simples quanto aceitar, e
+          a decisão pode ser revogada a qualquer momento sem prejuízo ao uso do site.
         </P>
       </Section>
 
-      <Section id="gerenciar" title="6. Como gerenciar cookies no navegador">
+      <Section id="preferencias" title="6. Suas preferências neste site">
+        <P>
+          Sua escolha fica registrada no seu próprio navegador e vale para este dispositivo. Você pode
+          revê-la quando quiser — inclusive para retirar um consentimento já dado:
+        </P>
+        <div className="py-1">
+          <ManagePreferencesButton />
+        </div>
+        <P>
+          Guardamos a decisão no armazenamento local do navegador, e não em um cookie: registrar o aceite
+          de cookies gravando um cookie seria contraditório. Isso significa que limpar os dados do site
+          apaga a preferência, e o banner voltará a aparecer.
+        </P>
+      </Section>
+
+      <Section id="gerenciar" title="7. Como gerenciar cookies no navegador">
         <P>
           Você pode bloquear, limitar ou apagar cookies a qualquer momento nas configurações do seu
           navegador:
@@ -213,7 +232,7 @@ export default function CookiesPage() {
         </P>
       </Section>
 
-      <Section id="nao-rastrear" title="7. Do Not Track e sinais de preferência">
+      <Section id="nao-rastrear" title="8. Do Not Track e sinais de preferência">
         <P>
           Alguns navegadores enviam o sinal <em>Do Not Track</em> (DNT) ou{' '}
           <em>Global Privacy Control</em> (GPC). Como não realizamos rastreamento entre sites nem
@@ -225,7 +244,7 @@ export default function CookiesPage() {
         </P>
       </Section>
 
-      <Section id="alteracoes" title="8. Alterações nesta política">
+      <Section id="alteracoes" title="9. Alterações nesta política">
         <P>
           Esta política pode ser atualizada quando adicionarmos ou removermos tecnologias. A data da última
           atualização aparece no topo da página. Mudanças que impliquem novos cookies sujeitos a
@@ -233,7 +252,7 @@ export default function CookiesPage() {
         </P>
       </Section>
 
-      <Section id="contato" title="9. Contato">
+      <Section id="contato" title="10. Contato">
         <P>
           Dúvidas sobre cookies ou sobre o tratamento dos seus dados:{' '}
           <Fill>e-mail do encarregado</Fill>.
