@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const legalRoutes: MetadataRoute.Sitemap = ['privacidade', 'termos', 'lgpd'].map((slug) => ({
+  const legalRoutes: MetadataRoute.Sitemap = ['privacidade', 'termos', 'lgpd', 'acessibilidade', 'cookies'].map((slug) => ({
     url: `${baseUrl}/${slug}`,
     lastModified: now,
     changeFrequency: 'yearly' as const,

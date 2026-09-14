@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, type Variants } from 'framer-motion';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { type ReactNode } from 'react';
 
 interface FadeInProps {
@@ -18,6 +18,8 @@ export default function FadeIn({
   duration = 0.5,
   className = '',
 }: FadeInProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   const directionMap = {
     up: { y: 40 },
     down: { y: -40 },
@@ -26,13 +28,16 @@ export default function FadeIn({
     none: {},
   };
 
+  // Com movimento reduzido, mantém-se apenas o fade — sem deslocamento.
   const variants: Variants = {
-    hidden: { opacity: 0, ...directionMap[direction] },
+    hidden: shouldReduceMotion ? { opacity: 0 } : { opacity: 0, ...directionMap[direction] },
     visible: {
       opacity: 1,
       x: 0,
       y: 0,
-      transition: { duration, delay, ease: 'easeOut' },
+      transition: shouldReduceMotion
+        ? { duration: 0 }
+        : { duration, delay, ease: 'easeOut' },
     },
   };
 

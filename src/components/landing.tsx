@@ -216,6 +216,10 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <a href="#conteudo-principal" className="sr-only skip-link">
+        Pular para o conteúdo principal
+      </a>
+
       {/* Header */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-lg border-b border-border shadow-sm' : 'bg-transparent'}`}>
         <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
@@ -293,7 +297,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
         </button>
       )}
 
-      <main className="flex-1">
+      <main id="conteudo-principal" className="flex-1">
         {/* Hero - Full viewport height */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
           <div className="absolute inset-0 bg-pattern-dots" />
@@ -1022,7 +1026,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-white mb-3">Produto</h4>
+              <h3 className="font-semibold text-white mb-3">Produto</h3>
               <ul className="space-y-2 text-sm">
                 <li><a href="#perfis" className="hover:text-amber-400 transition-colors">Perfis</a></li>
                 <li><a href="#pipeline" className="hover:text-amber-400 transition-colors">Pipeline</a></li>
@@ -1032,7 +1036,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-white mb-3">Para Escolas</h4>
+              <h3 className="font-semibold text-white mb-3">Para Escolas</h3>
               <ul className="space-y-2 text-sm">
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Particulares</a></li>
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Públicas</a></li>
@@ -1042,7 +1046,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-white mb-3">Recursos</h4>
+              <h3 className="font-semibold text-white mb-3">Recursos</h3>
               <ul className="space-y-2 text-sm">
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Documentação</a></li>
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Tutoriais</a></li>
@@ -1052,13 +1056,13 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-white mb-3">Legal</h4>
+              <h3 className="font-semibold text-white mb-3">Legal</h3>
               <ul className="space-y-2 text-sm">
                 <li><a href="/privacidade" className="hover:text-amber-400 transition-colors">Privacidade</a></li>
                 <li><a href="/termos" className="hover:text-amber-400 transition-colors">Termos de Uso</a></li>
                 <li><a href="/lgpd" className="hover:text-amber-400 transition-colors">LGPD</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Acessibilidade</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Cookies</a></li>
+                <li><a href="/acessibilidade" className="hover:text-amber-400 transition-colors">Acessibilidade</a></li>
+                <li><a href="/cookies" className="hover:text-amber-400 transition-colors">Cookies</a></li>
               </ul>
             </div>
           </div>

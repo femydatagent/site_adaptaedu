@@ -58,6 +58,8 @@ export default function LegalPage({ title, subtitle, updatedAt, toc, children }:
             <Link href="/privacidade" className="hover:text-amber-600 transition-colors">Privacidade</Link>
             <Link href="/termos" className="hover:text-amber-600 transition-colors">Termos de Uso</Link>
             <Link href="/lgpd" className="hover:text-amber-600 transition-colors">LGPD</Link>
+            <Link href="/acessibilidade" className="hover:text-amber-600 transition-colors">Acessibilidade</Link>
+            <Link href="/cookies" className="hover:text-amber-600 transition-colors">Cookies</Link>
           </div>
         </div>
       </footer>

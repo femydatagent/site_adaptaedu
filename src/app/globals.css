@@ -115,3 +115,63 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Utilitário para conteúdo visível apenas a leitores de tela. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Link de salto: sai do sr-only ao receber foco por teclado. */
+.skip-link:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  overflow: visible;
+  clip: auto;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  color: #1c1917;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.18);
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* Foco visível e consistente para navegação por teclado (WCAG 2.4.7). */
+:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/*
+ * Movimento reduzido (WCAG 2.3.3): respeita a preferência do sistema
+ * operacional, desativando animações, transições e rolagem suave.
+ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
