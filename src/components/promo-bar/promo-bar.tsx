@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useSyncExternalStore } from 'react';
 import { X } from 'lucide-react';
 import { getActivePromo } from './promo-config';
 
@@ -22,29 +22,53 @@ const CLOSE_HIT_WIDTH_PX = 44;
 
 const DISMISS_KEY_PREFIX = 'adaptaedu.promo-dismissed.';
 
+/** Emitido ao fechar a faixa, para os assinantes relerem o armazenamento. */
+const DISMISS_EVENT = 'adaptaedu:promo-dispensada';
+
+/** Instantâneo do servidor: esconde a faixa até saber a escolha do visitante. */
+const SERVER_SNAPSHOT = 'servidor';
+
 function setBarHeight(px: number) {
   document.documentElement.style.setProperty('--promo-bar-h', `${px}px`);
 }
 
+function subscribeToDismissal(onChange: () => void): () => void {
+  window.addEventListener(DISMISS_EVENT, onChange);
+  window.addEventListener('storage', onChange);
+  return () => {
+    window.removeEventListener(DISMISS_EVENT, onChange);
+    window.removeEventListener('storage', onChange);
+  };
+}
+
+function readDismissed(promoId: string): string {
+  try {
+    return window.localStorage.getItem(`${DISMISS_KEY_PREFIX}${promoId}`) === '1'
+      ? 'dispensada'
+      : 'visivel';
+  } catch {
+    return 'visivel';
+  }
+}
+
 export default function PromoBar() {
   const promo = getActivePromo();
-  const [isVisible, setIsVisible] = useState(false);
+  const promoId = promo?.id ?? '';
 
+  // Lê o armazenamento como fonte externa: no servidor devolve o sentinela,
+  // então nada é renderizado e não há divergência de hidratação.
+  const status = useSyncExternalStore(
+    subscribeToDismissal,
+    () => (promoId ? readDismissed(promoId) : 'dispensada'),
+    () => SERVER_SNAPSHOT,
+  );
+  const isVisible = status === 'visivel';
+
+  // Publica a altura para os cabeçalhos fixos e o padding do body.
   useEffect(() => {
-    if (!promo) return;
-
-    let dismissed = false;
-    try {
-      dismissed = window.localStorage.getItem(`${DISMISS_KEY_PREFIX}${promo.id}`) === '1';
-    } catch {
-      // Armazenamento indisponível: mostra a faixa normalmente.
-    }
-
-    setIsVisible(!dismissed);
-    if (!dismissed) setBarHeight(BAR_HEIGHT_PX);
-
+    setBarHeight(isVisible ? BAR_HEIGHT_PX : 0);
     return () => setBarHeight(0);
-  }, [promo]);
+  }, [isVisible]);
 
   if (!promo || !isVisible) return null;
 
@@ -54,8 +78,7 @@ export default function PromoBar() {
     } catch {
       // Sem armazenamento: a faixa volta na próxima visita.
     }
-    setIsVisible(false);
-    setBarHeight(0);
+    window.dispatchEvent(new CustomEvent(DISMISS_EVENT));
   };
 
   const content = (

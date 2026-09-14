@@ -221,7 +221,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
       </a>
 
       {/* Header */}
-      <header className={`fixed top-[var(--promo-bar-h,0px)] left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-lg border-b border-border shadow-sm' : 'bg-transparent'}`}>
+      <header className={`fixed below-promo-bar left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-lg border-b border-border shadow-sm' : 'bg-transparent'}`}>
         <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
           <a href="#" className="flex items-center gap-3 group" aria-label="AdaptaEDU - Página inicial">
             <img src="/logo-mark.svg" alt="" aria-hidden="true" width={36} height={36} className="w-9 h-9" />
@@ -895,12 +895,6 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                       <h3 className="text-xl font-bold text-foreground">{plan.name}</h3>
                       <p className="text-sm text-muted-foreground mt-1">{plan.desc}</p>
                     </div>
-                    {'trial' in plan && plan.trial && (
-                      <div className="mb-4 px-3 py-2 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center gap-2">
-                        <Sparkles className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-                        <span className="text-xs text-emerald-700 font-medium">{plan.trial}</span>
-                      </div>
-                    )}
                     <div className="mb-6">
                       <span className="text-4xl font-bold text-foreground">{plan.price}</span>
                       {plan.period && <span className="text-muted-foreground">{plan.period}</span>}

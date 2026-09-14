@@ -187,3 +187,12 @@ html {
 body {
   padding-top: var(--promo-bar-h);
 }
+
+/*
+ * Cabeçalhos fixos/sticky descem conforme a faixa. Classe própria em vez de
+ * top-[var(--promo-bar-h,0px)]: a vírgula do fallback quebra o parser de
+ * valores arbitrários do Tailwind e a regra não chega a ser gerada.
+ */
+.below-promo-bar {
+  top: var(--promo-bar-h, 0px);
+}

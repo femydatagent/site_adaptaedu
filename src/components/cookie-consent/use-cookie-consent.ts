@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 
 /**
  * Consentimento de cookies.
@@ -16,6 +16,12 @@ export const CONSENT_VERSION = 1;
 
 /** Evento interno que reabre o banner a partir de qualquer página. */
 export const OPEN_PREFERENCES_EVENT = 'adaptaedu:abrir-preferencias-cookies';
+
+/** Emitido quando a decisão muda, para os assinantes relerem o armazenamento. */
+export const CONSENT_CHANGED_EVENT = 'adaptaedu:consentimento-alterado';
+
+/** Instantâneo do servidor: ainda não há como saber a decisão do visitante. */
+const SERVER_SNAPSHOT = '\u0000servidor';
 
 export type ConsentCategory = 'necessarios' | 'preferencias' | 'analiticos' | 'publicidade';
 
@@ -115,24 +121,48 @@ export function openCookiePreferences(): void {
   window.dispatchEvent(new CustomEvent(OPEN_PREFERENCES_EVENT));
 }
 
+/** Assina mudanças da decisão, nesta aba e nas demais. */
+function subscribeToConsent(onChange: () => void): () => void {
+  window.addEventListener(CONSENT_CHANGED_EVENT, onChange);
+  window.addEventListener('storage', onChange);
+  return () => {
+    window.removeEventListener(CONSENT_CHANGED_EVENT, onChange);
+    window.removeEventListener('storage', onChange);
+  };
+}
+
+/** Valor bruto guardado — string estável, exigida por useSyncExternalStore. */
+function getRawConsent(): string {
+  try {
+    return window.localStorage.getItem(CONSENT_STORAGE_KEY) ?? '';
+  } catch {
+    return '';
+  }
+}
+
+function getServerRawConsent(): string {
+  return SERVER_SNAPSHOT;
+}
+
 export function useCookieConsent() {
-  const [consent, setConsent] = useState<ConsentRecord | null>(null);
-  const [isReady, setIsReady] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-
-  // Só após a montagem, para não divergir do HTML renderizado no servidor.
-  useEffect(() => {
-    const stored = readConsent();
-    setConsent(stored);
-    setIsOpen(stored === null);
-    setIsReady(true);
-  }, []);
+  const raw = useSyncExternalStore(subscribeToConsent, getRawConsent, getServerRawConsent);
+  const [isReopened, setIsReopened] = useState(false);
 
   useEffect(() => {
-    const reopen = () => setIsOpen(true);
+    const reopen = () => setIsReopened(true);
     window.addEventListener(OPEN_PREFERENCES_EVENT, reopen);
     return () => window.removeEventListener(OPEN_PREFERENCES_EVENT, reopen);
   }, []);
+
+  const consent = useMemo<ConsentRecord | null>(() => {
+    if (raw === SERVER_SNAPSHOT || raw === '') return null;
+    try {
+      const parsed: unknown = JSON.parse(raw);
+      return isValidRecord(parsed) ? parsed : null;
+    } catch {
+      return null;
+    }
+  }, [raw]);
 
   const save = useCallback((choices: ConsentChoices) => {
     const record: ConsentRecord = {
@@ -145,12 +175,16 @@ export function useCookieConsent() {
     } catch {
       // Sem armazenamento disponível: a decisão vale para esta sessão.
     }
-    setConsent(record);
-    setIsOpen(false);
+    setIsReopened(false);
+    window.dispatchEvent(new CustomEvent(CONSENT_CHANGED_EVENT));
   }, []);
 
   const acceptAll = useCallback(() => save(ALL_GRANTED), [save]);
   const rejectAll = useCallback(() => save(ALL_DENIED), [save]);
+
+  // No servidor nada é renderizado, evitando divergência de hidratação.
+  const isReady = raw !== SERVER_SNAPSHOT;
+  const isOpen = isReady && (isReopened || consent === null);
 
   return { consent, isReady, isOpen, save, acceptAll, rejectAll };
 }
