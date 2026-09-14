@@ -1054,9 +1054,9 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             <div>
               <h4 className="font-semibold text-white mb-3">Legal</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Privacidade</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Termos de Uso</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">LGPD</a></li>
+                <li><a href="/privacidade" className="hover:text-amber-400 transition-colors">Privacidade</a></li>
+                <li><a href="/termos" className="hover:text-amber-400 transition-colors">Termos de Uso</a></li>
+                <li><a href="/lgpd" className="hover:text-amber-400 transition-colors">LGPD</a></li>
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Acessibilidade</a></li>
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Cookies</a></li>
               </ul>

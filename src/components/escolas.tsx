@@ -682,9 +682,9 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
             </div>
             <div className="flex items-center gap-6 text-sm">
               <button onClick={onNavigateHome} className="hover:text-amber-400 transition-colors">Página Inicial</button>
-              <a href="#" className="hover:text-amber-400 transition-colors">Política de Privacidade</a>
-              <a href="#" className="hover:text-amber-400 transition-colors">Termos de Uso</a>
-              <a href="#" className="hover:text-amber-400 transition-colors">LGPD</a>
+              <a href="/privacidade" className="hover:text-amber-400 transition-colors">Política de Privacidade</a>
+              <a href="/termos" className="hover:text-amber-400 transition-colors">Termos de Uso</a>
+              <a href="/lgpd" className="hover:text-amber-400 transition-colors">LGPD</a>
             </div>
             <p className="text-sm">2026 AdaptaEDU. Todos os direitos reservados.</p>
           </div>

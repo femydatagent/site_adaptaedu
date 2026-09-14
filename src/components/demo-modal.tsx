@@ -208,11 +208,11 @@ export default function DemoModal({ open, onOpenChange }: DemoModalProps) {
               />
               <Label htmlFor="demo-terms" className="text-xs font-normal leading-relaxed text-muted-foreground">
                 Li e concordo com os{' '}
-                <a href="#" className="underline underline-offset-4 text-foreground hover:text-amber-600">
+                <a href="/termos" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-foreground hover:text-amber-600">
                   Termos de Uso
                 </a>{' '}
                 e a{' '}
-                <a href="#" className="underline underline-offset-4 text-foreground hover:text-amber-600">
+                <a href="/privacidade" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-foreground hover:text-amber-600">
                   Política de Privacidade
                 </a>{' '}
                 do AdaptaEDU. *

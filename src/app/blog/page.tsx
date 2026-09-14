@@ -25,7 +25,7 @@ export default function BlogPage() {
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold text-lg">
             <img src="/logo-mark.svg" alt="" aria-hidden="true" width={32} height={32} className="w-8 h-8" />
-            Adapta<span className="text-orange-500">EDU</span>
+            <span>Adapta<span className="text-orange-500">EDU</span></span>
           </Link>
           <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             ← Voltar ao site

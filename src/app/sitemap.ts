@@ -20,6 +20,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const legalRoutes: MetadataRoute.Sitemap = ['privacidade', 'termos', 'lgpd'].map((slug) => ({
+    url: `${baseUrl}/${slug}`,
+    lastModified: now,
+    changeFrequency: 'yearly' as const,
+    priority: 0.3,
+  }));
+
   const blogRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date).toISOString(),
@@ -27,5 +34,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...blogRoutes];
+  return [...staticRoutes, ...legalRoutes, ...blogRoutes];
 }
