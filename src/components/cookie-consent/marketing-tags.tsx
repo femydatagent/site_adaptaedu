@@ -4,7 +4,7 @@ import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import {
   readConsent,
-  OPEN_PREFERENCES_EVENT,
+  CONSENT_CHANGED_EVENT,
   CONSENT_STORAGE_KEY,
   type ConsentChoices,
 } from './use-cookie-consent';
@@ -33,20 +33,17 @@ function useConsentChoices(): ConsentChoices | null {
     const sync = () => setChoices(readConsent()?.choices ?? null);
     sync();
 
-    // A decisão pode mudar nesta aba (banner reaberto) ou em outra.
-    window.addEventListener(OPEN_PREFERENCES_EVENT, sync);
+    // Nesta aba o banner emite CONSENT_CHANGED_EVENT ao gravar; o evento
+    // 'storage' cobre as demais abas, pois não dispara na que escreveu.
+    window.addEventListener(CONSENT_CHANGED_EVENT, sync);
     const onStorage = (e: StorageEvent) => {
       if (e.key === CONSENT_STORAGE_KEY) sync();
     };
     window.addEventListener('storage', onStorage);
 
-    // O banner grava de forma síncrona; um tick cobre o repasse na mesma aba.
-    const interval = window.setInterval(sync, 1000);
-
     return () => {
-      window.removeEventListener(OPEN_PREFERENCES_EVENT, sync);
+      window.removeEventListener(CONSENT_CHANGED_EVENT, sync);
       window.removeEventListener('storage', onStorage);
-      window.clearInterval(interval);
     };
   }, []);
 
