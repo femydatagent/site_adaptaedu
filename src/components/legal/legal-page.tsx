@@ -13,7 +13,7 @@ type LegalPageProps = {
 export default function LegalPage({ title, subtitle, updatedAt, toc, children }: LegalPageProps) {
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <header className="border-b border-border bg-white/80 backdrop-blur-lg sticky top-0 z-50">
+      <header className="border-b border-border bg-white/80 backdrop-blur-lg sticky top-[var(--promo-bar-h,0px)] z-50">
         <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold text-lg" aria-label="AdaptaEDU — página inicial">
             <img src="/logo-mark.svg" alt="" aria-hidden="true" width={32} height={32} className="w-8 h-8" />

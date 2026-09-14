@@ -175,3 +175,15 @@ html {
     scroll-behavior: auto !important;
   }
 }
+
+/*
+ * Faixa de promoções fixa no topo. A altura real é publicada pelo componente
+ * PromoBar; 0px aqui garante que, sem faixa, o layout fique inalterado.
+ */
+:root {
+  --promo-bar-h: 0px;
+}
+
+body {
+  padding-top: var(--promo-bar-h);
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import PromoBar from "@/components/promo-bar/promo-bar";
 import CookieBanner from "@/components/cookie-consent/cookie-banner";
 import MarketingTags from "@/components/cookie-consent/marketing-tags";
 
@@ -270,6 +271,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} antialiased bg-background text-foreground`}
       >
+        <PromoBar />
         {children}
         <Toaster />
         <CookieBanner />
