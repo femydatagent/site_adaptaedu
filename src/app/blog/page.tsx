@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Blog — Educação Inclusiva e Adaptação de Conteúdo | AdaptaEDU',
   description:
     'Artigos práticos sobre educação inclusiva, adaptação de materiais para TEA, TDAH, Dislexia e mais. Para professores, coordenadores e diretores de escola.',
-  alternates: { canonical: 'https://adaptaia.com.br/blog' },
+  alternates: { canonical: 'https://adaptaedu.com/blog' },
 };
 
 const categoryColors: Record<string, string> = {
@@ -24,8 +24,8 @@ export default function BlogPage() {
       <header className="border-b border-border bg-white/80 backdrop-blur-lg sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-sm">A</span>
-            Adapta<span className="text-orange-500">IA</span>
+            <img src="/logo-mark.svg" alt="" aria-hidden="true" width={32} height={32} className="w-8 h-8" />
+            Adapta<span className="text-orange-500">EDU</span>
           </Link>
           <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             ← Voltar ao site

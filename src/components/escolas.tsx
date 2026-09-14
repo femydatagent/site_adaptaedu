@@ -150,6 +150,8 @@ const howItWorks = [
   },
 ];
 
+const APP_SIGNUP_URL = 'https://app.adaptaedu.com/auth/sign-up';
+
 export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void }) {
   const { toast } = useToast();
   const [demoOpen, setDemoOpen] = useState(false);
@@ -169,9 +171,7 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
               </button>
               <div className="w-px h-6 bg-slate-200" />
               <div className="flex items-center gap-2">
-                <div className="w-9 h-9 bg-gradient-to-br from-teal-500 to-amber-500 rounded-lg flex items-center justify-center">
-                  <Building2 className="w-5 h-5 text-white" />
-                </div>
+                <img src="/logo-mark.svg" alt="" aria-hidden="true" width={36} height={36} className="w-9 h-9" />
                 <span className="text-xl font-bold bg-gradient-to-r from-teal-600 to-amber-600 bg-clip-text text-transparent">
                   AdaptaEDU Escolas
                 </span>
@@ -181,9 +181,9 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
               <button className="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-teal-700 hover:bg-teal-50 rounded-lg transition-colors">
                 Agendar Demo
               </button>
-              <button className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 rounded-lg shadow-md shadow-teal-200 transition-all">
+              <a href={APP_SIGNUP_URL} className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 rounded-lg shadow-md shadow-teal-200 transition-all">
                 Começar Grátis
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -660,9 +660,9 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
                   >
                     Agendar Demonstração
                   </button>
-                  <button className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white bg-white/20 hover:bg-white/30 rounded-xl border border-white/30 transition-all">
+                  <a href={APP_SIGNUP_URL} className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-white/20 hover:bg-white/30 rounded-xl border border-white/30 transition-all">
                     Começar Grátis
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -677,9 +677,7 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-amber-500 rounded-lg flex items-center justify-center">
-                <Building2 className="w-4 h-4 text-white" />
-              </div>
+              <img src="/logo-mark.svg" alt="" aria-hidden="true" width={32} height={32} className="w-8 h-8 bg-white rounded-lg p-0.5" />
               <span className="text-lg font-bold text-white">AdaptaEDU Escolas</span>
             </div>
             <div className="flex items-center gap-6 text-sm">

@@ -1,29 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve">
-<defs>
-  <style type="text/css">
-    .st194{fill:#2D2D2D;stroke:#FFFFFF;stroke-width:0.6317;stroke-miterlimit:10;}
-    .st23{fill:#FFFFFF;}
-
-    .z-breathe {
-      animation: breathe 2.5s ease-in-out infinite;
-    }
-
-    @keyframes breathe {
-      0%, 100% { opacity: 0.7; }
-      50% { opacity: 1; }
-    }
-  </style>
-</defs>
-
-<g>
-  <path class="st194" d="M24.51,28.51H5.49c-2.21,0-4-1.79-4-4V5.49c0-2.21,1.79-4,4-4h19.03c2.21,0,4,1.79,4,4v19.03
-    C28.51,26.72,26.72,28.51,24.51,28.51z"/>
-  <g class="z-breathe">
-    <path class="st23" d="M15.47,7.1l-1.3,1.85c-0.2,0.29-0.54,0.47-0.9,0.47h-7.1V7.09C6.16,7.1,15.47,7.1,15.47,7.1z"/>
-    <polygon class="st23" points="24.3,7.1 13.14,22.91 5.7,22.91 16.86,7.1"/>
-    <path class="st23" d="M14.53,22.91l1.31-1.86c0.2-0.29,0.54-0.47,0.9-0.47h7.09v2.33H14.53z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" role="img" aria-label="AdaptaEDU — Educação com Acessibilidade">
+  <title>AdaptaEDU — Educação com Acessibilidade</title>
+  <g transform="translate(120 4)">
+  <circle cx="60" cy="60" r="51" fill="none" stroke="#E8763A" stroke-width="6.5"/>
+  <!-- livro aberto -->
+  <g stroke="#1B7480" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 51v31h60V51" fill="#fff"/>
+    <path d="M36 45c9.5 0 18.5 2.2 24 8.2V84c-5.5-6-14.5-8.2-24-8.2V45z" fill="#fff"/>
+    <path d="M84 45c-9.5 0-18.5 2.2-24 8.2V84c5.5-6 14.5-8.2 24-8.2V45z" fill="#fff"/>
+    <path d="M60 53.2V84" fill="none"/>
   </g>
-</g>
+  <!-- seta de crescimento -->
+  <g fill="none" stroke="#E8763A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 74V44c0-9.5 7-15.5 15.5-15.5"/>
+    <path d="M67.5 21.5L78.5 28.5 71.5 39.5"/>
+  </g>
+  </g>
+  <text x="180" y="172" text-anchor="middle"
+        font-family="Poppins, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="47" font-weight="600" letter-spacing="-0.5">
+    <tspan fill="#E8763A">A</tspan><tspan fill="#1B7480">dapta</tspan><tspan fill="#E8763A">Edu</tspan>
+  </text>
+  <text x="180" y="196" text-anchor="middle" fill="#1B7480"
+        font-family="Poppins, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="15" font-weight="500" letter-spacing="2.2">EDUCAÇÃO COM ACESSIBILIDADE</text>
 </svg>

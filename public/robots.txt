@@ -1,5 +1,5 @@
-# AdaptaIA — robots.txt
-# https://adaptaia.com.br
+# AdaptaEDU — robots.txt
+# https://adaptaedu.com
 
 # ── Motores de busca tradicionais ──────────────────────────────────────────────
 User-agent: Googlebot
@@ -52,4 +52,4 @@ Disallow: /api/
 Disallow: /_next/
 
 # ── Sitemap ────────────────────────────────────────────────────────────────────
-Sitemap: https://adaptaia.com.br/sitemap.xml
+Sitemap: https://adaptaedu.com/sitemap.xml

@@ -63,7 +63,7 @@ export default function OGImage() {
             ♿
           </div>
           <span style={{ fontSize: 32, fontWeight: 800, color: '#1c1917' }}>
-            Adapta<span style={{ color: '#f97316' }}>IA</span>
+            Adapta<span style={{ color: '#f97316' }}>EDU</span>
           </span>
         </div>
 
@@ -109,7 +109,7 @@ export default function OGImage() {
         <div style={{ display: 'flex', gap: 40 }}>
           {[
             { value: '500+', label: 'Escolas' },
-            { value: '8', label: 'Perfis' },
+            { value: '9', label: 'Perfis' },
             { value: '80%', label: 'Menos tempo' },
             { value: '4.9★', label: 'Avaliação' },
           ].map((stat) => (
@@ -135,7 +135,7 @@ export default function OGImage() {
             fontWeight: 600,
           }}
         >
-          adaptaia.com.br
+          adaptaedu.com
         </div>
       </div>
     ),

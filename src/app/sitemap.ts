@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { posts } from './blog/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://adaptaia.com.br';
+  const baseUrl = 'https://adaptaedu.com';
   const now = new Date().toISOString();
 
   const staticRoutes: MetadataRoute.Sitemap = [

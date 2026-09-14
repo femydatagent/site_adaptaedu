@@ -148,7 +148,7 @@ Escolas que não cumprirem as exigências do decreto podem enfrentar sanções a
 
 O AdaptaEDU foi desenvolvido especificamente para ajudar escolas a cumprirem as exigências do Decreto 12.773/25. A plataforma:
 
-- Adapta materiais para 8 perfis de acessibilidade automaticamente
+- Adapta materiais para 9 perfis de acessibilidade automaticamente
 - Gera relatórios de uso para comprovação de conformidade
 - Oferece dashboard de métricas para gestores escolares
 - Funciona como tecnologia assistiva reconhecida pela legislação
@@ -230,7 +230,7 @@ Tecnologia assistiva é qualquer recurso, produto ou estratégia que amplia as h
 Antes da IA, adaptar um único material para um aluno com TEA podia levar horas. Hoje, plataformas como o AdaptaEDU fazem isso em minutos — e para múltiplos perfis simultaneamente.
 
 ### Personalização real
-A IA permite adaptar o mesmo conteúdo para 8 perfis diferentes de forma automática, garantindo que cada aluno receba o material no formato mais adequado para seu aprendizado.
+A IA permite adaptar o mesmo conteúdo para 9 perfis diferentes de forma automática, garantindo que cada aluno receba o material no formato mais adequado para seu aprendizado.
 
 ### Documentação e conformidade
 Sistemas de IA geram automaticamente relatórios de uso e métricas, facilitando a comprovação de conformidade com legislações como o Decreto 12.773/25.

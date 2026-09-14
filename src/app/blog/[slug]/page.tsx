@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} | AdaptaEDU`,
     description: post.description,
     keywords: post.keywords,
-    alternates: { canonical: `https://adaptaia.com.br/blog/${post.slug}` },
+    alternates: { canonical: `https://adaptaedu.com/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.description,
@@ -83,9 +83,9 @@ export default async function BlogPost({ params }: Props) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    author: { '@type': 'Organization', name: 'AdaptaEDU', url: 'https://adaptaia.com.br' },
-    publisher: { '@type': 'Organization', name: 'AdaptaEDU', url: 'https://adaptaia.com.br' },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://adaptaia.com.br/blog/${post.slug}` },
+    author: { '@type': 'Organization', name: 'AdaptaEDU', url: 'https://adaptaedu.com' },
+    publisher: { '@type': 'Organization', name: 'AdaptaEDU', url: 'https://adaptaedu.com' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://adaptaedu.com/blog/${post.slug}` },
     keywords: post.keywords.join(', '),
   };
 
@@ -97,8 +97,8 @@ export default async function BlogPost({ params }: Props) {
       <header className="border-b border-border bg-white/80 backdrop-blur-lg sticky top-0 z-50">
         <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-sm">A</span>
-            Adapta<span className="text-orange-500">IA</span>
+            <img src="/logo-mark.svg" alt="" aria-hidden="true" width={32} height={32} className="w-8 h-8" />
+            Adapta<span className="text-orange-500">EDU</span>
           </Link>
           <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             ← Blog

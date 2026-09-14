@@ -6,7 +6,7 @@
 
 ## OVERVIEW
 
-AdaptaIA — Next.js 16 + React 19 + Tailwind v4 + shadcn/ui landing site for an AI-powered educational content accessibility platform. Two-page SPA (Landing + Escolas) with client-side routing via `useState`.
+AdaptaEDU — Next.js 16 + React 19 + Tailwind v4 + shadcn/ui landing site for an AI-powered educational content accessibility platform. Two-page SPA (Landing + Escolas) with client-side routing via `useState`.
 
 ## STRUCTURE
 

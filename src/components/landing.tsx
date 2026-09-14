@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, ChevronUp } from 'lucide-react';
 import {
-  Accessibility,
   ArrowRight,
   BookOpen,
   Brain,
@@ -123,25 +122,29 @@ const schoolFeatures = [
   'Dashboard de uso e métricas',
 ];
 
+const APP_LOGIN_URL = 'https://app.adaptaedu.com/auth/login';
+const APP_SIGNUP_URL = 'https://app.adaptaedu.com/auth/sign-up';
+
 const plans = [
   {
     name: 'Professor',
     desc: 'Para educadores que querem começar a adaptar conteúdos.',
-    price: 'R$ 50',
+    price: 'R$ 100',
     period: '/mês',
-    trial: '3 adaptações grátis para testar',
-    features: ['25 adaptações/mês', 'Todos os perfis de acessibilidade', 'Upload de PDF e DOCX', 'Exportação em PDF', 'Suporte por email'],
+    features: ['30 adaptações/mês', '3 adaptações teste incluídas', 'Todos os perfis de acessibilidade', 'Upload de PDF e DOCX', 'Exportação em PDF', 'Suporte por email'],
     highlight: false,
     cta: 'Testar Grátis',
+    href: APP_SIGNUP_URL,
   },
   {
     name: 'Escola',
     desc: 'Para escolas que precisam de inclusão em escala.',
-    price: 'R$ 500',
+    price: 'R$ 1.250',
     period: '/mês',
-    features: ['3 adaptações teste incluídas', 'Todos os 9 perfis de acessibilidade', 'Upload de PDF, DOCX e imagens', 'Multi-tenant com gestão de professores', 'Dashboard de métricas', 'Suporte prioritário', 'Todos os tipos de adaptação'],
+    features: ['250 adaptações/mês', '5 adaptações teste incluídas', 'Todos os 9 perfis de acessibilidade', 'Upload de PDF, DOCX e imagens', 'Multi-tenant com gestão de professores', 'Dashboard de métricas', 'Suporte prioritário', 'Todos os tipos de adaptação'],
     highlight: true,
     cta: 'Teste Grátis por 14 Dias',
+    href: APP_SIGNUP_URL,
   },
   {
     name: 'Rede de Ensino',
@@ -217,11 +220,9 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-lg border-b border-border shadow-sm' : 'bg-transparent'}`}>
         <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
           <a href="#" className="flex items-center gap-3 group" aria-label="AdaptaEDU - Página inicial">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
-              <Accessibility className="w-5 h-5 text-white" />
-            </div>
+            <img src="/logo-mark.svg" alt="" aria-hidden="true" width={36} height={36} className="w-9 h-9" />
             <span className="text-xl font-bold tracking-tight">
-              Adapta<span className="text-gradient-warm">IA</span>
+              Adapta<span className="text-gradient-warm">EDU</span>
             </span>
           </a>
           <div className="hidden md:flex items-center gap-7">
@@ -238,12 +239,12 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
               <Building2 className="w-3.5 h-3.5" />
               Para Escolas
             </button>
-            <button aria-label="Entrar na plataforma" className="inline-flex items-center justify-center text-sm font-medium transition-all h-8 rounded-md gap-1.5 px-3 hover:bg-accent hover:text-accent-foreground">
+            <a href={APP_LOGIN_URL} aria-label="Entrar na plataforma" className="inline-flex items-center justify-center text-sm font-medium transition-all h-8 rounded-md gap-1.5 px-3 hover:bg-accent hover:text-accent-foreground">
               Entrar
-            </button>
-            <button aria-label="Começar a usar o AdaptaEDU gratuitamente" className="inline-flex items-center justify-center text-sm font-medium transition-all shadow-xs hover:bg-primary/90 h-8 rounded-md gap-1.5 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0">
+            </a>
+            <a href={APP_SIGNUP_URL} aria-label="Começar a usar o AdaptaEDU gratuitamente" className="inline-flex items-center justify-center text-sm font-medium transition-all shadow-xs hover:bg-primary/90 h-8 rounded-md gap-1.5 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0">
               Começar Grátis <ArrowRight className="w-4 h-4 ml-1" />
-            </button>
+            </a>
           </div>
           {/* Mobile hamburger */}
           <button
@@ -269,12 +270,12 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-2 border-t border-border">
-                <button aria-label="Entrar na plataforma" className="inline-flex items-center justify-center text-sm font-medium transition-all h-9 rounded-md px-3 hover:bg-accent hover:text-accent-foreground">
+                <a href={APP_LOGIN_URL} aria-label="Entrar na plataforma" className="inline-flex items-center justify-center text-sm font-medium transition-all h-9 rounded-md px-3 hover:bg-accent hover:text-accent-foreground">
                   Entrar
-                </button>
-                <button aria-label="Começar a usar o AdaptaEDU gratuitamente" className="inline-flex items-center justify-center text-sm font-medium transition-all h-9 rounded-md px-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white">
+                </a>
+                <a href={APP_SIGNUP_URL} aria-label="Começar a usar o AdaptaEDU gratuitamente" className="inline-flex items-center justify-center text-sm font-medium transition-all h-9 rounded-md px-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white">
                   Começar Grátis <ArrowRight className="w-4 h-4 ml-1" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -328,10 +329,10 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             {/* CTA Buttons */}
             <FadeIn delay={0.4}>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                <button className="inline-flex items-center justify-center gap-2 font-medium shadow-xs bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0 px-8 py-6 text-lg rounded-xl warm-glow">
+                <a href={APP_SIGNUP_URL} className="inline-flex items-center justify-center gap-2 font-medium shadow-xs bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0 px-8 py-6 text-lg rounded-xl warm-glow">
                   Adaptar Conteúdo Grátis
                   <ArrowRight className="w-5 h-5 ml-2" />
-                </button>
+                </a>
                 <button className="inline-flex items-center justify-center gap-2 font-medium border bg-background shadow-xs hover:text-accent-foreground px-8 py-6 text-lg rounded-xl border-border hover:bg-secondary">
                   <Play className="w-5 h-5 mr-2" />
                   Ver Como Funciona
@@ -352,7 +353,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                       <div className="w-3 h-3 rounded-full bg-emerald-400" />
                     </div>
                     <div className="flex-1 bg-white border border-slate-200 rounded-md px-3 py-1 text-xs text-slate-400 text-center">
-                      app.adaptaia.com.br
+                      app.adaptaedu.com
                     </div>
                     <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   </div>
@@ -805,7 +806,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
               {[
-                { value: '8', label: 'Perfis de Acessibilidade cobertos pela plataforma' },
+                { value: '9', label: 'Perfis de Acessibilidade cobertos pela plataforma' },
                 { value: '500+', label: 'Escolas Atendidas particulares e públicas' },
                 { value: '80%', label: 'Menos Tempo para adaptar um material' },
                 { value: '12K+', label: 'Alunos Impactados com conteúdo adaptado' },
@@ -908,13 +909,19 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                         </li>
                       ))}
                     </ul>
-                    <button className={`w-full py-3 rounded-xl font-medium transition-all ${
-                      plan.highlight
-                        ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md warm-glow'
-                        : 'bg-secondary text-foreground hover:bg-amber-50'
-                    }`}>
-                      {plan.cta}
-                    </button>
+                    {'href' in plan && plan.href ? (
+                      <a href={plan.href} className={`block w-full py-3 rounded-xl font-medium text-center transition-all ${
+                        plan.highlight
+                          ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md warm-glow'
+                          : 'bg-secondary text-foreground hover:bg-amber-50'
+                      }`}>
+                        {plan.cta}
+                      </a>
+                    ) : (
+                      <button onClick={() => setDemoOpen(true)} className="w-full py-3 rounded-xl font-medium transition-all bg-secondary text-foreground hover:bg-amber-50">
+                        {plan.cta}
+                      </button>
+                    )}
                   </div>
                 </FadeIn>
               ))}
@@ -928,14 +935,14 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Todo aluno merece <span className="text-gradient-warm">conteúdo adaptado</span></h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-                Faça upload de qualquer material e receba versões acessíveis para 8 perfis. Gratuito para começar, sem cartão de crédito.
+                Faça upload de qualquer material e receba versões acessíveis para 9 perfis. Gratuito para começar, sem cartão de crédito.
               </p>
               <p className="text-sm text-muted-foreground mb-6">Inclusão começa com um clique.</p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="inline-flex items-center justify-center gap-2 font-medium shadow-xs bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0 px-8 py-6 text-lg rounded-xl warm-glow">
+                <a href={APP_SIGNUP_URL} className="inline-flex items-center justify-center gap-2 font-medium shadow-xs bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0 px-8 py-6 text-lg rounded-xl warm-glow">
                   Adaptar Meu Primeiro Material
                   <ArrowRight className="w-5 h-5 ml-2" />
-                </button>
+                </a>
                 <button className="inline-flex items-center justify-center gap-2 font-medium border bg-background shadow-xs hover:text-accent-foreground px-8 py-6 text-lg rounded-xl border-border hover:bg-secondary">
                   Falar com Especialista
                 </button>
@@ -972,7 +979,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
               },
               {
                 q: 'Qual é o preço do AdaptaEDU para escolas?',
-                a: 'O plano Professor custa R$50/mês com 25 adaptações mensais e 3 adaptações gratuitas para testar. O plano Escola custa R$500/mês e inclui multi-tenant com gestão de professores, todos os 9 perfis de acessibilidade e dashboard de métricas. Redes de ensino têm plano sob consulta.',
+                a: 'O plano Professor custa R$100/mês com 30 adaptações mensais e 3 adaptações teste incluídas. O plano Escola custa R$1.250/mês, com 250 adaptações mensais, 5 adaptações teste incluídas e inclui multi-tenant com gestão de professores, todos os 9 perfis de acessibilidade e dashboard de métricas. Redes de ensino têm plano sob consulta.',
               },
               {
                 q: 'Quais tipos de arquivo o AdaptaEDU aceita?',
@@ -1005,11 +1012,9 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-8">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center">
-                  <Accessibility className="w-4 h-4 text-white" />
-                </div>
+                <img src="/logo-mark.svg" alt="" aria-hidden="true" width={32} height={32} className="w-8 h-8 bg-white rounded-lg p-0.5" />
                 <span className="text-lg font-bold text-white">
-                  Adapta<span className="text-gradient-warm">IA</span>
+                  Adapta<span className="text-gradient-warm">EDU</span>
                 </span>
               </div>
               <p className="text-sm leading-relaxed">

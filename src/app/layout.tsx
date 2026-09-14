@@ -8,7 +8,7 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://adaptaia.com.br";
+const siteUrl = "https://adaptaedu.com";
 
 // ─── SEO-optimized metadata ───────────────────────────────────────────────────
 // Primary keyword: "adaptação de conteúdo educacional para acessibilidade"
@@ -22,7 +22,7 @@ const siteDescription =
 
 const ogTitle = "AdaptaEDU — IA que adapta conteúdo educacional para inclusão";
 const ogDescription =
-  "Faça upload de PDFs e DOCX e receba versões acessíveis para 8 perfis de necessidade em minutos. Para escolas particulares, públicas e professores.";
+  "Faça upload de PDFs e DOCX e receba versões acessíveis para 9 perfis de necessidade em minutos. Para escolas particulares, públicas e professores.";
 
 export const metadata: Metadata = {
   title: {
@@ -109,7 +109,7 @@ const jsonLdGraph = [
     url: siteUrl,
     logo: {
       "@type": "ImageObject",
-      url: `${siteUrl}/favicon.svg`,
+      url: `${siteUrl}/logo.svg`,
     },
     description:
       "Plataforma de inteligência artificial para adaptação de conteúdo educacional para alunos com necessidades de acessibilidade.",
@@ -140,18 +140,18 @@ const jsonLdGraph = [
       {
         "@type": "Offer",
         name: "Plano Professor",
-        price: "50.00",
+        price: "100.00",
         priceCurrency: "BRL",
         priceValidUntil: "2026-12-31",
-        description: "25 adaptações por mês para professores",
+        description: "30 adaptações por mês para professores, com 3 adaptações teste incluídas",
       },
       {
         "@type": "Offer",
         name: "Plano Escola",
-        price: "500.00",
+        price: "1250.00",
         priceCurrency: "BRL",
         priceValidUntil: "2026-12-31",
-        description: "Multi-tenant para escolas com gestão de professores",
+        description: "250 adaptações por mês, 5 adaptações teste incluídas e multi-tenant para escolas com gestão de professores",
       },
     ],
     aggregateRating: {
@@ -200,7 +200,7 @@ const jsonLdGraph = [
         name: "O que é o AdaptaEDU?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "AdaptaEDU é uma plataforma de inteligência artificial que adapta automaticamente materiais educacionais para 8 perfis de acessibilidade: TEA, TDAH, TPAC, Deficiência Intelectual, Baixa Visão, Dislexia, Discalculia e Disgrafia. Professores fazem upload de PDFs ou DOCX e recebem versões adaptadas em minutos.",
+          text: "AdaptaEDU é uma plataforma de inteligência artificial que adapta automaticamente materiais educacionais para 9 perfis de acessibilidade: TEA, TDAH, TPAC, Deficiência Intelectual, Baixa Visão, Dislexia, Discalculia, Disgrafia e Altas Habilidades/Superdotação. Professores fazem upload de PDFs ou DOCX e recebem versões adaptadas em minutos.",
         },
       },
       {
@@ -224,7 +224,7 @@ const jsonLdGraph = [
         name: "Qual é o preço do AdaptaEDU para escolas?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "O plano Professor custa R$50/mês com 25 adaptações mensais e 3 adaptações gratuitas para testar. O plano Escola custa R$500/mês e inclui multi-tenant com gestão de professores, todos os 8 perfis de acessibilidade e dashboard de métricas. Redes de ensino têm plano sob consulta.",
+          text: "O plano Professor custa R$100/mês com 30 adaptações mensais e 3 adaptações teste incluídas. O plano Escola custa R$1.250/mês, com 250 adaptações mensais, 5 adaptações teste incluídas e multi-tenant com gestão de professores, todos os 9 perfis de acessibilidade e dashboard de métricas. Redes de ensino têm plano sob consulta.",
         },
       },
       {
