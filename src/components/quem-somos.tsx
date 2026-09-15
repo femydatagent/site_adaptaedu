@@ -4,51 +4,138 @@ import { Eye, Target, Quote } from 'lucide-react';
 import FadeIn from './fade-in';
 
 /**
- * Seção "Quem somos": missão, visão e a fundadora.
+ * Seção "Quem somos": missão, visão e as pessoas por trás do AdaptaEDU.
  *
- * Os dados da Andrea ficam em `fundadora` abaixo — é o único lugar a editar.
- * Campos de texto vazios simplesmente não são renderizados, então a seção
- * continua correta enquanto a biografia não estiver pronta.
+ * Os dados ficam em `equipe` abaixo — é o único lugar a editar. Cada pessoa só
+ * aparece quando tem conteúdo de verdade, então publicar antes de a biografia
+ * ficar pronta mostra a seção íntegra, sem cartão pela metade.
  */
 
-const fundadora = {
-  nome: 'Andrea Gonçalves Monteiro',
-
+type Pessoa = {
+  nome: string;
   /** Cargo ou papel. Ex.: 'Fundadora e CEO'. */
-  cargo: '',
-
+  cargo: string;
   /** Formação e atuação, uma linha. Ex.: 'Pedagoga, especialista em AEE'. */
-  credencial: '',
-
+  credencial: string;
   /** Parágrafos da biografia. Cada item vira um parágrafo. */
-  bio: [] as string[],
-
-  /** Frase dela, opcional — aparece destacada ao final. */
-  citacao: '',
-
+  bio: string[];
+  /** Frase da pessoa, opcional — aparece destacada ao final. */
+  citacao?: string;
   /** Foto em /public. Ex.: '/andrea.jpg'. Sem foto, mostra as iniciais. */
-  foto: '',
-
-  /** Perfil público, opcional. Ex.: 'https://linkedin.com/in/...'. */
-  linkedin: '',
+  foto?: string;
+  /** Perfil público, opcional. */
+  linkedin?: string;
+  /** Cor do avatar de iniciais, quando não há foto. */
+  tom: 'teal' | 'amber';
 };
 
+const equipe: Pessoa[] = [
+  {
+    nome: 'Andrea Gonçalves Monteiro',
+    cargo: '',
+    credencial: '',
+    bio: [],
+    citacao: '',
+    foto: '',
+    linkedin: '',
+    tom: 'teal',
+  },
+  {
+    nome: 'Fernando Outa',
+    cargo: '',
+    credencial: '',
+    bio: [],
+    citacao: '',
+    foto: '',
+    linkedin: '',
+    tom: 'amber',
+  },
+];
+
+const avatarPorTom = {
+  teal: 'bg-gradient-to-br from-teal-500 to-teal-700',
+  amber: 'bg-gradient-to-br from-amber-500 to-orange-600',
+} as const;
+
 /** Iniciais do primeiro e do último nome, ignorando partículas ("de", "da"). */
-const partesDoNome = fundadora.nome.split(' ').filter(parte => parte.length > 2);
-const iniciais = [partesDoNome.at(0), partesDoNome.at(-1)]
-  .filter(Boolean)
-  .map(parte => parte![0])
-  .join('');
+function iniciaisDe(nome: string): string {
+  const partes = nome.split(' ').filter(parte => parte.length > 2);
+  return [partes.at(0), partes.at(-1)]
+    .filter((parte): parte is string => Boolean(parte))
+    .map(parte => parte[0])
+    .join('');
+}
 
-const temBio = fundadora.bio.length > 0;
+function temConteudo(pessoa: Pessoa): boolean {
+  return Boolean(pessoa.cargo || pessoa.credencial || pessoa.bio.length > 0);
+}
 
-/**
- * O bloco da fundadora só aparece quando há conteúdo de verdade. Sem isso,
- * publicar antes de preencher mostraria um cartão com apenas um nome solto.
- */
-const temFundadora = Boolean(fundadora.cargo || fundadora.credencial || temBio);
+function CartaoPessoa({ pessoa }: { pessoa: Pessoa }) {
+  return (
+    <div className="h-full rounded-2xl bg-card border border-border shadow-sm p-8">
+      <div className="flex items-center gap-5 mb-6">
+        {pessoa.foto ? (
+          <img
+            src={pessoa.foto}
+            alt={`Retrato de ${pessoa.nome}`}
+            width={80}
+            height={80}
+            className="w-20 h-20 rounded-2xl object-cover border border-border flex-shrink-0"
+          />
+        ) : (
+          <div
+            aria-hidden="true"
+            className={`w-20 h-20 rounded-2xl flex-shrink-0 text-white flex items-center justify-center text-2xl font-bold ${avatarPorTom[pessoa.tom]}`}
+          >
+            {iniciaisDe(pessoa.nome)}
+          </div>
+        )}
+
+        <div className="min-w-0">
+          <h4 className="text-xl font-bold text-foreground leading-tight">{pessoa.nome}</h4>
+          {pessoa.cargo && (
+            <p className="text-sm font-semibold text-amber-600 mt-1">{pessoa.cargo}</p>
+          )}
+          {pessoa.credencial && (
+            <p className="text-sm text-muted-foreground mt-0.5">{pessoa.credencial}</p>
+          )}
+        </div>
+      </div>
+
+      {pessoa.bio.length > 0 && (
+        <div className="space-y-3">
+          {pessoa.bio.map((paragrafo, i) => (
+            <p key={i} className="text-sm text-muted-foreground leading-relaxed">
+              {paragrafo}
+            </p>
+          ))}
+        </div>
+      )}
+
+      {pessoa.citacao && (
+        <blockquote className="mt-5 border-l-4 border-amber-400 pl-4 py-1">
+          <Quote className="w-4 h-4 text-amber-500 mb-1" aria-hidden="true" />
+          <p className="text-sm text-muted-foreground italic leading-relaxed">{pessoa.citacao}</p>
+        </blockquote>
+      )}
+
+      {pessoa.linkedin && (
+        <a
+          href={pessoa.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 mt-5 text-sm font-medium text-teal-700 hover:text-teal-800 underline underline-offset-4"
+        >
+          Perfil no LinkedIn
+        </a>
+      )}
+    </div>
+  );
+}
 
 export default function QuemSomos() {
+  const pessoasVisiveis = equipe.filter(temConteudo);
+
   return (
     <section id="quem-somos" className="py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
@@ -67,7 +154,7 @@ export default function QuemSomos() {
           </div>
         </FadeIn>
 
-        {/* Missão e visão: dois painéis com tratamento distinto, não um grid uniforme */}
+        {/* Missão e visão: tratamento visual distinto entre si, não dois cartões iguais */}
         <div className="grid md:grid-cols-2 gap-6 mb-20 max-w-5xl mx-auto">
           <FadeIn direction="right">
             <div className="h-full rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 p-8 text-white shadow-lg">
@@ -93,76 +180,21 @@ export default function QuemSomos() {
           </FadeIn>
         </div>
 
-        {/* Fundadora */}
-        {temFundadora && (
-        <FadeIn>
-          <div className="max-w-4xl mx-auto">
-            <div className="rounded-2xl bg-card border border-border shadow-sm overflow-hidden">
-              <div className="grid sm:grid-cols-[auto_1fr] gap-8 p-8 sm:p-10">
-                <div className="flex sm:block justify-center">
-                  {fundadora.foto ? (
-                    <img
-                      src={fundadora.foto}
-                      alt={`Retrato de ${fundadora.nome}`}
-                      width={128}
-                      height={128}
-                      className="w-32 h-32 rounded-2xl object-cover border border-border"
-                    />
-                  ) : (
-                    <div
-                      aria-hidden="true"
-                      className="w-32 h-32 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 text-white flex items-center justify-center text-4xl font-bold"
-                    >
-                      {iniciais}
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground">{fundadora.nome}</h3>
-
-                  {fundadora.cargo && (
-                    <p className="text-sm font-semibold text-amber-600 mt-1">{fundadora.cargo}</p>
-                  )}
-
-                  {fundadora.credencial && (
-                    <p className="text-sm text-muted-foreground mt-1">{fundadora.credencial}</p>
-                  )}
-
-                  {temBio && (
-                    <div className="mt-5 space-y-4">
-                      {fundadora.bio.map((paragrafo, i) => (
-                        <p key={i} className="text-sm md:text-[15px] text-muted-foreground leading-relaxed">
-                          {paragrafo}
-                        </p>
-                      ))}
-                    </div>
-                  )}
-
-                  {fundadora.citacao && (
-                    <blockquote className="mt-6 border-l-4 border-amber-400 pl-4 py-1">
-                      <Quote className="w-4 h-4 text-amber-500 mb-1" aria-hidden="true" />
-                      <p className="text-sm text-muted-foreground italic leading-relaxed">
-                        {fundadora.citacao}
-                      </p>
-                    </blockquote>
-                  )}
-
-                  {fundadora.linkedin && (
-                    <a
-                      href={fundadora.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 mt-5 text-sm font-medium text-teal-700 hover:text-teal-800 underline underline-offset-4"
-                    >
-                      Perfil no LinkedIn
-                    </a>
-                  )}
-                </div>
+        {pessoasVisiveis.length > 0 && (
+          <FadeIn>
+            <div className="max-w-5xl mx-auto">
+              <h3 className="text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-8">
+                Quem está por trás
+              </h3>
+              <div
+                className={`grid gap-6 ${pessoasVisiveis.length > 1 ? 'md:grid-cols-2' : 'max-w-2xl mx-auto'}`}
+              >
+                {pessoasVisiveis.map(pessoa => (
+                  <CartaoPessoa key={pessoa.nome} pessoa={pessoa} />
+                ))}
               </div>
             </div>
-          </div>
-        </FadeIn>
+          </FadeIn>
         )}
       </div>
     </section>
