@@ -53,7 +53,7 @@ const equipe: Pessoa[] = [
       'Hoje é CPO e co-fundador da MyDataAgent, primeira plataforma brasileira de agentes autônomos de IA. É dele a engenharia que faz a adaptação de um material acontecer em minutos — e continuar acontecendo quando são milhares deles.',
     ],
     citacao: '',
-    foto: '/equipe/fernando.svg',
+    foto: '/equipe/fernando.jpg',
     linkedin: '',
     tom: 'amber',
   },
