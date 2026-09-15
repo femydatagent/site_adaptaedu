@@ -87,7 +87,7 @@ function CartaoPessoa({ pessoa }: { pessoa: Pessoa }) {
             alt={`Retrato de ${pessoa.nome}`}
             width={80}
             height={80}
-            className="w-20 h-20 rounded-2xl object-cover border border-border flex-shrink-0"
+            className="w-20 h-20 rounded-2xl object-cover object-top border border-border flex-shrink-0"
           />
         ) : (
           <div
