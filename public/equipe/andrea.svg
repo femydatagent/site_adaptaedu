@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320" role="img" aria-label="Foto de Andrea Gonçalves Monteiro">
+  <title>Foto de Andrea Gonçalves Monteiro</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#0f5f6b"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="320" fill="url(#g)"/>
+  <!-- silhueta discreta, para ler como espaço de retrato -->
+  <g fill="#ffffff" opacity="0.12">
+    <circle cx="160" cy="124" r="52"/>
+    <path d="M160 194c-52 0-94 34-94 76v50h188v-50c0-42-42-76-94-76z"/>
+  </g>
+  <text x="160" y="182" text-anchor="middle" fill="#ffffff"
+        font-family="Poppins, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="104" font-weight="700" letter-spacing="2">AM</text>
+</svg>

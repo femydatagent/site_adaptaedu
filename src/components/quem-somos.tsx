@@ -21,7 +21,11 @@ type Pessoa = {
   bio: string[];
   /** Frase da pessoa, opcional — aparece destacada ao final. */
   citacao?: string;
-  /** Foto em /public. Ex.: '/andrea.jpg'. Sem foto, mostra as iniciais. */
+  /**
+   * Retrato em /public/equipe. Hoje aponta para um SVG provisório com as
+   * iniciais — para usar a foto real, basta substituir o arquivo mantendo o
+   * nome, ou apontar para o novo caminho aqui. Sem foto, cai nas iniciais.
+   */
   foto?: string;
   /** Perfil público, opcional. */
   linkedin?: string;
@@ -36,17 +40,20 @@ const equipe: Pessoa[] = [
     credencial: '',
     bio: [],
     citacao: '',
-    foto: '',
+    foto: '/equipe/andrea.svg',
     linkedin: '',
     tom: 'teal',
   },
   {
     nome: 'Fernando Outa',
-    cargo: '',
-    credencial: '',
-    bio: [],
+    cargo: 'CPO e Co-fundador da MyDataAgent',
+    credencial: 'Python, IA generativa e automação',
+    bio: [
+      'Especializou-se em inteligência artificial no Canadá, em 2017. Dois anos depois fundou a Bettrads, hub de IA generativa cujos resultados superaram benchmarks do GPT-3.',
+      'Hoje é CPO e co-fundador da MyDataAgent, primeira plataforma brasileira de agentes autônomos de IA. É dele a engenharia que faz a adaptação de um material acontecer em minutos — e continuar acontecendo quando são milhares deles.',
+    ],
     citacao: '',
-    foto: '',
+    foto: '/equipe/fernando.svg',
     linkedin: '',
     tom: 'amber',
   },
