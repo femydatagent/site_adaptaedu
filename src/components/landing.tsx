@@ -37,6 +37,7 @@ import {
 } from 'lucide-react';
 import FadeIn from './fade-in';
 import DemoModal from './demo-modal';
+import QuemSomos from './quem-somos';
 import { useToast } from '@/hooks/use-toast';
 
 function EarIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -210,6 +211,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
     { href: '#conteudo', label: 'Conteúdo' },
     { href: '#escolas', label: 'Escolas' },
     { href: '#legal', label: 'Legal' },
+    { href: '#quem-somos', label: 'Quem somos' },
     { href: '#planos', label: 'Planos' },
     { href: '/blog', label: 'Blog' },
   ];
@@ -805,6 +807,8 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
           </div>
         </section>
 
+        <QuemSomos />
+
         {/* Stats */}
         <section className="py-16 bg-gradient-to-r from-amber-500 to-orange-500">
           <div className="max-w-7xl mx-auto px-6">
@@ -1055,6 +1059,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <li><a href="/privacidade" className="hover:text-amber-400 transition-colors">Privacidade</a></li>
                 <li><a href="/termos" className="hover:text-amber-400 transition-colors">Termos de Uso</a></li>
                 <li><a href="/lgpd" className="hover:text-amber-400 transition-colors">LGPD</a></li>
+                <li><a href="/#quem-somos" className="hover:text-amber-400 transition-colors">Quem somos</a></li>
                 <li><a href="/acessibilidade" className="hover:text-amber-400 transition-colors">Acessibilidade</a></li>
                 <li><a href="/cookies" className="hover:text-amber-400 transition-colors">Cookies</a></li>
               </ul>
