@@ -35,18 +35,22 @@ type Pessoa = {
 
 const equipe: Pessoa[] = [
   {
-    nome: 'Andrea Gonçalves Monteiro',
-    cargo: '',
-    credencial: '',
-    bio: [],
+    nome: 'Andréa Monteiro',
+    cargo: 'Sócia',
+    credencial: 'Pedagoga (USP), especialista em inclusão (UNICAMP)',
+    bio: [
+      'Seu encontro com a inclusão começou em 1993, numa das escolas pioneiras no Brasil. É pedagoga pela USP e especialista em inclusão pela UNICAMP e pelo Centro de Referência em Distúrbios de Aprendizagem.',
+      'É coautora de “Caminhos pedagógicos da inclusão — Como estamos implementando a educação (de qualidade) para todos nas escolas brasileiras” (Editora Memnon). Hoje leciona nos anos iniciais e no AEE, o atendimento educacional especializado.',
+      'É dela a fundamentação pedagógica que faz a adaptação para cada perfil de aluno acontecer.',
+    ],
     citacao: '',
-    foto: '/equipe/andrea.svg',
+    foto: '/equipe/andrea.jpg',
     linkedin: '',
     tom: 'teal',
   },
   {
     nome: 'Fernando Outa',
-    cargo: 'CPO e Co-fundador da MyDataAgent',
+    cargo: 'Sócio',
     credencial: 'Python, IA generativa e automação',
     bio: [
       'Especializou-se em inteligência artificial no Canadá, em 2017. Dois anos depois fundou a Bettrads, hub de IA generativa cujos resultados superaram benchmarks do GPT-3.',
