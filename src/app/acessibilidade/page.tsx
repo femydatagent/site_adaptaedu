@@ -158,6 +158,16 @@ export default function AcessibilidadePage() {
               'Pode haver anúncios imprecisos ou ordem de leitura inesperada em componentes complexos',
               'Em até 1 mês',
             ],
+            [
+              'Auditoria por terceiro independente ainda não realizada',
+              'A declaração apoia-se em avaliação da própria equipe, e não em verificação externa',
+              'Sem previsão',
+            ],
+            [
+              'Acessibilidade da plataforma app.adaptaedu.com avaliada separadamente',
+              'Esta declaração cobre o site adaptaedu.com; a aplicação foi avaliada em 18/09/2026 e tem ciclo próprio',
+              'Contínuo',
+            ],
           ]}
         />
       </Section>
@@ -169,22 +179,14 @@ export default function AcessibilidadePage() {
             'Verificação automatizada da estrutura das páginas: idioma declarado, marcos de navegação, hierarquia de títulos, textos alternativos, nomes acessíveis de controles e rótulos de formulário.',
             'Testes manuais de navegação exclusivamente por teclado, incluindo a abertura e o fechamento de janelas modais.',
             'Verificação do comportamento sob preferência de movimento reduzido.',
+            'Revisão pedagógica conduzida por especialista em educação inclusiva da própria equipe.',
           ]}
         />
         <P>
-          Data da última avaliação: <time dateTime="2026-09-18">18 de setembro de 2026</time>.
+          Data da última avaliação: <time dateTime="2026-09-18">18 de setembro de 2026</time>. Método:
+          autoavaliação — conduzida pela própria equipe, sem auditoria de terceiro independente.
         </P>
-        <Callout tone="amber" title="A confirmar antes de publicar esta seção">
-          <p>
-            <Fill>
-              A AdaptaEDU informou que uma auditoria independente de acessibilidade foi realizada em
-              18/09/2026. Para declará-la aqui é preciso nomear quem a conduziu e ter o relatório
-              disponível — uma declaração de auditoria independente sem auditor identificado é o tipo de
-              afirmação que se torna um problema quando questionada. Enquanto isso, esta página mantém
-              &ldquo;autoavaliação&rdquo;
-            </Fill>
-          </p>
-        </Callout>
+
       </Section>
 
       <Section id="plataforma" title="8. Acessibilidade do material gerado">

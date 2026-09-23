@@ -20,12 +20,7 @@ export const CONTATO = {
   geral: 'suporte@adaptaedu.com',
   privacidade: 'suporte@adaptaedu.com',
   acessibilidade: 'suporte@adaptaedu.com',
-  /**
-   * ATENÇÃO: domínio diferente dos demais, conforme informado pela AdaptaEDU.
-   * Confirmar se é intencional — apontar o suporte do AdaptaEDU para o domínio
-   * da MyDataAgent confunde o cliente e pode ser engano de digitação.
-   */
-  suporte: 'suporte@mydatagent.ai',
+  suporte: 'suporte@adaptaedu.com',
 } as const;
 
 export const RESPONSAVEIS = {

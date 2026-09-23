@@ -249,12 +249,9 @@ export default function TermosPage() {
         <List
           items={[
             <>
-              Manutenções programadas serão comunicadas com antecedência quando previsíveis.{' '}
-              <Fill>
-                A AdaptaEDU indicou &ldquo;janela de manutenção de no máximo 15 dias&rdquo;. Quinze dias
-                de indisponibilidade seria inaceitável num contrato; confirmar se o que se quis dizer foi
-                aviso prévio de 15 dias, ou janela de até 15 minutos, ou outra coisa
-              </Fill>
+              Manutenções programadas serão comunicadas com antecedência quando previsíveis, e a janela
+              de indisponibilidade é de{' '}
+              <strong className="text-foreground">no máximo 24 horas</strong>.
             </>,
             <>
               Suporte por e-mail em{' '}
@@ -283,8 +280,8 @@ export default function TermosPage() {
             'Não respondemos por indisponibilidade causada por falha de conexão do usuário, de terceiros ou por caso fortuito e força maior.',
             <>
               Salvo em caso de dolo, nossa responsabilidade total fica limitada ao valor efetivamente pago
-              pelo contratante nos <Fill>ex.: 12</Fill> meses anteriores ao evento que originou a
-              reclamação.
+              pelo contratante nos <strong className="text-foreground">12 meses</strong> anteriores ao
+              evento que originou a reclamação.
             </>,
           ]}
         />

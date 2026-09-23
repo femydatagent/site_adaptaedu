@@ -124,34 +124,24 @@ export default function CookiesPage() {
           head={['Cookie', 'Finalidade', 'Duração', 'Tipo']}
           rows={[
             [
-              <Fill key="n">nome do cookie de sessão</Fill>,
-              'Manter você autenticado entre páginas, evitando novo login a cada navegação',
-              <Fill key="d">duração</Fill>,
+              <code key="n" className="text-xs">sb-&lt;projeto&gt;-auth-token</code>,
+              'Guarda a sessão autenticada — o token de acesso e o de renovação — para manter você conectado entre páginas, sem novo login a cada navegação',
+              'Enquanto a sessão durar, renovada automaticamente com o uso',
               'Próprio, necessário',
             ],
             [
-              <Fill key="r">nome do cookie de renovação</Fill>,
-              'Renovar a sessão com segurança sem exigir novo login',
-              <Fill key="d2">duração</Fill>,
-              'Próprio, necessário',
-            ],
-            [
-              <Fill key="c">nome do cookie de proteção CSRF, se houver</Fill>,
-              'Proteger formulários contra requisições forjadas de outros sites',
-              'Sessão',
+              <code key="p" className="text-xs">sb-&lt;projeto&gt;-auth-token.0</code>,
+              'Continuação do cookie acima quando o conteúdo excede o limite de tamanho do navegador e precisa ser dividido em partes',
+              'A mesma do cookie principal',
               'Próprio, necessário',
             ],
           ]}
         />
-        <Callout tone="amber" title="A preencher com os dados reais da aplicação">
-          <p>
-            <Fill>
-              Levantar na aplicação os nomes exatos dos cookies definidos pelo provedor de autenticação,
-              sua duração e se algum é de terceiro. Se a autenticação usa Supabase, os nomes seguem o
-              padrão sb-&lt;projeto&gt;-auth-token
-            </Fill>
-          </p>
-        </Callout>
+        <P>
+          A autenticação da plataforma usa o Supabase, e <code className="text-xs">&lt;projeto&gt;</code>{' '}
+          no nome acima é a referência da nossa instância. Não usamos cookies de terceiros para
+          autenticar.
+        </P>
         <P>
           Cookies necessários não podem ser desativados sem inviabilizar o acesso à conta. Por serem
           indispensáveis à prestação do serviço que você solicitou, sua utilização não depende de
