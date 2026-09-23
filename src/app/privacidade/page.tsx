@@ -25,6 +25,7 @@ const toc = [
   { id: 'seguranca', label: 'Segurança da informação' },
   { id: 'direitos', label: 'Seus direitos como titular' },
   { id: 'cookies', label: 'Cookies e tecnologias semelhantes' },
+  { id: 'comunicacoes', label: 'Comunicações que enviamos' },
   { id: 'alteracoes', label: 'Alterações nesta política' },
   { id: 'contato', label: 'Encarregado e canais de contato' },
 ];
@@ -180,11 +181,36 @@ export default function PrivacidadePage() {
               dado por ao menos um dos pais ou responsável legal, salvo nas hipóteses legais de dispensa.
             </>,
             <>
+              <strong className="text-foreground">Não envie laudos nem diagnósticos.</strong> Diagnóstico
+              médico, CID, prontuário, relatório clínico e medicação não são necessários para adaptar o
+              material — e transformam um pedido simples em tratamento de dado sensível de saúde.
+            </>,
+            <>
               <strong className="text-foreground">A plataforma não é destinada ao uso direto por alunos.</strong>{' '}
               As contas são criadas para professores e equipes escolares.
             </>,
           ]}
         />
+
+        <SubTitle>4.1 Na prática, ao pedir uma adaptação</SubTitle>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="rounded-xl border border-emerald-300 bg-emerald-50 p-5">
+            <p className="text-sm font-semibold text-emerald-800 mb-2">Prefira</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              &ldquo;Adaptar este conteúdo para baixa visão.&rdquo;
+            </p>
+          </div>
+          <div className="rounded-xl border border-rose-300 bg-rose-50 p-5">
+            <p className="text-sm font-semibold text-rose-800 mb-2">Evite quando desnecessário</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              &ldquo;O aluno João tem diagnóstico X, CID Y, usa o medicamento Z…&rdquo;
+            </p>
+          </div>
+        </div>
+        <P>
+          A informação funcional — o que o material precisa ter para o aluno acompanhar — é suficiente
+          para a adaptação. O histórico clínico não é.
+        </P>
       </Section>
 
       <Section id="finalidades" title="5. Para que usamos os dados e com que base legal">
@@ -289,10 +315,21 @@ export default function PrivacidadePage() {
             'Criptografia em trânsito (HTTPS/TLS) em todo o site e na plataforma.',
             'Criptografia dos dados armazenados e senhas protegidas por hash.',
             'Isolamento de dados por instituição, com controle de acesso por perfil de usuário.',
+            'Pseudonimização dos dados sempre que tecnicamente aplicável à finalidade.',
+            'Limitação do prazo de armazenamento ao necessário para cada finalidade.',
             'Registro de acessos e operações relevantes na plataforma.',
+            'Aplicação do princípio do menor privilégio na concessão de acessos.',
             'Revisão periódica de permissões e de fornecedores.',
           ]}
         />
+
+        <SubTitle>9.1 Quem enxerga o quê, dentro da escola</SubTitle>
+        <P>
+          Quando a plataforma é usada de forma institucional, os dados são organizados por escola,
+          turma e professor. Um professor não tem acesso a materiais e dados de alunos de outra escola
+          ou de turmas que não sejam suas, quando esse acesso não for necessário à sua função. O acesso
+          aos dados de alunos fica restrito a quem efetivamente precisa deles para trabalhar.
+        </P>
         <P>
           Em caso de incidente de segurança que possa acarretar risco ou dano relevante aos titulares,
           comunicaremos a Autoridade Nacional de Proteção de Dados (ANPD) e os titulares afetados em prazo
@@ -325,6 +362,14 @@ export default function PrivacidadePage() {
             instituição controladora e auxiliaremos na resposta.
           </p>
         </Callout>
+
+        <SubTitle>10.1 Pais e responsáveis legais</SubTitle>
+        <P>
+          Solicitações relativas a dados de crianças e adolescentes podem ser feitas pelos pais ou pelo
+          responsável legal. Antes de fornecer informações ou executar a solicitação, podemos pedir dados
+          razoáveis para verificar a identidade de quem pede e a sua legitimidade para representar o
+          titular — uma precaução que existe para proteger o próprio aluno.
+        </P>
       </Section>
 
       <Section id="cookies" title="11. Cookies e tecnologias semelhantes">
@@ -351,7 +396,33 @@ export default function PrivacidadePage() {
         </P>
       </Section>
 
-      <Section id="alteracoes" title="12. Alterações nesta política">
+      <Section id="comunicacoes" title="12. Comunicações que enviamos">
+        <P>
+          Podemos usar o e-mail, o WhatsApp ou outros canais que você cadastrou para:
+        </P>
+        <List
+          items={[
+            'Autenticar o acesso e confirmar operações da conta.',
+            'Recuperar acesso e redefinir senha.',
+            'Enviar alertas de segurança.',
+            'Responder ao suporte e dar andamento a solicitações.',
+            'Comunicar mudanças no serviço, nos planos ou nestes documentos.',
+          ]}
+        />
+        <P>
+          Essas comunicações fazem parte da prestação do serviço e não dependem de consentimento — sem
+          elas não é possível operar a conta com segurança.
+        </P>
+        <Callout tone="teal" title="Comunicações promocionais">
+          <p>
+            Mensagens de divulgação, quando enviadas, dependem do seu consentimento e trazem sempre uma
+            forma simples de descadastramento. Cancelar o recebimento de promoções não afeta as
+            comunicações operacionais acima.
+          </p>
+        </Callout>
+      </Section>
+
+      <Section id="alteracoes" title="13. Alterações nesta política">
         <P>
           Podemos atualizar esta política para refletir mudanças legais, técnicas ou de produto. A data da
           última atualização aparece no topo desta página. Alterações relevantes serão comunicadas por
@@ -359,7 +430,7 @@ export default function PrivacidadePage() {
         </P>
       </Section>
 
-      <Section id="contato" title="13. Encarregado e canais de contato">
+      <Section id="contato" title="14. Encarregado e canais de contato">
         <P>
           Nosso encarregado pelo tratamento de dados pessoais (DPO), conforme o art. 41 da LGPD, é{' '}
           <strong className="text-foreground">{RESPONSAVEIS.encarregado}</strong>, que pode ser contatado
