@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import LegalPage from '@/components/legal/legal-page';
+import { EMPRESA, CONTATO, RESPONSAVEIS, FORNECEDORES } from '@/components/legal/empresa';
 import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
 
 export const metadata: Metadata = {
@@ -43,8 +44,9 @@ export default function PrivacidadePage() {
           conteúdo pedagógico.
         </P>
         <P>
-          Responsável pelo tratamento: <Fill>razão social completa</Fill>, inscrita no CNPJ sob o
-          nº <Fill>CNPJ</Fill>, com sede em <Fill>endereço completo</Fill>.
+          Responsável pelo tratamento: <strong className="text-foreground">{EMPRESA.razaoSocial}</strong>,
+          que opera sob o nome fantasia {EMPRESA.nomeFantasia}, inscrita no CNPJ sob o
+          nº {EMPRESA.cnpj}, com sede em {EMPRESA.endereco}.
         </P>
         <P>Esta política se aplica a:</P>
         <List
@@ -200,12 +202,14 @@ export default function PrivacidadePage() {
         />
         <Callout tone="teal" title="Treinamento de modelos de IA">
           <p>
-            <Fill>
-              Confirmar e descrever: o conteúdo enviado pelas escolas é usado para treinar modelos de IA?
-              Se não for — o que recomendamos — declarar expressamente que o material é processado apenas
-              para gerar a adaptação solicitada e não alimenta treinamento de modelos, próprios ou de
-              terceiros
-            </Fill>
+            O material enviado é processado{' '}
+            <strong className="text-foreground">apenas para gerar a adaptação solicitada</strong>. Não
+            utilizamos conteúdo pedagógico das escolas para treinar, ajustar ou avaliar modelos de
+            inteligência artificial, próprios ou de terceiros.
+          </p>
+          <p>
+            Os provedores de IA que utilizamos são contratados sob termos de API corporativa, em que o
+            conteúdo enviado não alimenta o treinamento dos modelos deles.
           </p>
         </Callout>
       </Section>
@@ -216,13 +220,10 @@ export default function PrivacidadePage() {
           destinatários:
         </P>
         <Table
-          head={['Categoria', 'Finalidade', 'Fornecedor']}
+          head={['Categoria', 'Finalidade', 'Fornecedor', 'País de processamento']}
           rows={[
-            ['Infraestrutura e hospedagem', 'Hospedar a aplicação e o site', <Fill key="a">ex.: Vercel, região</Fill>],
-            ['Banco de dados e autenticação', 'Armazenar contas e registros da aplicação', <Fill key="b">ex.: Supabase, região</Fill>],
-            ['Processamento por IA', 'Gerar a adaptação do material enviado', <Fill key="c">nome do provedor de IA e país de processamento</Fill>],
-            ['Comunicação e suporte', 'Responder solicitações e enviar notificações', <Fill key="d">ferramentas utilizadas</Fill>],
-            ['Autoridades públicas', 'Cumprir ordem judicial ou obrigação legal', '—'],
+            ...FORNECEDORES.map(f => [f.categoria, f.finalidade, f.nome, f.pais]),
+            ['Autoridades públicas', 'Cumprir ordem judicial ou obrigação legal', '—', 'Brasil'],
           ]}
         />
         <P>
@@ -233,17 +234,29 @@ export default function PrivacidadePage() {
 
       <Section id="transferencia" title="7. Transferência internacional">
         <P>
-          Parte dos nossos fornecedores pode processar dados fora do Brasil. Nesse caso, a transferência
-          observa as hipóteses do art. 33 da LGPD e adota salvaguardas contratuais adequadas.
+          <strong className="text-foreground">Sim, há transferência internacional.</strong> Os
+          fornecedores que sustentam a plataforma processam dados nos Estados Unidos:
         </P>
-        <Callout tone="amber" title="A preencher antes da publicação">
+        <Table
+          head={['Fornecedor', 'O que processa', 'País']}
+          rows={FORNECEDORES.map(f => [f.nome, f.finalidade, f.pais])}
+        />
+        <P>
+          A transferência ocorre para viabilizar a execução do contrato firmado com você ou com a sua
+          instituição, e para a prestação do serviço que você solicitou — hipóteses previstas no art. 33
+          da LGPD. Com cada fornecedor são adotadas as salvaguardas contratuais oferecidas para
+          tratamento de dados pessoais, incluindo cláusulas de proteção de dados e compromissos de
+          confidencialidade.
+        </P>
+        <Callout tone="teal" title="Para escolas públicas e processos de contratação">
           <p>
-            <Fill>
-              Listar quais fornecedores processam dados fora do Brasil, em que países, e qual a hipótese
-              legal e a salvaguarda aplicada (cláusulas contratuais padrão, por exemplo). Este é o ponto
-              mais sensível do documento quando há processamento de conteúdo escolar por IA hospedada no
-              exterior
-            </Fill>
+            Esta é a informação mais pedida em due diligence e licitação. A relação acima está sempre
+            atualizada nesta página, e fornecemos sob solicitação a documentação contratual de cada
+            operador — veja a{' '}
+            <a href="/lgpd#documentos" className="text-amber-600 underline underline-offset-4 hover:text-amber-700">
+              lista de documentos
+            </a>
+            .
           </p>
         </Callout>
       </Section>
@@ -304,7 +317,7 @@ export default function PrivacidadePage() {
         />
         <Callout tone="teal" title="Como exercer">
           <p>
-            Escreva para <Fill>e-mail do encarregado</Fill>. Responderemos no prazo legal. Podemos pedir
+            Escreva para <strong className="text-foreground">{CONTATO.privacidade}</strong>. Responderemos no prazo legal. Podemos pedir
             informações adicionais para confirmar sua identidade antes de atender ao pedido.
           </p>
           <p>
@@ -349,11 +362,12 @@ export default function PrivacidadePage() {
       <Section id="contato" title="13. Encarregado e canais de contato">
         <P>
           Nosso encarregado pelo tratamento de dados pessoais (DPO), conforme o art. 41 da LGPD, é{' '}
-          <Fill>nome do encarregado</Fill>, que pode ser contatado em <Fill>e-mail do encarregado</Fill>.
+          <strong className="text-foreground">{RESPONSAVEIS.encarregado}</strong>, que pode ser contatado
+          em {CONTATO.privacidade}.
         </P>
         <P>
-          Para dúvidas gerais sobre privacidade: <Fill>e-mail de contato</Fill>. Endereço para
-          correspondência: <Fill>endereço completo</Fill>.
+          Para dúvidas gerais sobre privacidade: {CONTATO.geral}. Endereço para
+          correspondência: {EMPRESA.endereco}.
         </P>
         <P>
           Você também pode apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD) pelos

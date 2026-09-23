@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import LegalPage from '@/components/legal/legal-page';
+import { EMPRESA, CONTATO } from '@/components/legal/empresa';
 import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
 
 export const metadata: Metadata = {
@@ -39,7 +40,9 @@ export default function TermosPage() {
       <Section id="aceite" title="1. Aceite dos termos">
         <P>
           Estes Termos de Uso constituem um contrato entre você — ou a instituição de ensino que você
-          representa — e <Fill>razão social completa</Fill>, CNPJ <Fill>CNPJ</Fill> (&ldquo;AdaptaEDU&rdquo;).
+          representa — e <strong className="text-foreground">{EMPRESA.razaoSocial}</strong>, CNPJ{' '}
+          {EMPRESA.cnpj}, com sede em {EMPRESA.endereco}, que opera sob o nome fantasia
+          &ldquo;{EMPRESA.nomeFantasia}&rdquo;.
         </P>
         <P>
           Ao criar uma conta, solicitar uma demonstração ou utilizar qualquer funcionalidade da
@@ -181,10 +184,17 @@ export default function TermosPage() {
           processar e gerar a adaptação solicitada, bem como para prestar suporte.
         </P>
         <P>
-          <Fill>
-            Confirmar: o conteúdo enviado é usado para treinar modelos de IA? Recomendamos declarar
-            expressamente que não é
-          </Fill>
+          O conteúdo enviado é processado apenas para gerar a adaptação solicitada.{' '}
+          <strong className="text-foreground">
+            Não utilizamos o material das escolas para treinar, ajustar ou avaliar modelos de
+            inteligência artificial
+          </strong>
+          , nossos ou dos provedores que contratamos. A relação de operadores e os países em que
+          processam os dados está na{' '}
+          <a href="/privacidade#compartilhamento" className="text-amber-600 underline underline-offset-4 hover:text-amber-700">
+            Política de Privacidade
+          </a>
+          .
         </P>
 
         <SubTitle>6.2 Nossa propriedade</SubTitle>
@@ -314,13 +324,13 @@ export default function TermosPage() {
             'A tolerância quanto ao descumprimento de qualquer obrigação não constitui novação nem renúncia de direito.',
             'Estes termos são regidos pelas leis da República Federativa do Brasil.',
             <>
-              Fica eleito o foro da comarca de <Fill>cidade/UF</Fill> para dirimir controvérsias,
+              Fica eleito o foro da comarca de {EMPRESA.comarca} para dirimir controvérsias,
               ressalvado ao consumidor o direito de acionar o foro de seu domicílio.
             </>,
           ]}
         />
         <P>
-          Dúvidas sobre estes termos: <Fill>e-mail de contato</Fill>.
+          Dúvidas sobre estes termos: {CONTATO.geral}.
         </P>
       </Section>
     </LegalPage>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import LegalPage from '@/components/legal/legal-page';
+import { EMPRESA, CONTATO, RESPONSAVEIS, FORNECEDORES } from '@/components/legal/empresa';
 import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
 
 export const metadata: Metadata = {
@@ -257,14 +258,19 @@ export default function LgpdPage() {
           artificial para operar a plataforma. Todos estão sujeitos a obrigações contratuais de
           confidencialidade e segurança.
         </P>
-        <Callout tone="amber" title="A preencher antes da publicação">
+        <Table
+          head={['Subcontratado', 'Função', 'País de processamento']}
+          rows={FORNECEDORES.map(f => [f.nome, f.finalidade, f.pais])}
+        />
+        <P>
+          Todos processam nos Estados Unidos. A transferência se apoia no art. 33 da LGPD — execução de
+          contrato e prestação do serviço solicitado — com as salvaguardas contratuais de proteção de
+          dados oferecidas por cada fornecedor.
+        </P>
+        <Callout tone="teal" title="Conteúdo escolar e treinamento de modelos">
           <p>
-            <Fill>
-              Listar os subcontratados (hospedagem, banco de dados, provedor de IA, comunicação), o país em
-              que cada um processa os dados e, para os que processam fora do Brasil, a hipótese do art. 33
-              e a salvaguarda adotada. Para escolas públicas e redes de ensino, este costuma ser o item
-              mais cobrado em processo de contratação
-            </Fill>
+            O material enviado pelas escolas é processado apenas para gerar a adaptação. Não é usado
+            para treinar, ajustar ou avaliar modelos de IA, nossos ou dos provedores contratados.
           </p>
         </Callout>
         <P>
@@ -287,18 +293,17 @@ export default function LgpdPage() {
           ]}
         />
         <P>
-          Solicite em <Fill>e-mail do encarregado</Fill>.
+          Solicite em <strong className="text-foreground">{CONTATO.privacidade}</strong>.
         </P>
       </Section>
 
       <Section id="contato" title="12. Encarregado (DPO)">
         <P>
           Encarregado pelo tratamento de dados pessoais da AdaptaEDU, nos termos do art. 41 da LGPD:{' '}
-          <Fill>nome do encarregado</Fill> — <Fill>e-mail do encarregado</Fill>.
+          <strong className="text-foreground">{RESPONSAVEIS.encarregado}</strong> — {CONTATO.privacidade}.
         </P>
         <P>
-          Controlador: <Fill>razão social completa</Fill>, CNPJ <Fill>CNPJ</Fill>,{' '}
-          <Fill>endereço completo</Fill>.
+          Controlador: {EMPRESA.razaoSocial}, CNPJ {EMPRESA.cnpj}, {EMPRESA.endereco}.
         </P>
         <P>
           Consulte também a{' '}

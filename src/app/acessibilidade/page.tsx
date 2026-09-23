@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import LegalPage from '@/components/legal/legal-page';
+import { CONTATO } from '@/components/legal/empresa';
 import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
 
 export const metadata: Metadata = {
@@ -220,7 +221,7 @@ export default function AcessibilidadePage() {
         />
         <Callout tone="teal" title="Canal de contato">
           <p>
-            E-mail: <Fill>e-mail de acessibilidade</Fill>
+            E-mail: <strong className="text-foreground">{CONTATO.acessibilidade}</strong>
           </p>
           <p>
             Prazo de resposta: <Fill>prazo, ex.: até 10 dias úteis</Fill>

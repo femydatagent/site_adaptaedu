@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import LegalPage from '@/components/legal/legal-page';
+import { CONTATO } from '@/components/legal/empresa';
 import ManagePreferencesButton from '@/components/cookie-consent/manage-preferences-button';
 import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
 
@@ -255,7 +256,7 @@ export default function CookiesPage() {
       <Section id="contato" title="10. Contato">
         <P>
           Dúvidas sobre cookies ou sobre o tratamento dos seus dados:{' '}
-          <Fill>e-mail do encarregado</Fill>.
+          {CONTATO.privacidade}.
         </P>
         <P>
           Consulte também a{' '}
