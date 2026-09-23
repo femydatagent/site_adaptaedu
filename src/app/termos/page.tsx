@@ -111,7 +111,10 @@ export default function TermosPage() {
             'A cota é contada por ciclo mensal de cobrança e não é cumulativa: adaptações não utilizadas não são transferidas para o mês seguinte.',
             'As adaptações teste incluídas destinam-se à avaliação inicial da plataforma e são concedidas uma única vez por conta.',
             <>
-              Excedentes à cota <Fill>definir: são bloqueados, cobrados à parte (valor por adaptação) ou negociados</Fill>.
+              Adaptações acima da cota custam{' '}
+              <strong className="text-foreground">R$ 5,00 cada</strong> e são cobradas à parte, mediante
+              créditos adquiridos na plataforma. O saldo de créditos é consumido apenas depois de
+              esgotada a cota do ciclo.
             </>,
           ]}
         />
@@ -120,17 +123,14 @@ export default function TermosPage() {
         <List
           items={[
             'Os valores são expressos em reais e cobrados de forma recorrente, conforme o plano escolhido.',
-            <>
-              Formas de pagamento aceitas e a data de vencimento constam na contratação.{' '}
-              <Fill>listar meios de pagamento</Fill>
-            </>,
+            'Formas de pagamento aceitas: boleto, cartão de crédito e PIX. A data de vencimento consta na contratação.',
             <>
               Em caso de inadimplência, o acesso poderá ser suspenso após{' '}
-              <Fill>prazo, ex.: 10 dias</Fill> de atraso, mediante aviso.
+              <strong className="text-foreground">15 dias</strong> de atraso, mediante aviso prévio.
             </>,
             <>
               Os preços podem ser reajustados anualmente, com comunicação prévia de no mínimo{' '}
-              <Fill>prazo, ex.: 30 dias</Fill>.
+              <strong className="text-foreground">15 dias</strong>.
             </>,
             'Alterações de preço não se aplicam a ciclos já pagos.',
           ]}
@@ -250,14 +250,22 @@ export default function TermosPage() {
           items={[
             <>
               Manutenções programadas serão comunicadas com antecedência quando previsíveis.{' '}
-              <Fill>definir janela de manutenção, se houver</Fill>
+              <Fill>
+                A AdaptaEDU indicou &ldquo;janela de manutenção de no máximo 15 dias&rdquo;. Quinze dias
+                de indisponibilidade seria inaceitável num contrato; confirmar se o que se quis dizer foi
+                aviso prévio de 15 dias, ou janela de até 15 minutos, ou outra coisa
+              </Fill>
             </>,
             <>
-              Canais e prazos de atendimento por plano: <Fill>e-mail, prazo de resposta por plano</Fill>
+              Suporte por e-mail em{' '}
+              <strong className="text-foreground">{CONTATO.suporte}</strong>, com prazo de primeira
+              resposta de <strong className="text-foreground">24 horas</strong> em dias úteis.
             </>,
             <>
-              Compromissos de disponibilidade (SLA) aplicam-se apenas ao plano Rede de Ensino, nos termos
-              do contrato específico. <Fill>SLA, se houver</Fill>
+              Chamados são classificados por severidade — crítica, média e baixa — e o prazo de
+              resolução é definido caso a caso conforme a análise técnica. Compromissos formais de
+              disponibilidade e de tempo de resolução (SLA) aplicam-se apenas ao plano Rede de Ensino,
+              nos termos do contrato específico.
             </>,
           ]}
         />
@@ -287,15 +295,22 @@ export default function TermosPage() {
           items={[
             'Os planos vigoram por prazo indeterminado, renovando-se automaticamente a cada ciclo até o cancelamento.',
             <>
-              Você pode cancelar a qualquer momento por <Fill>canal de cancelamento</Fill>. O acesso
+              Você pode cancelar a qualquer momento pela própria plataforma, em{' '}
+              <strong className="text-foreground">Billing → solicitar cancelamento</strong>. O pedido é
+              processado na hora e você recebe um e-mail de confirmação em até 24 horas. O acesso
               permanece até o fim do ciclo já pago, sem reembolso proporcional, salvo disposição legal em
               contrário.
             </>,
             'Podemos rescindir o contrato em caso de violação destes termos, inadimplência não sanada ou uso que comprometa a segurança da plataforma.',
             <>
-              Após o encerramento, o conteúdo e as adaptações ficam disponíveis para exportação por{' '}
-              <Fill>prazo, ex.: 30 dias</Fill>, e depois são excluídos ou anonimizados conforme a Política
-              de Privacidade.
+              <strong className="text-foreground">Exporte antes de cancelar.</strong> Após o
+              cancelamento, o acesso às adaptações é encerrado e não é mais possível exportá-las ou
+              salvá-las pela plataforma. Os dados são então excluídos ou anonimizados conforme a{' '}
+              <a href="/privacidade#retencao" className="text-amber-600 underline underline-offset-4 hover:text-amber-700">
+                Política de Privacidade
+              </a>
+              . O direito à portabilidade previsto no art. 18, V, da LGPD permanece e pode ser exercido
+              pelo canal de privacidade.
             </>,
           ]}
         />

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import LegalPage from '@/components/legal/legal-page';
-import { CONTATO } from '@/components/legal/empresa';
+import { CONTATO, FERRAMENTAS_ANALISE, FERRAMENTAS_MARKETING } from '@/components/legal/empresa';
 import ManagePreferencesButton from '@/components/cookie-consent/manage-preferences-button';
 import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
 
@@ -85,7 +85,12 @@ export default function CookiesPage() {
         <List
           items={[
             'Nenhum cookie é gravado enquanto você apenas navega, antes de qualquer decisão sua no banner.',
-            'Ferramentas de análise e de publicidade — como Google Analytics e Meta Pixel — só são carregadas se você autorizar a categoria correspondente. Se recusar, o script sequer é inserido na página.',
+            <>
+              As ferramentas de análise que utilizamos são{' '}
+              {FERRAMENTAS_ANALISE.join(', ')}; as de campanha são {FERRAMENTAS_MARKETING.join(', ')}.
+              Nenhuma delas é carregada sem o seu aceite na categoria correspondente — recusando, o
+              script sequer é inserido na página.
+            </>,
             'Não há botões de redes sociais que carreguem conteúdo de terceiros.',
             'O formulário de solicitação de demonstração envia os dados que você preenche, mas não grava cookies para isso.',
           ]}
@@ -99,12 +104,12 @@ export default function CookiesPage() {
           </a>
           .
         </P>
-        <Callout tone="amber" title="A preencher quando as campanhas forem ativadas">
+        <Callout tone="amber" title="A completar conforme as ferramentas entram no ar">
           <p>
             <Fill>
-              Ao ligar Google Analytics, Meta Pixel ou outra ferramenta de campanha, listar aqui cada
-              cookie instalado: nome, fornecedor, finalidade e duração. A tabela de cookies por nome é o
-              que a ANPD espera encontrar numa política, e hoje ela só existe para a plataforma
+              Para cada ferramenta acima que for efetivamente ativada, listar aqui os cookies que ela
+              instala: nome, fornecedor, finalidade e duração. A tabela de cookies por nome é o que a
+              ANPD espera encontrar numa política de cookies
             </Fill>
           </p>
         </Callout>
@@ -168,7 +173,7 @@ export default function CookiesPage() {
               'Preferências',
               'Lembrar escolhas de exibição e configurações de interface',
               'Legítimo interesse (art. 7º, IX)',
-              <Fill key="p">confirmar</Fill>,
+              'Somente com seu aceite no banner',
             ],
             [
               'Analíticos',

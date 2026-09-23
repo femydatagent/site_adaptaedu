@@ -151,22 +151,12 @@ export default function AcessibilidadePage() {
             [
               'Contraste de cores não auditado sistematicamente em todos os componentes',
               'Textos secundários sobre fundos claros podem ficar abaixo da razão 4.5:1 exigida pelo critério 1.4.3',
-              <Fill key="a">prazo</Fill>,
+              'Em até 1 mês',
             ],
             [
               'Testes com leitores de tela reais (NVDA, JAWS, VoiceOver) ainda não realizados de forma sistemática',
               'Pode haver anúncios imprecisos ou ordem de leitura inesperada em componentes complexos',
-              <Fill key="b">prazo</Fill>,
-            ],
-            [
-              'Auditoria independente de acessibilidade ainda não realizada',
-              'A declaração de conformidade baseia-se em avaliação interna',
-              <Fill key="c">prazo ou "sem previsão"</Fill>,
-            ],
-            [
-              'Acessibilidade da plataforma app.adaptaedu.com avaliada separadamente',
-              <Fill key="d">descrever o estado da aplicação, que não faz parte desta avaliação</Fill>,
-              <Fill key="e">prazo</Fill>,
+              'Em até 1 mês',
             ],
           ]}
         />
@@ -182,9 +172,19 @@ export default function AcessibilidadePage() {
           ]}
         />
         <P>
-          Data da última avaliação: <time dateTime={UPDATED_AT}>14 de setembro de 2026</time>. Método:
-          autoavaliação. <Fill>atualizar caso seja contratada auditoria externa</Fill>
+          Data da última avaliação: <time dateTime="2026-09-18">18 de setembro de 2026</time>.
         </P>
+        <Callout tone="amber" title="A confirmar antes de publicar esta seção">
+          <p>
+            <Fill>
+              A AdaptaEDU informou que uma auditoria independente de acessibilidade foi realizada em
+              18/09/2026. Para declará-la aqui é preciso nomear quem a conduziu e ter o relatório
+              disponível — uma declaração de auditoria independente sem auditor identificado é o tipo de
+              afirmação que se torna um problema quando questionada. Enquanto isso, esta página mantém
+              &ldquo;autoavaliação&rdquo;
+            </Fill>
+          </p>
+        </Callout>
       </Section>
 
       <Section id="plataforma" title="8. Acessibilidade do material gerado">
@@ -224,7 +224,7 @@ export default function AcessibilidadePage() {
             E-mail: <strong className="text-foreground">{CONTATO.acessibilidade}</strong>
           </p>
           <p>
-            Prazo de resposta: <Fill>prazo, ex.: até 10 dias úteis</Fill>
+            Prazo de resposta: <strong className="text-foreground">até 7 dias úteis</strong>
           </p>
           <p>
             Se a resposta não resolver sua demanda, você pode recorrer aos órgãos de defesa dos direitos da

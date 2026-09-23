@@ -20,6 +20,12 @@ export const CONTATO = {
   geral: 'suporte@adaptaedu.com',
   privacidade: 'suporte@adaptaedu.com',
   acessibilidade: 'suporte@adaptaedu.com',
+  /**
+   * ATENÇÃO: domínio diferente dos demais, conforme informado pela AdaptaEDU.
+   * Confirmar se é intencional — apontar o suporte do AdaptaEDU para o domínio
+   * da MyDataAgent confunde o cliente e pode ser engano de digitação.
+   */
+  suporte: 'suporte@mydatagent.ai',
 } as const;
 
 export const RESPONSAVEIS = {
@@ -63,3 +69,23 @@ export const FORNECEDORES: Fornecedor[] = [
     pais: 'Estados Unidos',
   },
 ];
+
+/** Ferramentas de análise de audiência e produto. Categoria "analíticos". */
+export const FERRAMENTAS_ANALISE = [
+  'Google Analytics',
+  'PostHog',
+  'HubSpot',
+  'RD Station',
+  'MyDataAgent',
+] as const;
+
+/** Ferramentas de campanha e anúncio. Categoria "publicidade". */
+export const FERRAMENTAS_MARKETING = [
+  'Google Ads',
+  'Meta Ads',
+  'TikTok Ads',
+  'LinkedIn Ads',
+] as const;
+
+/** Processador de pagamentos. */
+export const PROVEDOR_PAGAMENTO = 'ASAAS';

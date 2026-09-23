@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import LegalPage from '@/components/legal/legal-page';
-import { EMPRESA, CONTATO, RESPONSAVEIS, FORNECEDORES } from '@/components/legal/empresa';
+import {
+  EMPRESA, CONTATO, RESPONSAVEIS, FORNECEDORES,
+  FERRAMENTAS_ANALISE, PROVEDOR_PAGAMENTO,
+} from '@/components/legal/empresa';
 import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
 
 export const metadata: Metadata = {
@@ -143,7 +146,7 @@ export default function PrivacidadePage() {
         <Callout tone="amber" title="O que não coletamos">
           <p>
             Não pedimos nem usamos dados de cartão de crédito diretamente — pagamentos, quando aplicável,
-            são processados por <Fill>nome do provedor de pagamento</Fill>. Não vendemos dados pessoais
+            são processados pelo {PROVEDOR_PAGAMENTO}. Não vendemos dados pessoais
             e não os cedemos para publicidade de terceiros.
           </p>
         </Callout>
@@ -291,10 +294,10 @@ export default function PrivacidadePage() {
         <Table
           head={['Dado', 'Prazo de retenção']}
           rows={[
-            ['Solicitações de demonstração não convertidas', <Fill key="a">ex.: 24 meses</Fill>],
+            ['Solicitações de demonstração não convertidas', '24 meses'],
             ['Dados de conta ativa', 'Enquanto a conta existir'],
-            ['Dados após encerramento da conta', <Fill key="b">prazo de exclusão ou anonimização</Fill>],
-            ['Conteúdo enviado e adaptações geradas', <Fill key="c">prazo — e se a escola pode excluir a qualquer momento</Fill>],
+            ['Dados após encerramento da conta', 'Excluídos em até 6 meses'],
+            ['Conteúdo enviado e adaptações geradas', '12 meses — a escola pode solicitar a exclusão antes disso, a qualquer momento'],
             ['Registros de acesso à aplicação', 'No mínimo 6 meses (art. 15 do Marco Civil da Internet)'],
             ['Documentos fiscais e contratuais', 'Conforme prazos legais aplicáveis'],
           ]}
@@ -386,7 +389,8 @@ export default function PrivacidadePage() {
             </>,
             <>
               <strong className="text-foreground">Cookies analíticos:</strong> entender o uso do site de
-              forma agregada. <Fill>confirmar quais ferramentas de análise são usadas</Fill>
+              forma agregada, por meio de {FERRAMENTAS_ANALISE.join(', ')}. Só são instalados com o seu
+              aceite no banner.
             </>,
           ]}
         />

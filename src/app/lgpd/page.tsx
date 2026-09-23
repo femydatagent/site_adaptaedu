@@ -243,7 +243,7 @@ export default function LgpdPage() {
           items={[
             <>
               Comunicaremos a instituição controladora em até{' '}
-              <Fill>prazo, ex.: 24 ou 48 horas</Fill> a partir da ciência do incidente.
+              <strong className="text-foreground">48 horas</strong> a partir da ciência do incidente.
             </>,
             'A comunicação incluirá a natureza dos dados afetados, os titulares envolvidos, as medidas técnicas adotadas e os riscos identificados.',
             'Apoiaremos a escola na avaliação do risco e na eventual comunicação à ANPD e aos titulares.',
