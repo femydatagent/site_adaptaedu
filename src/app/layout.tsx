@@ -17,15 +17,15 @@ const siteUrl = "https://adaptaedu.com";
 // Primary keyword: "adaptação de conteúdo educacional para acessibilidade"
 // Secondary: "educação inclusiva escolas", "material adaptado TEA TDAH"
 // Title: 58 chars — keyword-first, brand at end
-const siteTitle = "Adaptação de Conteúdo Educacional com IA | AdaptaEDU";
+const siteTitle = "Adaptação de Conteúdo Educacional com IA no WhatsApp | AdaptaEDU";
 
 // Description: 155 chars — action + value prop + social proof
 const siteDescription =
-  "Adapte materiais escolares automaticamente para TEA, TDAH, Dislexia e mais 5 perfis. Usado por 500+ escolas brasileiras. Conforme o Decreto 12.773/25.";
+  "Fotografe o material no WhatsApp e receba adaptado para TEA, TDAH, Dislexia e mais 6 perfis. Usado por 500+ escolas brasileiras. Conforme o Decreto 12.773/25.";
 
-const ogTitle = "AdaptaEDU — IA que adapta conteúdo educacional para inclusão";
+const ogTitle = "AdaptaEDU — adapte conteúdo educacional pelo WhatsApp";
 const ogDescription =
-  "Faça upload de PDFs e DOCX e receba versões acessíveis para 9 perfis de necessidade em minutos. Para escolas particulares, públicas e professores.";
+  "Fotografe pelo WhatsApp, ou envie PDFs e DOCX, e receba versões acessíveis para 9 perfis de necessidade em minutos. Para escolas particulares, públicas e professores.";
 
 export const metadata: Metadata = {
   title: {

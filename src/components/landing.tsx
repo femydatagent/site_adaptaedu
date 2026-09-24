@@ -38,6 +38,7 @@ import {
 import FadeIn from './fade-in';
 import DemoModal from './demo-modal';
 import QuemSomos from './quem-somos';
+import Whatsapp from './whatsapp';
 import { useToast } from '@/hooks/use-toast';
 
 function EarIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -206,6 +207,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
   };
 
   const navLinks = [
+    { href: '#whatsapp', label: 'WhatsApp' },
     { href: '#pipeline', label: 'Fluxo' },
     { href: '#perfis', label: 'Perfis' },
     { href: '#conteudo', label: 'Conteúdo' },
@@ -309,8 +311,9 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
           <div className="relative max-w-7xl mx-auto px-6 py-20 text-center">
             <FadeIn delay={0.1}>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
-                Adaptação de conteúdo<br />educacional com{' '}
-                <span className="text-gradient-warm">Inteligência Artificial</span>
+                Adaptação de conteúdo educacional com{' '}
+                <span className="text-gradient-warm">Inteligência Artificial</span>{' '}
+                <span className="whitespace-nowrap">no WhatsApp</span>
               </h1>
             </FadeIn>
 
@@ -451,6 +454,8 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
         </section>
 
         {/* Fluxo de Transformação */}
+        <Whatsapp />
+
         <section id="pipeline" className="relative py-24 md:py-32 bg-pattern-grid">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
