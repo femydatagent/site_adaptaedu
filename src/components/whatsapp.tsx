@@ -1,7 +1,8 @@
 'use client';
 
-import { Camera, Send, Sparkles, Clock, CheckCheck } from 'lucide-react';
+import { Camera, Send, Sparkles, Clock, CheckCheck, MessageCircle } from 'lucide-react';
 import FadeIn from './fade-in';
+import { WHATSAPP, linkWhatsapp } from './legal/empresa';
 
 /**
  * Seção do diferencial: adaptar pelo WhatsApp.
@@ -97,9 +98,23 @@ export default function Whatsapp() {
               })}
             </ol>
 
-            <div className="mt-10 flex items-center gap-2 text-sm text-slate-400">
-              <Clock className="h-4 w-4 text-emerald-400" aria-hidden="true" />
-              Da foto ao material pronto, sem trocar de tela.
+            <div className="mt-10">
+              <a
+                href={linkWhatsapp()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 rounded-xl bg-emerald-500 px-7 py-4 text-base font-semibold text-slate-900 transition-colors hover:bg-emerald-400"
+              >
+                <MessageCircle className="h-5 w-5" aria-hidden="true" />
+                Adaptar pelo WhatsApp
+              </a>
+              <p className="mt-3 text-sm text-slate-400">
+                {WHATSAPP.exibicao} — abre a conversa já com a mensagem pronta.
+              </p>
+              <p className="mt-4 flex items-center gap-2 text-sm text-slate-400">
+                <Clock className="h-4 w-4 text-emerald-400" aria-hidden="true" />
+                Da foto ao material pronto, sem trocar de tela.
+              </p>
             </div>
           </div>
         </FadeIn>

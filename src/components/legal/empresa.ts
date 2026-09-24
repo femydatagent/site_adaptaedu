@@ -84,3 +84,20 @@ export const FERRAMENTAS_MARKETING = [
 
 /** Processador de pagamentos. */
 export const PROVEDOR_PAGAMENTO = 'ASAAS';
+
+/**
+ * WhatsApp de atendimento e adaptação.
+ *
+ * `numero` é o formato internacional exigido pelo link wa.me (55 + DDD +
+ * assinante, só dígitos); `exibicao` é como aparece na tela.
+ */
+export const WHATSAPP = {
+  numero: '551148633462',
+  exibicao: '(11) 4863-3462',
+  mensagemInicial: 'Olá! Quero adaptar um material com o AdaptaEDU.',
+} as const;
+
+/** Link pronto, com a mensagem já preenchida na conversa. */
+export function linkWhatsapp(): string {
+  return `https://wa.me/${WHATSAPP.numero}?text=${encodeURIComponent(WHATSAPP.mensagemInicial)}`;
+}
