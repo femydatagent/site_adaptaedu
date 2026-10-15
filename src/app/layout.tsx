@@ -250,6 +250,16 @@ const jsonLdGraph = [
   },
 ];
 
+// ─── Web bubble de atendimento ────────────────────────────────────────────────
+// Versão fixada: @latest mudaria o código em produção sem passar por aqui.
+const CHATBOX_SRC =
+  "https://cdn.jsdelivr.net/npm/@mydataagent/embeds@1.0.214/dist/chatbox/index.js";
+const CHATBOX_AGENT_ID = "cmv9o1xtl0001f2l5qnd0dc3s";
+const CHATBOX_INITIAL_MESSAGES = [
+  "Olá, eu sou a Ana, assistente do AdaptaEDU.",
+  "Como eu posso te ajudar hoje?",
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -265,6 +275,17 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@graph": jsonLdGraph,
             }),
+          }}
+        />
+        {/* Web bubble da Ana, agente de atendimento (MyDataAgent) */}
+        <script
+          type="module"
+          dangerouslySetInnerHTML={{
+            __html: `import Chatbox from "${CHATBOX_SRC}";
+Chatbox.initBubble({
+  agentId: "${CHATBOX_AGENT_ID}",
+  initialMessages: ${JSON.stringify(CHATBOX_INITIAL_MESSAGES)},
+}).catch((error) => console.error("Falha ao iniciar o chat da Ana", error));`,
           }}
         />
       </head>
