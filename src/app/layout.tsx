@@ -254,6 +254,10 @@ const jsonLdGraph = [
 // Versão fixada: @latest mudaria o código em produção sem passar por aqui.
 const CHATBOX_SRC =
   "https://cdn.jsdelivr.net/npm/@mydataagent/embeds@1.0.214/dist/chatbox/index.js";
+// O pacote tem o host antigo fixo no código e não aceita outro. As chamadas
+// dele são redirecionadas para o v2, onde o agente está publicado.
+const CHATBOX_LEGACY_API = "https://app.mydatagent.ai";
+const CHATBOX_API = "https://app.v2.mydatagent.ai";
 const CHATBOX_AGENT_ID = "cmv9o1xtl0001f2l5qnd0dc3s";
 const CHATBOX_INITIAL_MESSAGES = [
   "Olá, eu sou a Ana, assistente do AdaptaEDU.",
@@ -281,7 +285,15 @@ export default function RootLayout({
         <script
           type="module"
           dangerouslySetInnerHTML={{
-            __html: `import Chatbox from "${CHATBOX_SRC}";
+            __html: `const legacyApi = "${CHATBOX_LEGACY_API}";
+const rewrite = (url) => (url.startsWith(legacyApi) ? "${CHATBOX_API}" + url.slice(legacyApi.length) : url);
+const nativeFetch = window.fetch.bind(window);
+window.fetch = (input, init) => nativeFetch(input instanceof Request ? input : rewrite(String(input)), init);
+const nativeOpen = XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open = function (method, url, ...rest) {
+  return nativeOpen.call(this, method, rewrite(String(url)), ...rest);
+};
+const { default: Chatbox } = await import("${CHATBOX_SRC}");
 Chatbox.initBubble({
   agentId: "${CHATBOX_AGENT_ID}",
   initialMessages: ${JSON.stringify(CHATBOX_INITIAL_MESSAGES)},
