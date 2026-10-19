@@ -37,6 +37,7 @@ import {
 } from 'lucide-react';
 import FadeIn from './fade-in';
 import DemoModal from './demo-modal';
+import VideoModal from './video-modal';
 import QuemSomos from './quem-somos';
 import Whatsapp from './whatsapp';
 import { useToast } from '@/hooks/use-toast';
@@ -185,6 +186,7 @@ const testimonials = [
 export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () => void }) {
   const { toast } = useToast();
   const [demoOpen, setDemoOpen] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
   const [selectedContentType, setSelectedContentType] = useState<string | null>(null);
   const [selectedAdaptations, setSelectedAdaptations] = useState<string[]>([]);
   const [scrolled, setScrolled] = useState(false);
@@ -342,7 +344,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                   Adaptar Conteúdo Grátis
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </a>
-                <button className="inline-flex items-center justify-center gap-2 font-medium border bg-background shadow-xs hover:text-accent-foreground px-8 py-6 text-lg rounded-xl border-border hover:bg-secondary">
+                <button type="button" onClick={() => setVideoOpen(true)} className="inline-flex items-center justify-center gap-2 font-medium border bg-background shadow-xs hover:text-accent-foreground px-8 py-6 text-lg rounded-xl border-border hover:bg-secondary">
                   <Play className="w-5 h-5 mr-2" />
                   Ver Como Funciona
                 </button>
@@ -751,6 +753,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
         </section>
 
         <DemoModal open={demoOpen} onOpenChange={setDemoOpen} />
+        <VideoModal open={videoOpen} onOpenChange={setVideoOpen} videoId="OmWTVbUAGVk" title="Como funciona o AdaptaEDU" />
 
         {/* Marco Legal */}
         <section id="legal" className="py-24 md:py-32 bg-muted/30">
