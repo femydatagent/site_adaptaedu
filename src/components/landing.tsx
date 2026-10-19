@@ -134,7 +134,7 @@ const plans = [
   {
     name: 'Professor',
     desc: 'Para educadores que querem começar a adaptar conteúdos.',
-    price: 'R$ 100',
+    price: 'R$ 150',
     period: '/mês',
     features: ['30 adaptações/mês', '3 adaptações teste incluídas', 'Adaptação pelo WhatsApp', 'Todos os perfis de acessibilidade', 'Upload de PDF e DOCX', 'Exportação em PDF', 'Suporte por email'],
     highlight: false,
@@ -996,7 +996,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
               },
               {
                 q: 'Qual é o preço do AdaptaEDU para escolas?',
-                a: 'O plano Professor custa R$100/mês com 30 adaptações mensais e 3 adaptações teste incluídas. O plano Escola custa R$1.250/mês, com 250 adaptações mensais, 5 adaptações teste incluídas e inclui multi-tenant com gestão de professores, todos os 9 perfis de acessibilidade e dashboard de métricas. Redes de ensino têm plano sob consulta.',
+                a: 'O plano Professor custa R$150/mês com 30 adaptações mensais e 3 adaptações teste incluídas. O plano Escola custa R$1.250/mês, com 250 adaptações mensais, 5 adaptações teste incluídas e inclui multi-tenant com gestão de professores, todos os 9 perfis de acessibilidade e dashboard de métricas. Redes de ensino têm plano sob consulta.',
               },
               {
                 q: 'Quais tipos de arquivo o AdaptaEDU aceita?',
