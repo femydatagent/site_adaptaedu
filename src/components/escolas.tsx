@@ -178,7 +178,7 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <button className="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-teal-700 hover:bg-teal-50 rounded-lg transition-colors">
+              <button type="button" onClick={() => setDemoOpen(true)} className="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-teal-700 hover:bg-teal-50 rounded-lg transition-colors">
                 Agendar Demo
               </button>
               <a href={APP_SIGNUP_URL} className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 rounded-lg shadow-md shadow-teal-200 transition-all">
@@ -216,7 +216,7 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
                   Simples, rápido e conforme a legislação.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 rounded-xl shadow-lg shadow-teal-200 transition-all hover:shadow-xl hover:shadow-teal-300 flex items-center justify-center gap-2">
+                  <button type="button" onClick={() => setDemoOpen(true)} className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 rounded-xl shadow-lg shadow-teal-200 transition-all hover:shadow-xl hover:shadow-teal-300 flex items-center justify-center gap-2">
                     Agendar Demonstração
                     <ArrowRight className="w-5 h-5" />
                   </button>
