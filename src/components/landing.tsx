@@ -38,6 +38,8 @@ import {
 import FadeIn from './fade-in';
 import DemoModal from './demo-modal';
 import VideoModal from './video-modal';
+import { CONTATO } from './legal/empresa';
+import { abrirAtendente } from '@/lib/atendente';
 import QuemSomos from './quem-somos';
 import Whatsapp from './whatsapp';
 import { useToast } from '@/hooks/use-toast';
@@ -187,6 +189,11 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
   const { toast } = useToast();
   const [demoOpen, setDemoOpen] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
+
+  // Sem a bolha carregada, o link segue para o e-mail de suporte.
+  const handleAbrirAtendente = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (abrirAtendente()) e.preventDefault();
+  };
   const [selectedContentType, setSelectedContentType] = useState<string | null>(null);
   const [selectedAdaptations, setSelectedAdaptations] = useState<string[]>([]);
   const [scrolled, setScrolled] = useState(false);
@@ -953,7 +960,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                   Adaptar Meu Primeiro Material
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </a>
-                <button className="inline-flex items-center justify-center gap-2 font-medium border bg-background shadow-xs hover:text-accent-foreground px-8 py-6 text-lg rounded-xl border-border hover:bg-secondary">
+                <button type="button" onClick={() => setDemoOpen(true)} className="inline-flex items-center justify-center gap-2 font-medium border bg-background shadow-xs hover:text-accent-foreground px-8 py-6 text-lg rounded-xl border-border hover:bg-secondary">
                   Falar com Especialista
                 </button>
               </div>
@@ -1058,7 +1065,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Tutoriais</a></li>
                 <li><a href="/blog" className="hover:text-amber-400 transition-colors font-medium text-amber-300">Blog</a></li>
                 <li><a href="#" className="hover:text-amber-400 transition-colors">Webinars</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Suporte</a></li>
+                <li><a href={`mailto:${CONTATO.suporte}`} onClick={handleAbrirAtendente} className="hover:text-amber-400 transition-colors">Suporte</a></li>
               </ul>
             </div>
             <div>
@@ -1079,7 +1086,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
               <a href="#" target="_blank" rel="noopener noreferrer" aria-label="AdaptaEDU no LinkedIn" className="hover:text-amber-400 transition-colors">LinkedIn</a>
               <a href="#" target="_blank" rel="noopener noreferrer" aria-label="AdaptaEDU no Instagram" className="hover:text-amber-400 transition-colors">Instagram</a>
               <a href="#" target="_blank" rel="noopener noreferrer" aria-label="AdaptaEDU no YouTube" className="hover:text-amber-400 transition-colors">YouTube</a>
-              <a href="#" className="hover:text-amber-400 transition-colors">Fale Conosco</a>
+              <a href={`mailto:${CONTATO.suporte}`} onClick={handleAbrirAtendente} className="hover:text-amber-400 transition-colors">Fale Conosco</a>
             </div>
           </div>
         </div>
