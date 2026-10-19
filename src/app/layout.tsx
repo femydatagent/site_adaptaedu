@@ -143,7 +143,7 @@ const jsonLdGraph = [
       {
         "@type": "Offer",
         name: "Plano Professor",
-        price: "100.00",
+        price: "150.00",
         priceCurrency: "BRL",
         priceValidUntil: "2026-12-31",
         description: "30 adaptações por mês para professores, com 3 adaptações teste incluídas",
@@ -227,7 +227,7 @@ const jsonLdGraph = [
         name: "Qual é o preço do AdaptaEDU para escolas?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "O plano Professor custa R$100/mês com 30 adaptações mensais e 3 adaptações teste incluídas. O plano Escola custa R$1.250/mês, com 250 adaptações mensais, 5 adaptações teste incluídas e multi-tenant com gestão de professores, todos os 9 perfis de acessibilidade e dashboard de métricas. Redes de ensino têm plano sob consulta.",
+          text: "O plano Professor custa R$150/mês com 30 adaptações mensais e 3 adaptações teste incluídas. O plano Escola custa R$1.250/mês, com 250 adaptações mensais, 5 adaptações teste incluídas e multi-tenant com gestão de professores, todos os 9 perfis de acessibilidade e dashboard de métricas. Redes de ensino têm plano sob consulta.",
         },
       },
       {

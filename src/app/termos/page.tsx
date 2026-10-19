@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const UPDATED_AT = '2026-09-14';
+const UPDATED_AT = '2026-10-19';
 
 const toc = [
   { id: 'aceite', label: 'Aceite dos termos' },
@@ -100,7 +100,7 @@ export default function TermosPage() {
         <Table
           head={['Plano', 'Preço', 'Cota mensal de adaptações']}
           rows={[
-            ['Professor', 'R$ 100/mês', '30 adaptações/mês, com 3 adaptações teste incluídas'],
+            ['Professor', 'R$ 150/mês', '30 adaptações/mês, com 3 adaptações teste incluídas'],
             ['Escola', 'R$ 1.250/mês', '250 adaptações/mês, com 5 adaptações teste incluídas'],
             ['Rede de Ensino', 'Sob consulta', 'Definida em contrato'],
           ]}
