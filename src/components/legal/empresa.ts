@@ -39,29 +39,100 @@ export type Fornecedor = {
 };
 
 /**
- * Operadores que participam do funcionamento da plataforma.
+ * Operadores que participam do funcionamento da plataforma, na ordem em que
+ * um pedido passa por eles.
  *
- * Hospedagem confirmada na região iad1 da Vercel (Virgínia, EUA) pelos
- * metadados do deploy. Os provedores de IA foram informados pela AdaptaEDU.
+ * Levantado em 2026-10-21 a partir do código do app (apps/api, workers/pipeline
+ * e migrations): a Vercel hospeda só este site; a plataforma, a API, as filas
+ * e as sessões temporárias rodam na Railway; os arquivos ficam na Backblaze
+ * (endpoint s3.us-east-005); os modelos de texto e de leitura visual são
+ * acessados via OpenRouter, com a Z.AI como contingência; as ilustrações saem
+ * da OpenAI, com a Kling AI como contingência (endpoint api-singapore).
  */
 export const FORNECEDORES: Fornecedor[] = [
   {
-    categoria: 'Hospedagem e entrega',
-    finalidade: 'Servir o site e executar as funções da aplicação',
+    categoria: 'Hospedagem do site institucional',
+    finalidade: 'Servir as páginas de adaptaedu.com e o formulário de demonstração',
     nome: 'Vercel Inc.',
     pais: 'Estados Unidos (região iad1)',
   },
   {
-    categoria: 'Banco de dados e autenticação',
-    finalidade: 'Armazenar contas, registros da aplicação e sessões',
-    nome: 'Supabase',
+    categoria: 'Hospedagem da plataforma',
+    finalidade:
+      'Executar app.adaptaedu.com, a API, as filas de processamento e a sessão temporária das conversas de WhatsApp',
+    nome: 'Railway Corp.',
     pais: 'Estados Unidos',
   },
   {
-    categoria: 'Processamento por IA',
-    finalidade: 'Gerar a adaptação do material enviado',
-    nome: 'Anthropic (Claude) e OpenAI',
+    categoria: 'Banco de dados e autenticação',
+    finalidade:
+      'Armazenar contas, vínculos com escolas, números de WhatsApp cadastrados, metadados dos pedidos e registros de aceite dos termos',
+    nome: 'Supabase Inc.',
     pais: 'Estados Unidos',
+  },
+  {
+    categoria: 'Armazenamento de arquivos',
+    finalidade:
+      'Guardar os arquivos enviados, as imagens e textos intermediários, as ilustrações e as adaptações finais (DOCX/PDF)',
+    nome: 'Backblaze Inc.',
+    pais: 'Estados Unidos (região us-east-005)',
+  },
+  {
+    categoria: 'Mensageria WhatsApp',
+    finalidade:
+      'Transportar as mensagens e arquivos trocados entre o professor e o número de WhatsApp Business da escola',
+    nome: 'Meta Platforms, Inc. (WhatsApp)',
+    pais: 'Estados Unidos',
+  },
+  {
+    categoria: 'IA — adaptação do texto',
+    finalidade: 'Reescrever e reorganizar o conteúdo conforme o perfil de acessibilidade escolhido',
+    nome: 'Anthropic (Claude), acessada por meio da OpenRouter, Inc.',
+    pais: 'Estados Unidos',
+  },
+  {
+    categoria: 'IA — leitura visual',
+    finalidade:
+      'Transcrever páginas fotografiadas ou digitalizadas quando a extração automática não é suficiente, e verificar as ilustrações geradas',
+    nome: 'Google (Gemini), acessada por meio da OpenRouter, Inc.',
+    pais: 'Estados Unidos',
+  },
+  {
+    categoria: 'IA — adaptação do texto (contingência)',
+    finalidade: 'Substituir o modelo principal quando ele estiver indisponível',
+    nome: 'Z.AI (Zhipu AI)',
+    pais: 'China',
+  },
+  {
+    categoria: 'IA — ilustrações',
+    finalidade: 'Gerar ilustrações de apoio a partir de descrições do conteúdo adaptado',
+    nome: 'OpenAI',
+    pais: 'Estados Unidos',
+  },
+  {
+    categoria: 'IA — ilustrações (contingência)',
+    finalidade: 'Substituir o gerador principal de ilustrações quando ele estiver indisponível',
+    nome: 'Kling AI (Kuaishou Technology)',
+    pais: 'Singapura',
+  },
+  {
+    categoria: 'Pictogramas',
+    finalidade:
+      'Buscar pictogramas ARASAAC a partir de palavras-chave do conteúdo, sem dados pessoais',
+    nome: 'OpenSymbols',
+    pais: 'Estados Unidos',
+  },
+  {
+    categoria: 'E-mail transacional',
+    finalidade: 'Enviar convites, confirmações de conta e avisos de cobrança e de período de teste',
+    nome: 'Resend, Inc.',
+    pais: 'Estados Unidos',
+  },
+  {
+    categoria: 'Pagamentos',
+    finalidade: 'Processar cobranças por PIX, boleto e cartão e emitir notas fiscais',
+    nome: 'ASAAS',
+    pais: 'Brasil',
   },
 ];
 

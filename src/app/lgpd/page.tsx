@@ -263,14 +263,16 @@ export default function LgpdPage() {
           rows={FORNECEDORES.map(f => [f.nome, f.finalidade, f.pais])}
         />
         <P>
-          Todos processam nos Estados Unidos. A transferência se apoia no art. 33 da LGPD — execução de
-          contrato e prestação do serviço solicitado — com as salvaguardas contratuais de proteção de
-          dados oferecidas por cada fornecedor.
+          A maior parte processa nos Estados Unidos; os países de cada um constam da tabela acima. A
+          transferência se apoia no art. 33 da LGPD — execução de contrato e prestação do serviço
+          solicitado — com as salvaguardas contratuais de proteção de dados oferecidas por cada
+          fornecedor.
         </P>
         <Callout tone="teal" title="Conteúdo escolar e treinamento de modelos">
           <p>
-            O material enviado pelas escolas é processado apenas para gerar a adaptação. Não é usado
-            para treinar, ajustar ou avaliar modelos de IA, nossos ou dos provedores contratados.
+            O material enviado pelas escolas é processado apenas para gerar a adaptação. Não o usamos
+            para treinar modelos próprios e contratamos os provedores por API sob termos que não
+            autorizam o uso do conteúdo para treinar os modelos deles.
           </p>
         </Callout>
         <P>

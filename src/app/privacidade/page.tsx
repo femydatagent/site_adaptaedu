@@ -4,17 +4,17 @@ import {
   EMPRESA, CONTATO, RESPONSAVEIS, FORNECEDORES,
   FERRAMENTAS_ANALISE, PROVEDOR_PAGAMENTO,
 } from '@/components/legal/empresa';
-import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
+import { Section, SubTitle, P, List, Table, Callout } from '@/components/legal/legal-prose';
 
 export const metadata: Metadata = {
   title: 'Política de Privacidade',
   description:
-    'Como o AdaptaEDU coleta, usa, compartilha e protege dados pessoais de professores, escolas e estudantes, em conformidade com a LGPD (Lei 13.709/2018).',
+    'Como o AdaptaEDU coleta, usa, compartilha e protege dados pessoais de professores, escolas e estudantes — no site, na plataforma e no WhatsApp — em conformidade com a LGPD (Lei 13.709/2018).',
   alternates: { canonical: 'https://adaptaedu.com/privacidade' },
   robots: { index: true, follow: true },
 };
 
-const UPDATED_AT = '2026-09-14';
+const UPDATED_AT = '2026-10-22';
 
 const toc = [
   { id: 'quem-somos', label: 'Quem somos e a quem esta política se aplica' },
@@ -22,6 +22,8 @@ const toc = [
   { id: 'dados', label: 'Quais dados tratamos' },
   { id: 'sensiveis', label: 'Dados sensíveis e dados de crianças e adolescentes' },
   { id: 'finalidades', label: 'Para que usamos os dados e com que base legal' },
+  { id: 'whatsapp', label: 'Uso pelo WhatsApp Business' },
+  { id: 'ia', label: 'Como a inteligência artificial trata o material' },
   { id: 'compartilhamento', label: 'Com quem compartilhamos dados' },
   { id: 'transferencia', label: 'Transferência internacional' },
   { id: 'retencao', label: 'Por quanto tempo guardamos' },
@@ -37,7 +39,7 @@ export default function PrivacidadePage() {
   return (
     <LegalPage
       title="Política de Privacidade"
-      subtitle="Esta política explica como a AdaptaEDU trata dados pessoais no site adaptaedu.com e na plataforma app.adaptaedu.com, em conformidade com a Lei Geral de Proteção de Dados (Lei 13.709/2018)."
+      subtitle="Esta política explica como a AdaptaEDU trata dados pessoais no site adaptaedu.com, na plataforma app.adaptaedu.com e no canal de WhatsApp, em conformidade com a Lei Geral de Proteção de Dados (Lei 13.709/2018)."
       updatedAt={UPDATED_AT}
       toc={toc}
     >
@@ -64,6 +66,10 @@ export default function PrivacidadePage() {
               professores, coordenadores e administradores escolares.
             </>,
             <>
+              <strong className="text-foreground">Professores que usam o WhatsApp</strong> da própria
+              escola conectado à plataforma, conforme a seção 6.
+            </>,
+            <>
               <strong className="text-foreground">Escolas e redes de ensino</strong> contratantes dos planos
               institucionais.
             </>,
@@ -85,12 +91,12 @@ export default function PrivacidadePage() {
           head={['Situação', 'Nosso papel', 'Quem é o controlador']}
           rows={[
             [
-              'Dados de navegação no site, formulário de demonstração, cadastro e conta de usuário, faturamento e suporte',
+              'Dados de navegação no site, formulário de demonstração, cadastro e conta de usuário, canal de WhatsApp (número do professor e vínculo com a escola), faturamento e suporte',
               <strong key="c" className="text-foreground">Controlador</strong>,
               'AdaptaEDU',
             ],
             [
-              'Conteúdo pedagógico enviado por uma escola ou professor para adaptação, incluindo o perfil de acessibilidade selecionado',
+              'Conteúdo pedagógico enviado para adaptação e os campos do pedido (identificação do aluno, ano escolar, matéria, tipo de conteúdo e perfil de acessibilidade)',
               <strong key="o" className="text-foreground">Operador</strong>,
               'A instituição de ensino contratante (ou o professor, no plano individual)',
             ],
@@ -116,11 +122,17 @@ export default function PrivacidadePage() {
             </>,
             <>
               <strong className="text-foreground">Cadastro e conta:</strong> nome, e-mail, senha
-              (armazenada de forma cifrada), instituição vinculada e perfil de acesso.
+              (armazenada de forma cifrada), WhatsApp para uso do canal de atendimento, cargo, instituição
+              vinculada e perfil de acesso.
             </>,
             <>
-              <strong className="text-foreground">Conteúdo enviado:</strong> arquivos PDF, DOCX e imagens
-              de material pedagógico, junto com o perfil de acessibilidade escolhido para a adaptação.
+              <strong className="text-foreground">Pedido de adaptação:</strong> identificação do aluno
+              (que pode ser um apelido ou código — veja a seção 4), ano escolar, matéria, tipo de
+              conteúdo, perfil de acessibilidade e instruções adicionais.
+            </>,
+            <>
+              <strong className="text-foreground">Conteúdo enviado:</strong> arquivos PDF, DOC, DOCX e
+              imagens de material pedagógico.
             </>,
             <>
               <strong className="text-foreground">Comunicações:</strong> mensagens enviadas ao suporte e
@@ -142,6 +154,41 @@ export default function PrivacidadePage() {
             'Registros de acesso à aplicação (logs), conforme exigido pelo Marco Civil da Internet.',
           ]}
         />
+
+        <SubTitle>3.3 Dados gerados pelo processamento</SubTitle>
+        <List
+          items={[
+            <>
+              <strong className="text-foreground">Arquivos intermediários:</strong> imagens preparadas e
+              miniaturas, transcrições do conteúdo, estrutura da adaptação e ilustrações geradas.
+            </>,
+            <>
+              <strong className="text-foreground">Resultados:</strong> documento editável (DOCX) e PDF da
+              adaptação.
+            </>,
+            <>
+              <strong className="text-foreground">Telemetria de processamento:</strong> modelo utilizado,
+              consumo, custo e duração de cada etapa — sem o conteúdo do material.
+            </>,
+            <>
+              <strong className="text-foreground">Registros de aceite:</strong> versão e data de aceite
+              dos termos de uso e desta política.
+            </>,
+          ]}
+        />
+
+        <SubTitle>3.4 Dados do canal de WhatsApp</SubTitle>
+        <List
+          items={[
+            'Número de telefone de quem envia as mensagens e número de WhatsApp da escola conectado à plataforma.',
+            'Identificadores técnicos das mensagens, usados para não processar duas vezes o mesmo envio e para entregar o resultado no pedido certo.',
+            'As respostas dadas às perguntas do pedido e os arquivos enviados na conversa.',
+          ]}
+        />
+        <P>
+          Sobre o que <strong className="text-foreground">não</strong> guardamos desse canal, veja a
+          seção 6.2.
+        </P>
 
         <Callout tone="amber" title="O que não coletamos">
           <p>
@@ -167,21 +214,29 @@ export default function PrivacidadePage() {
         <List
           items={[
             <>
-              <strong className="text-foreground">Recomendamos não identificar o aluno.</strong> A adaptação
-              funciona plenamente sem nome, matrícula, foto ou qualquer identificador do estudante no
-              material enviado. Oriente sua equipe a remover esses dados antes do envio.
+              <strong className="text-foreground">Prefira identificar o pedido, não o aluno.</strong> O
+              pedido pede uma identificação para você organizar o resultado e localizá-lo depois — um
+              apelido, as iniciais ou um código cumprem essa função, e o campo aceita qualquer texto. Não é
+              necessário o nome completo, nem matrícula, foto ou outros identificadores; oriente sua
+              equipe a removê-los do arquivo antes do envio. A identificação informada não é enviada aos
+              provedores de IA (seção 7), mas aparece no resumo de confirmação que o assistente devolve na
+              conversa do WhatsApp.
             </>,
             <>
-              <strong className="text-foreground">A responsabilidade pela base legal é da instituição.</strong>{' '}
-              Cabe à escola, como controladora, garantir base legal adequada para tratar dados sensíveis de
-              estudantes — incluindo, quando exigido, o consentimento específico e destacado dos pais ou
-              responsáveis.
+              <strong className="text-foreground">A base legal do conteúdo é definida pela instituição.</strong>{' '}
+              Cabe à escola, como controladora, identificar a hipótese aplicável: para dados comuns, uma
+              das hipóteses do art. 7º da LGPD; quando o pedido envolver dado sensível — por exemplo,
+              condição de saúde associada a aluno identificado ou identificável —, uma das hipóteses do
+              art. 11. O contrato com a AdaptaEDU não autoriza automaticamente todo tratamento sensível.
             </>,
             <>
-              <strong className="text-foreground">Crianças e adolescentes.</strong> Nos termos do art. 14 da
-              LGPD, o tratamento de dados de crianças e adolescentes deve ocorrer em seu melhor interesse.
-              O tratamento de dados de crianças menores de 12 anos depende de consentimento específico
-              dado por ao menos um dos pais ou responsável legal, salvo nas hipóteses legais de dispensa.
+              <strong className="text-foreground">Crianças e adolescentes.</strong> O tratamento deve
+              ocorrer no melhor interesse da criança e do adolescente, avaliado no caso concreto (art. 14
+              da LGPD e Enunciado CD/ANPD nº 1/2023). São admissíveis as hipóteses dos arts. 7º ou 11
+              aplicáveis a cada situação; quando o consentimento for a base utilizada para o tratamento de
+              dados de crianças, ele deve ser específico e destacado, prestado por ao menos um dos pais ou
+              responsável legal, com verificação razoável de quem o prestou, salvo as hipóteses legais de
+              dispensa.
             </>,
             <>
               <strong className="text-foreground">Não envie laudos nem diagnósticos.</strong> Diagnóstico
@@ -200,13 +255,13 @@ export default function PrivacidadePage() {
           <div className="rounded-xl border border-emerald-300 bg-emerald-50 p-5">
             <p className="text-sm font-semibold text-emerald-800 mb-2">Prefira</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              &ldquo;Adaptar este conteúdo para baixa visão.&rdquo;
+              &ldquo;Adaptar este conteúdo para baixa visão — pedido &lsquo;aluna M.&rsquo;.&rdquo;
             </p>
           </div>
           <div className="rounded-xl border border-rose-300 bg-rose-50 p-5">
             <p className="text-sm font-semibold text-rose-800 mb-2">Evite quando desnecessário</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              &ldquo;O aluno João tem diagnóstico X, CID Y, usa o medicamento Z…&rdquo;
+              &ldquo;O aluno João da Silva tem diagnóstico X, CID Y, usa o medicamento Z…&rdquo;
             </p>
           </div>
         </div>
@@ -222,28 +277,175 @@ export default function PrivacidadePage() {
           rows={[
             ['Responder a solicitações de demonstração e contato comercial', 'Diligências preliminares a contrato, a pedido do titular (art. 7º, V)'],
             ['Criar e manter contas e permitir o uso da plataforma', 'Execução de contrato (art. 7º, V)'],
-            ['Processar e adaptar o conteúdo pedagógico enviado', 'Execução de contrato com a instituição contratante (art. 7º, V)'],
+            ['Identificar o remetente no WhatsApp e validar o vínculo com a escola', 'Execução de contrato e legítimo interesse — segurança (art. 7º, V e IX)'],
+            ['Processar e adaptar o conteúdo pedagógico enviado, em nome da instituição contratante', 'Hipótese definida pela instituição controladora (art. 7º ou art. 11 da LGPD)'],
+            ['Enviar mensagens operacionais, no WhatsApp e por e-mail, em resposta aos seus pedidos', 'Execução de contrato (art. 7º, V)'],
             ['Faturamento, cobrança e obrigações fiscais', 'Cumprimento de obrigação legal (art. 7º, II)'],
             ['Segurança, prevenção a fraude e manutenção de logs de acesso', 'Cumprimento de obrigação legal e legítimo interesse (art. 7º, II e IX)'],
             ['Melhorar funcionalidades e medir uso agregado do produto', 'Legítimo interesse (art. 7º, IX)'],
+            ['Registrar o aceite dos termos de uso e desta política', 'Execução de contrato e exercício regular de direitos (art. 7º, V e VI)'],
             ['Envio de comunicações de marketing', 'Consentimento (art. 7º, I), revogável a qualquer momento'],
           ]}
         />
-        <Callout tone="teal" title="Treinamento de modelos de IA">
+      </Section>
+
+      <Section id="whatsapp" title="6. Uso pelo WhatsApp Business">
+        <P>
+          A plataforma pode ser usada pelo computador, em app.adaptaedu.com, ou pelo WhatsApp. No uso
+          institucional pelo WhatsApp, cada escola conecta à plataforma o seu próprio número de WhatsApp
+          Business; nos planos em que o número da AdaptaEDU está disponível, ele também pode ser
+          utilizado. Esta seção explica como o canal funciona e quais dados ele envolve.
+        </P>
+
+        <SubTitle>6.1 Como funciona o atendimento</SubTitle>
+        <List
+          items={[
+            'A escola conecta o seu número de WhatsApp Business pela área administrativa da plataforma e cadastra os professores que podem usá-lo.',
+            'O professor inicia a conversa com esse número. Nenhuma adaptação começa por mensagem nossa: o atendimento é sempre iniciado por você.',
+            'Para liberar o pedido, comparamos o número de quem escreveu com o número cadastrado no perfil do professor e verificamos se há vínculo ativo com a escola dona daquele número.',
+            'Números desconhecidos recebem uma orientação neutra de cadastro — e nada mais: nenhum arquivo é processado e nenhuma conta é criada automaticamente.',
+            'Em seguida, o assistente faz as perguntas do pedido — identificação do aluno, ano escolar, matéria, tipo de conteúdo e perfil de adaptação — e recebe o material em imagem, PDF, DOC ou DOCX.',
+            'Antes de processar, o assistente mostra um resumo para você confirmar. O uso do canal consome os mesmos créditos do plano e segue as mesmas regras da plataforma.',
+          ]}
+        />
+
+        <SubTitle>6.2 Quais dados o canal envolve</SubTitle>
+        <P>
+          Tratamos os dados listados na seção 3.4: números de telefone, identificadores técnicos das
+          mensagens, respostas aos campos do pedido e arquivos enviados.
+        </P>
+        <Callout tone="teal" title="O que não guardamos do canal">
           <p>
-            O material enviado é processado{' '}
-            <strong className="text-foreground">apenas para gerar a adaptação solicitada</strong>. Não
-            utilizamos conteúdo pedagógico das escolas para treinar, ajustar ou avaliar modelos de
-            inteligência artificial, próprios ou de terceiros.
+            O histórico da conversa não fica armazenado em banco de dados: a sessão do pedido é mantida
+            de forma temporária, por até 1 hora após a sua última mensagem. Textos digitados que não
+            correspondem a campos do pedido não são gravados. Nossos registros técnicos mostram o número
+            de telefone com máscara e a estrutura das mensagens, sem o conteúdo delas.
+          </p>
+        </Callout>
+
+        <SubTitle>6.3 Entrega do resultado</SubTitle>
+        <List
+          items={[
+            <>
+              Quando a adaptação termina, enviamos no WhatsApp um{' '}
+              <strong className="text-foreground">link de download válido por 1 hora</strong>. Quem
+              tiver o link consegue baixar o arquivo dentro desse prazo — não o encaminhe para quem não
+              deve ver o material.
+            </>,
+            'O link e o nome do arquivo não contêm dados do aluno: o material é identificado por códigos internos.',
+            <>
+              Depois desse prazo, o documento editável e o PDF continuam disponíveis em
+              app.adaptaedu.com, acessíveis com o login da sua conta.
+            </>,
+          ]}
+        />
+
+        <SubTitle>6.4 Regras de mensageria</SubTitle>
+        <List
+          items={[
+            'Enviamos mensagens no WhatsApp apenas em resposta a um pedido iniciado por você: perguntas para completar o pedido, confirmações e o link do resultado. Não enviamos publicidade pelo WhatsApp.',
+            'Seguimos a Política de Mensagens Comerciais do WhatsApp. Quando o número da escola opera pela API oficial da Meta (WhatsApp Business Platform), as mensagens enviadas fora da janela de atendimento de 24 horas utilizam somente modelos de mensagem aprovados pela Meta — ou aguardamos a sua próxima mensagem.',
+            'A permissão exigida pelas regras do WhatsApp para receber mensagens de uma empresa é independente da base legal da LGPD: uma não substitui a outra.',
+          ]}
+        />
+
+        <SubTitle>6.5 Interromper o atendimento</SubTitle>
+        <List
+          items={[
+            <>
+              Enviar <strong className="text-foreground">&ldquo;cancelar&rdquo;</strong>,{' '}
+              <strong className="text-foreground">&ldquo;parar&rdquo;</strong> ou{' '}
+              <strong className="text-foreground">&ldquo;sair&rdquo;</strong> na conversa encerra o
+              pedido em andamento.
+            </>,
+            <>
+              Para deixar de receber mensagens no seu número: remova o WhatsApp do seu perfil na
+              plataforma, peça ao administrador da escola que remova o seu vínculo ou escreva para{' '}
+              {CONTATO.suporte}.
+            </>,
+            'A escola pode desconectar o número dela da plataforma a qualquer momento, na área administrativa.',
+          ]}
+        />
+
+        <SubTitle>6.6 O WhatsApp e a Meta</SubTitle>
+        <P>
+          As mensagens e os arquivos trocados no canal trafegam pela infraestrutura do WhatsApp, operada
+          pela Meta Platforms, e seguem a Política de Privacidade do WhatsApp. Cópias das mensagens
+          permanecem nos aparelhos dos participantes e nos sistemas do WhatsApp, que não estão sob nosso
+          controle — por isso a exclusão de dados na AdaptaEDU não remove automaticamente o histórico da
+          conversa no seu aparelho ou no da escola. A escola é responsável pelo número conectado e pela
+          respectiva conta WhatsApp Business.
+        </P>
+      </Section>
+
+      <Section id="ia" title="7. Como a inteligência artificial trata o material">
+        <P>O material enviado passa por estas etapas, para gerar a adaptação solicitada:</P>
+        <List
+          items={[
+            <>
+              <strong className="text-foreground">Preparo das imagens:</strong> fotos e digitalizações são
+              endireitadas, cortadas e redimensionadas nos nossos servidores.
+            </>,
+            <>
+              <strong className="text-foreground">Extração do texto:</strong> o arquivo é convertido em
+              texto estruturado nos nossos servidores. Quando a extração automática não é suficiente
+              — fotos de baixa qualidade, diagramas —, as páginas são enviadas a um modelo de leitura
+              visual para transcrevê-las.
+            </>,
+            <>
+              <strong className="text-foreground">Adaptação do conteúdo:</strong> um modelo de linguagem
+              reescreve e reorganiza o texto, orientado pelas regras do perfil de acessibilidade
+              escolhido e pelos campos do pedido.
+            </>,
+            <>
+              <strong className="text-foreground">Ilustrações:</strong> quando o perfil pede apoio visual,
+              geramos ilustrações por IA a partir de descrições do conteúdo adaptado, ou buscamos
+              pictogramas ARASAAC por palavra-chave.
+            </>,
+            <>
+              <strong className="text-foreground">Montagem:</strong> o resultado é convertido em documento
+              editável (DOCX) e PDF.
+            </>,
+          ]}
+        />
+
+        <SubTitle>7.1 O que enviamos aos provedores de IA</SubTitle>
+        <List
+          items={[
+            'O conteúdo do material: o texto extraído e, quando necessário para a leitura, as imagens das páginas.',
+            'O contexto do pedido: ano escolar, matéria, perfil de acessibilidade e as instruções que você escreveu.',
+          ]}
+        />
+        <Callout tone="amber" title="O que nunca enviamos">
+          <p>
+            A identificação do aluno digitada no pedido fica registrada apenas com o pedido, para você
+            organizá-lo e localizar o resultado. Ela não é enviada a nenhum provedor de IA, não entra nos
+            comandos de geração de imagem e não aparece em nomes de arquivo.
           </p>
           <p>
-            Os provedores de IA que utilizamos são contratados sob termos de API corporativa, em que o
-            conteúdo enviado não alimenta o treinamento dos modelos deles.
+            Também não enviamos número de telefone, senha ou dados da sua conta de usuário.
+          </p>
+        </Callout>
+
+        <SubTitle>7.2 Arquivos intermediários e registros</SubTitle>
+        <List
+          items={[
+            'Cada etapa gera arquivos intermediários — imagens preparadas, transcrições, estrutura da adaptação, ilustrações — que ficam armazenados junto com o pedido, isolados por escola, e seguem a mesma retenção da seção 10.',
+            'Registramos por etapa o modelo utilizado, o consumo, o custo e a duração, para operar e melhorar o serviço. Esses registros não contêm o conteúdo do material.',
+            'O professor deve revisar a fidelidade do texto, a adequação das ilustrações e a acessibilidade do resultado antes de usá-lo com os alunos. O serviço não substitui avaliação pedagógica nem diagnóstico profissional.',
+          ]}
+        />
+        <Callout tone="teal" title="Treinamento de modelos">
+          <p>
+            Não usamos o material enviado — original, transcrições, ilustrações ou adaptações — para
+            treinar, ajustar ou avaliar modelos de inteligência artificial próprios. Cada provedor de IA é
+            contratado por meio de API, sob termos que não autorizam o uso do conteúdo enviado para
+            treinar os modelos deles.
           </p>
         </Callout>
       </Section>
 
-      <Section id="compartilhamento" title="6. Com quem compartilhamos dados">
+      <Section id="compartilhamento" title="8. Com quem compartilhamos dados">
         <P>
           Não vendemos dados pessoais. Compartilhamos apenas o necessário, com as seguintes categorias de
           destinatários:
@@ -261,10 +463,11 @@ export default function PrivacidadePage() {
         </P>
       </Section>
 
-      <Section id="transferencia" title="7. Transferência internacional">
+      <Section id="transferencia" title="9. Transferência internacional">
         <P>
           <strong className="text-foreground">Sim, há transferência internacional.</strong> Os
-          fornecedores que sustentam a plataforma processam dados nos Estados Unidos:
+          fornecedores processam dados nos países indicados na seção 8 — em sua maioria nos Estados
+          Unidos e, para os provedores de contingência de IA, também em Singapura e na China:
         </P>
         <Table
           head={['Fornecedor', 'O que processa', 'País']}
@@ -272,10 +475,11 @@ export default function PrivacidadePage() {
         />
         <P>
           A transferência ocorre para viabilizar a execução do contrato firmado com você ou com a sua
-          instituição, e para a prestação do serviço que você solicitou — hipóteses previstas no art. 33
-          da LGPD. Com cada fornecedor são adotadas as salvaguardas contratuais oferecidas para
-          tratamento de dados pessoais, incluindo cláusulas de proteção de dados e compromissos de
-          confidencialidade.
+          instituição e a prestação do serviço que você solicitou — hipóteses previstas no art. 33 da
+          LGPD — contando, quando aplicável, com cláusulas contratuais específicas de proteção de dados
+          (art. 33, II). Quando o pedido envolver dado sensível de aluno identificável, a instituição
+          controladora deve avaliar a hipótese de transferência aplicável e as salvaguardas cabíveis —
+          uma razão adicional para não identificar o aluno no pedido.
         </P>
         <Callout tone="teal" title="Para escolas públicas e processos de contratação">
           <p>
@@ -290,25 +494,46 @@ export default function PrivacidadePage() {
         </Callout>
       </Section>
 
-      <Section id="retencao" title="8. Por quanto tempo guardamos">
+      <Section id="retencao" title="10. Por quanto tempo guardamos">
         <Table
           head={['Dado', 'Prazo de retenção']}
           rows={[
             ['Solicitações de demonstração não convertidas', '24 meses'],
             ['Dados de conta ativa', 'Enquanto a conta existir'],
             ['Dados após encerramento da conta', 'Excluídos em até 6 meses'],
-            ['Conteúdo enviado e adaptações geradas', '12 meses — a escola pode solicitar a exclusão antes disso, a qualquer momento'],
+            [
+              'Material enviado, imagens e textos intermediários, ilustrações e adaptações geradas',
+              '12 meses — a escola pode solicitar a exclusão antes disso, a qualquer momento',
+            ],
+            [
+              'Campos do pedido (identificação do aluno, ano escolar, matéria, tipo de conteúdo, perfil)',
+              'Pelo mesmo prazo do material a que se referem',
+            ],
+            ['Sessão da conversa de WhatsApp', 'Até 1 hora após a última mensagem'],
+            ['Identificadores técnicos de mensagens (deduplicação e entrega)', 'Até 7 dias'],
+            ['Links de download', '1 hora (WhatsApp) e 15 minutos (plataforma)'],
+            ['Número de WhatsApp cadastrado no perfil', 'Enquanto a conta existir'],
+            ['Telemetria de processamento (modelo, consumo, custo, duração)', 'Pelo mesmo prazo do pedido'],
             ['Registros de acesso à aplicação', 'No mínimo 6 meses (art. 15 do Marco Civil da Internet)'],
             ['Documentos fiscais e contratuais', 'Conforme prazos legais aplicáveis'],
+            [
+              'Cópias de segurança',
+              'Ciclo de renovação de cada serviço; após a exclusão, os dados deixam de estar disponíveis quando as cópias são renovadas',
+            ],
           ]}
         />
         <P>
           Encerrado o prazo, os dados são excluídos ou anonimizados, salvo quando sua conservação for
           autorizada pelo art. 16 da LGPD.
         </P>
+        <P>
+          A exclusão de dados na AdaptaEDU não remove automaticamente cópias que já existam nos aparelhos
+          dos participantes, nas conversas do WhatsApp ou em sistemas fora do nosso controle. Informaremos
+          o alcance e os limites de cada pedido.
+        </P>
       </Section>
 
-      <Section id="seguranca" title="9. Segurança da informação">
+      <Section id="seguranca" title="11. Segurança da informação">
         <P>
           Adotamos medidas técnicas e administrativas para proteger os dados contra acessos não
           autorizados e situações acidentais ou ilícitas de destruição, perda, alteração ou difusão:
@@ -318,6 +543,10 @@ export default function PrivacidadePage() {
             'Criptografia em trânsito (HTTPS/TLS) em todo o site e na plataforma.',
             'Criptografia dos dados armazenados e senhas protegidas por hash.',
             'Isolamento de dados por instituição, com controle de acesso por perfil de usuário.',
+            'Arquivos armazenados por escola, sob códigos internos, em repositórios de acesso privado com links temporários de download.',
+            'Cada número de WhatsApp conectado tem o seu próprio segredo de webhook, guardado de forma cifrada (hash).',
+            'Registros técnicos exibem números de telefone mascarados, sem o conteúdo das mensagens.',
+            'A identificação do aluno não é enviada aos provedores de IA nem incluída em nomes de arquivo.',
             'Pseudonimização dos dados sempre que tecnicamente aplicável à finalidade.',
             'Limitação do prazo de armazenamento ao necessário para cada finalidade.',
             'Registro de acessos e operações relevantes na plataforma.',
@@ -326,12 +555,12 @@ export default function PrivacidadePage() {
           ]}
         />
 
-        <SubTitle>9.1 Quem enxerga o quê, dentro da escola</SubTitle>
+        <SubTitle>11.1 Quem enxerga o quê, dentro da escola</SubTitle>
         <P>
-          Quando a plataforma é usada de forma institucional, os dados são organizados por escola,
-          turma e professor. Um professor não tem acesso a materiais e dados de alunos de outra escola
-          ou de turmas que não sejam suas, quando esse acesso não for necessário à sua função. O acesso
-          aos dados de alunos fica restrito a quem efetivamente precisa deles para trabalhar.
+          Quando a plataforma é usada de forma institucional, os dados são organizados por escola, turma
+          e professor. Um professor não tem acesso a materiais e dados de alunos de outra escola ou de
+          turmas que não sejam suas, quando esse acesso não for necessário à sua função. O acesso aos
+          dados de alunos fica restrito a quem efetivamente precisa deles para trabalhar.
         </P>
         <P>
           Em caso de incidente de segurança que possa acarretar risco ou dano relevante aos titulares,
@@ -341,7 +570,7 @@ export default function PrivacidadePage() {
         </P>
       </Section>
 
-      <Section id="direitos" title="10. Seus direitos como titular">
+      <Section id="direitos" title="12. Seus direitos como titular">
         <P>O art. 18 da LGPD garante a você, a qualquer momento e mediante requisição:</P>
         <List
           items={[
@@ -361,12 +590,13 @@ export default function PrivacidadePage() {
             informações adicionais para confirmar sua identidade antes de atender ao pedido.
           </p>
           <p>
-            Se o seu pedido se referir a material enviado por uma escola, encaminharemos a solicitação à
-            instituição controladora e auxiliaremos na resposta.
+            Um pedido de exclusão percorre o material original, os arquivos intermediários, as ilustrações
+            e os resultados gerados. Se o seu pedido se referir a material enviado por uma escola,
+            encaminharemos a solicitação à instituição controladora e auxiliaremos na resposta.
           </p>
         </Callout>
 
-        <SubTitle>10.1 Pais e responsáveis legais</SubTitle>
+        <SubTitle>12.1 Pais e responsáveis legais</SubTitle>
         <P>
           Solicitações relativas a dados de crianças e adolescentes podem ser feitas pelos pais ou pelo
           responsável legal. Antes de fornecer informações ou executar a solicitação, podemos pedir dados
@@ -375,7 +605,7 @@ export default function PrivacidadePage() {
         </P>
       </Section>
 
-      <Section id="cookies" title="11. Cookies e tecnologias semelhantes">
+      <Section id="cookies" title="13. Cookies e tecnologias semelhantes">
         <P>Utilizamos cookies para:</P>
         <List
           items={[
@@ -400,22 +630,26 @@ export default function PrivacidadePage() {
         </P>
       </Section>
 
-      <Section id="comunicacoes" title="12. Comunicações que enviamos">
-        <P>
-          Podemos usar o e-mail, o WhatsApp ou outros canais que você cadastrou para:
-        </P>
+      <Section id="comunicacoes" title="14. Comunicações que enviamos">
+        <P>Usamos o e-mail cadastrado para:</P>
         <List
           items={[
-            'Autenticar o acesso e confirmar operações da conta.',
-            'Recuperar acesso e redefinir senha.',
-            'Enviar alertas de segurança.',
+            'Confirmar operações da conta e recuperar o acesso.',
+            'Enviar alertas de segurança e avisos de cobrança e de período de teste.',
             'Responder ao suporte e dar andamento a solicitações.',
             'Comunicar mudanças no serviço, nos planos ou nestes documentos.',
           ]}
         />
         <P>
-          Essas comunicações fazem parte da prestação do serviço e não dependem de consentimento — sem
-          elas não é possível operar a conta com segurança.
+          No WhatsApp, enviamos mensagens apenas em resposta a pedidos iniciados por você, conforme a
+          seção 6 — sem publicidade.
+        </P>
+        <P>
+          Essas comunicações fazem parte da prestação do serviço e, para a LGPD, apoiam-se na execução do
+          contrato — sem elas não é possível operar a conta com segurança. A base legal, porém, não
+          dispensa as regras da plataforma de mensagens: seguimos também os requisitos de permissão e a
+          janela de atendimento do WhatsApp Business, e você pode interromper o atendimento a qualquer
+          momento (seção 6.5).
         </P>
         <Callout tone="teal" title="Comunicações promocionais">
           <p>
@@ -426,7 +660,7 @@ export default function PrivacidadePage() {
         </Callout>
       </Section>
 
-      <Section id="alteracoes" title="13. Alterações nesta política">
+      <Section id="alteracoes" title="15. Alterações nesta política">
         <P>
           Podemos atualizar esta política para refletir mudanças legais, técnicas ou de produto. A data da
           última atualização aparece no topo desta página. Alterações relevantes serão comunicadas por
@@ -434,7 +668,7 @@ export default function PrivacidadePage() {
         </P>
       </Section>
 
-      <Section id="contato" title="14. Encarregado e canais de contato">
+      <Section id="contato" title="16. Encarregado e canais de contato">
         <P>
           Nosso encarregado pelo tratamento de dados pessoais (DPO), conforme o art. 41 da LGPD, é{' '}
           <strong className="text-foreground">{RESPONSAVEIS.encarregado}</strong>, que pode ser contatado
