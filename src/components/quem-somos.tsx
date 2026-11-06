@@ -1,24 +1,22 @@
-'use client';
-
 import { Eye, Target, Quote } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import FadeIn from './fade-in';
+import { richTags } from './i18n/rich';
 
 /**
  * Seção "Quem somos": missão, visão e as pessoas por trás do AdaptaEDU.
  *
- * Os dados ficam em `equipe` abaixo — é o único lugar a editar. Cada pessoa só
+ * Os dados fixos (nome, foto, links) ficam em `equipe` abaixo; cargo,
+ * credencial e biografia ficam em messages/<idioma>.json (`quemSomos.people`,
+ * pela mesma chave `id`). Cada pessoa só
  * aparece quando tem conteúdo de verdade, então publicar antes de a biografia
  * ficar pronta mostra a seção íntegra, sem cartão pela metade.
  */
 
 type Pessoa = {
+  /** Chave da pessoa em `quemSomos.people` nas mensagens. */
+  id: string;
   nome: string;
-  /** Cargo ou papel. Ex.: 'Fundadora e CEO'. */
-  cargo: string;
-  /** Formação e atuação, uma linha. Ex.: 'Pedagoga, especialista em AEE'. */
-  credencial: string;
-  /** Parágrafos da biografia. Cada item vira um parágrafo. */
-  bio: string[];
   /** Frase da pessoa, opcional — aparece destacada ao final. */
   citacao?: string;
   /**
@@ -33,34 +31,16 @@ type Pessoa = {
   tom: 'teal' | 'amber';
 };
 
+/** Textos traduzidos de uma pessoa. */
+type PessoaTexto = {
+  cargo: string;
+  credencial: string;
+  bio: string[];
+};
+
 const equipe: Pessoa[] = [
-  {
-    nome: 'Andréa Monteiro',
-    cargo: 'Cofundadora',
-    credencial: 'Pedagoga (USP), especialista em inclusão (UNICAMP)',
-    bio: [
-      'Seu encontro com a inclusão começou em 1993, numa das escolas pioneiras no Brasil. É pedagoga pela USP e especialista em inclusão pela UNICAMP e pelo Centro de Referência em Distúrbios de Aprendizagem.',
-      'É coautora de “Caminhos pedagógicos da inclusão — Como estamos implementando a educação (de qualidade) para todos nas escolas brasileiras” (Editora Memnon). Hoje leciona nos anos iniciais e no AEE, o atendimento educacional especializado.',
-      'É dela a fundamentação pedagógica que faz a adaptação para cada perfil de aluno acontecer.',
-    ],
-    citacao: '',
-    foto: '/equipe/andrea.jpg',
-    linkedin: '',
-    tom: 'teal',
-  },
-  {
-    nome: 'Fernando Outa',
-    cargo: 'Cofundador',
-    credencial: 'Python, IA generativa e automação',
-    bio: [
-      'Especializou-se em inteligência artificial no Canadá, em 2017. Dois anos depois fundou a Bettrads, hub de IA generativa cujos resultados superaram benchmarks do GPT-3.',
-      'Hoje é CPO e co-fundador da MyDataAgent, primeira plataforma brasileira de agentes autônomos de IA. É dele a engenharia que faz a adaptação de um material acontecer em minutos — e continuar acontecendo quando são milhares deles.',
-    ],
-    citacao: '',
-    foto: '/equipe/fernando.jpg',
-    linkedin: '',
-    tom: 'amber',
-  },
+  { id: 'andrea', nome: 'Andréa Monteiro', citacao: '', foto: '/equipe/andrea.jpg', linkedin: '', tom: 'teal' },
+  { id: 'fernando', nome: 'Fernando Outa', citacao: '', foto: '/equipe/fernando.jpg', linkedin: '', tom: 'amber' },
 ];
 
 const avatarPorTom = {
@@ -77,18 +57,21 @@ function iniciaisDe(nome: string): string {
     .join('');
 }
 
-function temConteudo(pessoa: Pessoa): boolean {
-  return Boolean(pessoa.cargo || pessoa.credencial || pessoa.bio.length > 0);
+function temConteudo(texto: PessoaTexto): boolean {
+  return Boolean(texto.cargo || texto.credencial || texto.bio.length > 0);
 }
 
-function CartaoPessoa({ pessoa }: { pessoa: Pessoa }) {
+type CartaoProps = { pessoa: Pessoa; texto: PessoaTexto };
+
+function CartaoPessoa({ pessoa, texto }: CartaoProps) {
+  const t = useTranslations('quemSomos');
   return (
     <div className="h-full rounded-2xl bg-card border border-border shadow-sm p-8">
       <div className="flex items-center gap-5 mb-6">
         {pessoa.foto ? (
           <img
             src={pessoa.foto}
-            alt={`Retrato de ${pessoa.nome}`}
+            alt={t('portraitAlt', { name: pessoa.nome })}
             width={80}
             height={80}
             className="w-20 h-20 rounded-2xl object-cover object-top border border-border flex-shrink-0"
@@ -104,18 +87,18 @@ function CartaoPessoa({ pessoa }: { pessoa: Pessoa }) {
 
         <div className="min-w-0">
           <h4 className="text-xl font-bold text-foreground leading-tight">{pessoa.nome}</h4>
-          {pessoa.cargo && (
-            <p className="text-sm font-semibold text-amber-600 mt-1">{pessoa.cargo}</p>
+          {texto.cargo && (
+            <p className="text-sm font-semibold text-amber-600 mt-1">{texto.cargo}</p>
           )}
-          {pessoa.credencial && (
-            <p className="text-sm text-muted-foreground mt-0.5">{pessoa.credencial}</p>
+          {texto.credencial && (
+            <p className="text-sm text-muted-foreground mt-0.5">{texto.credencial}</p>
           )}
         </div>
       </div>
 
-      {pessoa.bio.length > 0 && (
+      {texto.bio.length > 0 && (
         <div className="space-y-3">
-          {pessoa.bio.map((paragrafo, i) => (
+          {texto.bio.map((paragrafo, i) => (
             <p key={i} className="text-sm text-muted-foreground leading-relaxed">
               {paragrafo}
             </p>
@@ -137,7 +120,7 @@ function CartaoPessoa({ pessoa }: { pessoa: Pessoa }) {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 mt-5 text-sm font-medium text-teal-700 hover:text-teal-800 underline underline-offset-4"
         >
-          Perfil no LinkedIn
+          {t('linkedin')}
         </a>
       )}
     </div>
@@ -145,22 +128,24 @@ function CartaoPessoa({ pessoa }: { pessoa: Pessoa }) {
 }
 
 export default function QuemSomos() {
-  const pessoasVisiveis = equipe.filter(temConteudo);
+  const t = useTranslations('quemSomos');
+  const pessoasVisiveis = equipe
+    .map(pessoa => ({ pessoa, texto: t.raw(`people.${pessoa.id}`) as PessoaTexto }))
+    .filter(({ texto }) => temConteudo(texto));
 
   return (
-    <section id="quem-somos" className="py-24 md:py-32">
+    <section id="quem-somos" className="py-24 md:py-32 overflow-x-clip">
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
           <div className="text-center mb-16">
             <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-teal-500/30 bg-teal-500/10 text-teal-700 px-3 py-1 text-xs">
-              Quem somos
+              {t('badge')}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Nascemos de uma <span className="text-gradient-warm">sala de aula</span>
+              {t.rich('title', richTags)}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              O AdaptaEDU existe porque adaptar material para cada aluno é trabalhoso demais para
-              caber na rotina de um professor — e importante demais para ficar de fora dela.
+              {t('subtitle')}
             </p>
           </div>
         </FadeIn>
@@ -170,11 +155,9 @@ export default function QuemSomos() {
           <FadeIn direction="right">
             <div className="h-full rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 p-8 text-white shadow-lg">
               <Target className="w-7 h-7 mb-4 opacity-90" aria-hidden="true" />
-              <h3 className="text-xl font-bold mb-3">Missão</h3>
+              <h3 className="text-xl font-bold mb-3">{t('missionTitle')}</h3>
               <p className="leading-relaxed text-amber-50">
-                Colocar material pedagógico acessível nas mãos de todo professor, em minutos — para
-                que a adaptação deixe de depender do tempo que ninguém tem e passe a ser parte
-                natural do preparo da aula.
+                {t('mission')}
               </p>
             </div>
           </FadeIn>
@@ -182,10 +165,9 @@ export default function QuemSomos() {
           <FadeIn direction="left">
             <div className="h-full rounded-2xl bg-card border border-border p-8 shadow-sm">
               <Eye className="w-7 h-7 mb-4 text-teal-600" aria-hidden="true" />
-              <h3 className="text-xl font-bold mb-3 text-foreground">Visão</h3>
+              <h3 className="text-xl font-bold mb-3 text-foreground">{t('visionTitle')}</h3>
               <p className="leading-relaxed text-muted-foreground">
-                Uma escola em que nenhum aluno fica de fora da aula por falta de material adequado
-                ao seu jeito de aprender — e em que a acessibilidade é rotina, não exceção.
+                {t('vision')}
               </p>
             </div>
           </FadeIn>
@@ -195,13 +177,13 @@ export default function QuemSomos() {
           <FadeIn>
             <div className="max-w-5xl mx-auto">
               <h3 className="text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-8">
-                Quem está por trás
+                {t('teamTitle')}
               </h3>
               <div
                 className={`grid gap-6 ${pessoasVisiveis.length > 1 ? 'md:grid-cols-2' : 'max-w-2xl mx-auto'}`}
               >
-                {pessoasVisiveis.map(pessoa => (
-                  <CartaoPessoa key={pessoa.nome} pessoa={pessoa} />
+                {pessoasVisiveis.map(({ pessoa, texto }) => (
+                  <CartaoPessoa key={pessoa.id} pessoa={pessoa} texto={texto} />
                 ))}
               </div>
             </div>

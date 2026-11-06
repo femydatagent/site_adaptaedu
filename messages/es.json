@@ -1,0 +1,1063 @@
+{
+  "meta": {
+    "keywords": [
+      "adaptación de contenido educativo",
+      "material adaptado para estudiantes con discapacidad",
+      "educación inclusiva escuelas",
+      "plataforma de educación especial",
+      "adaptación para TEA autismo",
+      "material adaptado TDAH",
+      "contenido accesible dislexia",
+      "adaptación pedagógica con inteligencia artificial",
+      "tecnología de apoyo en educación",
+      "AEE atención educativa especializada Brasil",
+      "cómo adaptar material escolar para alumnos con TEA",
+      "herramienta de adaptación de contenido escuela inclusiva",
+      "decreto 12.773/25 educación inclusiva Brasil",
+      "adaptación de actividades para alumnos con discapacidad intelectual",
+      "AdaptaEDU"
+    ],
+    "home": {
+      "title": "Adapta materiales escolares con IA en WhatsApp | AdaptaEDU",
+      "description": "Fotografía el material en WhatsApp y recíbelo adaptado para TEA, TDAH, dislexia y 6 perfiles más. Usado por más de 500 escuelas brasileñas.",
+      "ogTitle": "AdaptaEDU — adapta contenido educativo por WhatsApp",
+      "ogDescription": "Envía una foto por WhatsApp, o sube PDF y DOCX, y recibe versiones accesibles para 9 perfiles de aprendizaje en minutos. Para escuelas privadas, públicas y docentes."
+    },
+    "schools": {
+      "title": "AdaptaEDU para Escuelas — gestión centralizada de adaptaciones",
+      "description": "Panel para que las escuelas gestionen contenidos, docentes, paquetes por nivel y adaptaciones de accesibilidad para 9 perfiles, conforme al Decreto brasileño 12.773/25 y la LGPD.",
+      "ogTitle": "AdaptaEDU Escuelas — adaptaciones de accesibilidad en un solo panel",
+      "ogDescription": "Contenidos, materias, paquetes por nivel y docentes en un único sistema. Menos sobrecarga para el equipo, inclusión real para los alumnos.",
+      "breadcrumb": "Para Escuelas"
+    },
+    "homeBreadcrumb": "Inicio",
+    "ogImage": {
+      "alt": "AdaptaEDU — Adaptación de contenido educativo con IA",
+      "headline": "Adaptación de contenido",
+      "headlineHighlight": "educativo con IA",
+      "subtitle": "TEA · TDAH · Dislexia · Discalculia · Baja Visión · y 4 perfiles más",
+      "stats": {
+        "schools": "Escuelas",
+        "profiles": "Perfiles",
+        "lessTime": "Menos tiempo",
+        "rating": "Valoración"
+      }
+    }
+  },
+  "schema": {
+    "organizationDescription": "Plataforma de inteligencia artificial que adapta contenido educativo para estudiantes con necesidades de accesibilidad.",
+    "knowsAbout": [
+      "Educación Inclusiva",
+      "Tecnología de Apoyo",
+      "Adaptación Pedagógica",
+      "Atención Educativa Especializada (AEE)",
+      "TEA",
+      "TDAH",
+      "Dislexia"
+    ],
+    "softwareDescription": "Plataforma de IA que adapta materiales escolares (fotos por WhatsApp, PDF, DOCX e imágenes) para 9 perfiles de accesibilidad: TEA, TDAH, TPAC, discapacidad intelectual, baja visión, dislexia, discalculia, disgrafía y altas capacidades/superdotación.",
+    "featureList": [
+      "Adaptación por WhatsApp",
+      "Adaptación para TEA",
+      "Adaptación para TDAH",
+      "Adaptación para TPAC",
+      "Adaptación para discapacidad intelectual",
+      "Adaptación para baja visión",
+      "Adaptación para dislexia",
+      "Adaptación para discalculia",
+      "Adaptación para disgrafía",
+      "Adaptación para altas capacidades/superdotación",
+      "Carga de PDF, DOCX e imágenes",
+      "Exportación en PDF y DOCX",
+      "Panel de métricas",
+      "Multi-tenant para escuelas con gestión de docentes"
+    ],
+    "audience": [
+      "docente",
+      "coordinador pedagógico",
+      "director de escuela",
+      "docente de AEE"
+    ],
+    "offers": {
+      "professor": {
+        "name": "Plan Docente",
+        "description": "30 adaptaciones al mes para docentes, con 3 adaptaciones de prueba incluidas."
+      },
+      "escola": {
+        "name": "Plan Escuela",
+        "description": "250 adaptaciones al mes, 5 adaptaciones de prueba incluidas y multi-tenant con gestión de docentes."
+      },
+      "rede": {
+        "name": "Plan Red Educativa",
+        "description": "Para redes municipales, estatales y grupos escolares. Precio a consultar."
+      }
+    }
+  },
+  "support": {
+    "label": "Soporte",
+    "chatInitialMessages": [
+      "Hola, soy Ana, la asistente de AdaptaEDU.",
+      "¿Cómo puedo ayudarte hoy?"
+    ]
+  },
+  "header": {
+    "skipLink": "Saltar al contenido principal",
+    "homeAria": "AdaptaEDU - Inicio",
+    "nav": {
+      "whatsapp": "WhatsApp",
+      "pipeline": "Flujo",
+      "perfis": "Perfiles",
+      "conteudo": "Contenido",
+      "escolas": "Escuelas",
+      "legal": "Legal",
+      "aee": "AEE",
+      "quemSomos": "Nosotros",
+      "planos": "Planes",
+      "blog": "Blog"
+    },
+    "forSchools": "Para Escuelas",
+    "forSchoolsAria": "Solución para escuelas",
+    "login": "Entrar",
+    "loginAria": "Entrar a la plataforma",
+    "startFree": "Empezar Gratis",
+    "startFreeAria": "Empezar a usar AdaptaEDU gratis",
+    "openMenu": "Abrir menú de navegación",
+    "closeMenu": "Cerrar menú",
+    "scrollTop": "Volver al inicio de la página",
+    "ptOnly": "en portugués"
+  },
+  "languageSwitcher": {
+    "label": "Idioma",
+    "change": "Cambiar idioma"
+  },
+  "hero": {
+    "title": "Adaptación de contenido educativo con <hl>Inteligencia Artificial</hl> <nowrap>en WhatsApp</nowrap>",
+    "subtitle": "Sube PDF, DOCX e imágenes. Nuestra IA adapta automáticamente el material escolar para <strong>9 perfiles de accesibilidad</strong> — TEA, TDAH, dislexia y más. Conforme al Decreto brasileño 12.773/25.",
+    "ctaPrimary": "Adaptar Contenido Gratis",
+    "ctaVideo": "Ver Cómo Funciona",
+    "mockup": {
+      "material": "Material",
+      "items": [
+        "Texto Narrativo",
+        "Ejercicios de Matemáticas",
+        "Ciencias — 5.º grado"
+      ],
+      "profile": "Perfil",
+      "docTitle": "Ejercicios de Matemáticas — TEA",
+      "docMeta": "Adaptado en 2 segundos",
+      "ready": "Listo",
+      "goal": "📌 Objetivo de la actividad",
+      "goalText": "Resolver problemas de suma con números hasta 100.",
+      "step1": "Paso 1 — Lee el problema",
+      "step1Text": "Juan tiene <strong>35 estampas</strong>. Le regalaron <strong>24</strong> más. ¿Cuántas tiene ahora?",
+      "step2": "Paso 2 — Calcula",
+      "download": "Descargar PDF"
+    },
+    "proof": {
+      "lgpd": "Cumple la LGPD",
+      "schools": "+500 Escuelas",
+      "students": "+12.000 Alumnos Beneficiados",
+      "rating": "4,9/5 Docentes"
+    }
+  },
+  "pipeline": {
+    "badge": "Flujo de Transformación",
+    "title": "Cómo funciona la <hl>adaptación</hl>",
+    "subtitle": "En 7 etapas automatizadas, tu contenido original se transforma en material accesible y adaptado al perfil del alumno.",
+    "steps": [
+      {
+        "label": "Envío",
+        "desc": "Envía PDF, DOCX o imágenes"
+      },
+      {
+        "label": "Análisis",
+        "desc": "Extrae texto y estructura"
+      },
+      {
+        "label": "Fusión",
+        "desc": "Une contenido y contexto"
+      },
+      {
+        "label": "Adaptación",
+        "desc": "Aplica reglas de accesibilidad"
+      },
+      {
+        "label": "Formato",
+        "desc": "Genera el diseño adaptado"
+      },
+      {
+        "label": "Generación",
+        "desc": "Produce el material final"
+      },
+      {
+        "label": "Exportación",
+        "desc": "Descarga en PDF o DOCX"
+      }
+    ]
+  },
+  "profiles": {
+    "badge": "Perfiles de Accesibilidad",
+    "title": "9 perfiles. Cada <hl>alumno</hl> en el centro.",
+    "subtitle": "Cada perfil tiene reglas de adaptación específicas, basadas en evidencia científica y desarrolladas con especialistas en educación especial.",
+    "items": {
+      "tea": {
+        "name": "TEA",
+        "full": "Trastorno del Espectro Autista",
+        "desc": "Estructura visual predecible, menos estímulos excesivos, instrucciones claras y literales, apoyos visuales consistentes."
+      },
+      "tdah": {
+        "name": "TDAH",
+        "full": "Trastorno por Déficit de Atención e Hiperactividad",
+        "desc": "Contenido segmentado en bloques cortos, palabras clave destacadas, pausas visuales e información clara y directa."
+      },
+      "tpac": {
+        "name": "TPAC",
+        "full": "Trastorno del Procesamiento Auditivo Central",
+        "desc": "Prioridad al contenido visual, leyendas descriptivas, instrucciones escritas detalladas."
+      },
+      "di": {
+        "name": "DI",
+        "full": "Discapacidad Intelectual",
+        "desc": "Lenguaje simplificado, ejemplos concretos, repetición de conceptos clave, abundante apoyo visual y paso a paso."
+      },
+      "baixaVisao": {
+        "name": "Baja Visión",
+        "full": "Baja Visión",
+        "desc": "Alto contraste, fuentes ampliadas, descripciones de imágenes en texto, diseño limpio sin saturación visual."
+      },
+      "dislexia": {
+        "name": "Dislexia",
+        "full": "Dislexia",
+        "desc": "Fuentes amigables para la dislexia, espaciado generoso, división silábica opcional, colores como guía visual."
+      },
+      "discalculia": {
+        "name": "Discalculia",
+        "full": "Discalculia",
+        "desc": "Representaciones visuales de los números, material concreto, paso a paso detallado."
+      },
+      "disgrafia": {
+        "name": "Disgrafía",
+        "full": "Disgrafía",
+        "desc": "Espacios ampliados para escribir, líneas guía, actividades con menor exigencia motora, alternativas de respuesta digital."
+      },
+      "ahsd": {
+        "name": "AC/SD",
+        "full": "Altas Capacidades / Superdotación",
+        "desc": "Enriquecimiento curricular, profundización conceptual, actividades diferenciadas de mayor complejidad, ritmo acelerado y proyectos de investigación."
+      }
+    }
+  },
+  "contentSection": {
+    "badge": "Tipos de Contenido y Adaptación",
+    "title": "Adapta <hl>cualquier material</hl>",
+    "subtitle": "Elige el tipo de contenido y, si quieres, estrategias de adaptación para orientar a la IA — o deja que las reglas del perfil trabajen solas."
+  },
+  "contentDemo": {
+    "contentTypeLabel": "Tipo de Contenido",
+    "contentTypeHelp": "Selecciona el formato del material que quieres adaptar.",
+    "types": [
+      {
+        "title": "Texto",
+        "desc": "Textos narrativos e informativos"
+      },
+      {
+        "title": "Texto con Ejercicios",
+        "desc": "Contenido mixto con actividades"
+      },
+      {
+        "title": "Ciencias / Historia / Geografía",
+        "desc": "Materias con contenido discursivo"
+      },
+      {
+        "title": "Ejercicios de Matemáticas",
+        "desc": "Problemas numéricos y lógicos"
+      }
+    ],
+    "adaptationLabel": "Tipo de Adaptación",
+    "adaptationHelp": "Opcional. Estrategias adicionales para orientar la adaptación. Déjalo en blanco para usar solo las reglas del perfil.",
+    "strategies": [
+      "Destacar la información clave",
+      "Dividir el texto en bloques",
+      "Convertir el texto en listas con viñetas",
+      "Agregar títulos y subtítulos claros",
+      "Simplificar el lenguaje"
+    ],
+    "previewTitle": "Vista Previa de la Adaptación",
+    "previewExample": "Ejemplo adaptado para TEA / TDAH:",
+    "previewItems": [
+      "Texto dividido en bloques cortos y objetivos",
+      "Palabras clave destacadas en negrita",
+      "Instrucciones numeradas paso a paso"
+    ],
+    "extraStrategies": "+ {count, plural, one {# estrategia adicional aplicada} other {# estrategias adicionales aplicadas}}",
+    "ready": "✓ Material listo para descargar en PDF o DOCX"
+  },
+  "schoolsSection": {
+    "badge": "Paquetes",
+    "title": "Cada escuela. <hl>Su cuenta.</hl> Sus paquetes.",
+    "subtitle": "Escuelas privadas, públicas y redes educativas pueden crear cuentas separadas, gestionar docentes y generar paquetes de adaptación de contenido a demanda.",
+    "types": [
+      {
+        "title": "Escuelas Privadas",
+        "desc": "Responde a las familias y a los alumnos que buscan una inclusión de verdad. Un diferencial competitivo con responsabilidad social.",
+        "features": [
+          "Cuenta administrativa completa",
+          "Gestión de docentes",
+          "Control de uso y métricas",
+          "Diferencial competitivo"
+        ]
+      },
+      {
+        "title": "Escuelas Públicas",
+        "desc": "Adapta el contenido a las necesidades de los alumnos cumpliendo la legislación. Herramientas prácticas para las salas de recursos multifuncionales (SRM).",
+        "features": [
+          "Conforme al Decreto 12.773/25",
+          "Salas de recursos multifuncionales",
+          "Atención educativa especializada (AEE)",
+          "Accesible para presupuestos públicos"
+        ]
+      },
+      {
+        "title": "Docentes Independientes",
+        "desc": "Crea materiales adaptados en minutos, no en horas. Planifica clases inclusivas sin necesitar formación especializada en cada perfil.",
+        "features": [
+          "Adaptaciones rápidas y sencillas",
+          "Todos los perfiles de accesibilidad",
+          "Exportación en PDF y DOCX",
+          "Sin formación especializada"
+        ]
+      }
+    ],
+    "cta": {
+      "eyebrow": "Para directores, coordinadores y dueños de escuela",
+      "title": "Tu escuela lista para la <hl>inclusión real</hl>",
+      "desc": "Centraliza la gestión de contenidos adaptados, controla el acceso de los docentes y muestra a las familias que tu escuela es referente en educación inclusiva.",
+      "features": [
+        "Cuentas separadas por escuela",
+        "Control de acceso por docente",
+        "Generación de paquetes en lote",
+        "Panel de uso y métricas"
+      ],
+      "seeSolution": "Ver la solución para escuelas",
+      "scheduleDemo": "Agendar demostración gratuita",
+      "note": "Sin compromiso · Respuesta en 24 h"
+    }
+  },
+  "legal": {
+    "badge": "Marco Legal e Inclusión",
+    "title": "La accesibilidad es <hl>un derecho</hl>",
+    "subtitle": "Según el Decreto brasileño 12.773/25, la educación inclusiva es un derecho garantizado — y AdaptaEDU ayuda a las escuelas a cumplir ese compromiso en la práctica.",
+    "cardTitle": "La Educación Inclusiva es Ley",
+    "according": "Según el Decreto brasileño 12.773/25",
+    "p1": "Los servicios y recursos de apoyo a los estudiantes con discapacidad son derechos garantizados por la legislación brasileña en todas las etapas, niveles y modalidades de la educación básica. Estos apoyos no sustituyen la enseñanza en el aula regular; al contrario, complementan y fortalecen el proceso educativo, ayudando a eliminar barreras — actitudinales, arquitectónicas, de comunicación, informativas, tecnológicas y pedagógicas — y a promover la plena participación en la vida escolar.",
+    "quote1": "Educar es abrir puertas; incluir es garantizar que nadie se quede afuera.",
+    "quote2": "La inclusión es nuestra capacidad de entender y reconocer al otro y, así, tener el privilegio de convivir y compartir con personas diferentes de nosotros.",
+    "p2": "Entre los servicios que deben ofrecerse están la atención educativa especializada (AEE, Atendimento Educacional Especializado), el profesional de apoyo escolar y las salas de recursos multifuncionales (SRM). La diversificación de estrategias pedagógicas, los materiales didácticos accesibles y las tecnologías de apoyo también son fundamentales. AdaptaEDU se ubica exactamente ahí: como una tecnología de apoyo que transforma materiales didácticos en recursos accesibles de forma automática y escalable.",
+    "lgpd": "Cumple la LGPD",
+    "lgpdSub": "Datos protegidos",
+    "evidence": "Basado en evidencia"
+  },
+  "stats": [
+    {
+      "value": "9",
+      "label": "Perfiles de accesibilidad cubiertos por la plataforma"
+    },
+    {
+      "value": "500+",
+      "label": "Escuelas atendidas, privadas y públicas"
+    },
+    {
+      "value": "80%",
+      "label": "Menos tiempo para adaptar un material"
+    },
+    {
+      "value": "12K+",
+      "label": "Alumnos beneficiados con contenido adaptado"
+    }
+  ],
+  "testimonials": {
+    "badge": "Testimonios",
+    "title": "Quien lo usa, <hl>lo cuenta</hl>",
+    "subtitle": "Docentes, coordinación y dirección cuentan cómo AdaptaEDU entró en la rutina de la escuela.",
+    "translatedNote": "Testimonios traducidos del portugués.",
+    "items": [
+      {
+        "texto": [
+          "Como profesional que trabaja directamente con el AEE y la educación inclusiva, es muy gratificante encontrar una herramienta tan alineada con nuestras necesidades prácticas.",
+          "La propuesta de la aplicación es excelente. La facilidad para leer imágenes y transformarlas en actividades adaptadas para distintas discapacidades y rezagos de aprendizaje es un gran diferencial. El diseño es intuitivo y las opciones visuales ayudan mucho a involucrar a los alumnos.",
+          "Aplicamos la herramienta en nuestra escuela en varias situaciones, desde el apoyo pedagógico hasta las evaluaciones, y la respuesta fue excelente. Notamos una muy buena aceptación de los alumnos, que participaron en las actividades con más autonomía y comprensión.",
+          "Este tipo de iniciativa muestra cómo la tecnología puede ser una aliada real de la inclusión, respetando las individualidades y abriendo caminos para que los alumnos desarrollen su potencial.",
+          "¡Felicitaciones a los creadores! Recomiendo la aplicación a todas las escuelas y educadores comprometidos con una educación accesible y de calidad."
+        ],
+        "nome": "Laila Sati",
+        "iniciais": "LS",
+        "papel": "Docente de AEE y de Biología — secundaria y bachillerato",
+        "destaque": "Los alumnos participaron en las actividades con más autonomía y comprensión."
+      },
+      {
+        "texto": [
+          "La plataforma AdaptaEDU llegó para facilitar la elaboración de actividades de calidad. Crea adaptaciones con espaciado, apoyos visuales, secuencias de imágenes, bloques de lectura, listas de verificación y otros criterios, según el perfil de accesibilidad. Desde que empecé a usarla, organizo mejor el tiempo que tengo para preparar actividades adaptadas para mis alumnos."
+        ],
+        "nome": "Ana Paula Silva",
+        "iniciais": "AS",
+        "papel": "Docente — primeros años de primaria"
+      },
+      {
+        "texto": [
+          "Me gustó mucho lo práctica que es. Confieso que se siente un poco extraño que la IA no esté \"conversando\", pero es una nueva forma de hacer las cosas y de simplificar — ¡me encantó!",
+          "Me pareció práctica, ¡pude adaptar actividades muy buenas para los niños! ¡Felicitaciones!"
+        ],
+        "nome": "Victoria Tavares dos Santos",
+        "iniciais": "VS",
+        "papel": "Docente — primeros años de primaria"
+      },
+      {
+        "texto": [
+          "¡Los nuevos tiempos piden una mirada más amplia! Como directiva, veo que la app AdaptaEDU también da respaldo legal y asesora a la escuela en lo que respecta a la remuneración de los docentes por la adaptación de las evaluaciones."
+        ],
+        "nome": "Karen Thomaz",
+        "iniciais": "KT",
+        "papel": "Directora pedagógica"
+      },
+      {
+        "texto": [
+          "La plataforma agiliza el trabajo de los docentes y de la coordinación, generando actividades que se editan y revisan con mayor facilidad."
+        ],
+        "nome": "Ianina Gabriela Adamenas",
+        "iniciais": "IA",
+        "papel": "Asistente de coordinación"
+      }
+    ]
+  },
+  "plans": {
+    "badge": "Planes",
+    "title": "Fácil, rápido y <hl>adaptable</hl>",
+    "subtitle": "Empieza gratis. Crece cuando tu escuela lo necesite. Sin sorpresas ni cargos ocultos. Precios en reales brasileños (BRL).",
+    "popular": "Más Popular",
+    "items": {
+      "professor": {
+        "name": "Docente",
+        "desc": "Para educadores que quieren empezar a adaptar contenidos.",
+        "price": "R$ 150",
+        "period": "/mes",
+        "features": [
+          "30 adaptaciones/mes",
+          "3 adaptaciones de prueba incluidas",
+          "Adaptación por WhatsApp",
+          "Todos los perfiles de accesibilidad",
+          "Carga de PDF y DOCX",
+          "Exportación en PDF",
+          "Soporte por email"
+        ],
+        "cta": "Probar Gratis"
+      },
+      "escola": {
+        "name": "Escuela",
+        "desc": "Para escuelas que necesitan inclusión a escala.",
+        "price": "R$ 1.250",
+        "period": "/mes",
+        "features": [
+          "250 adaptaciones/mes",
+          "5 adaptaciones de prueba incluidas",
+          "Adaptación por WhatsApp",
+          "Los 9 perfiles de accesibilidad",
+          "Carga de PDF, DOCX e imágenes",
+          "Multi-tenant con gestión de docentes",
+          "Panel de métricas",
+          "Soporte prioritario",
+          "Todos los tipos de adaptación"
+        ],
+        "cta": "Prueba Gratis por 14 Días"
+      },
+      "rede": {
+        "name": "Red Educativa",
+        "desc": "Para redes municipales, estatales y grupos escolares.",
+        "price": "A consultar",
+        "features": [
+          "Todo lo del plan Escuela",
+          "Múltiples sedes",
+          "API de integración",
+          "SLA garantizado",
+          "Cumplimiento avanzado",
+          "Gerente de éxito dedicado",
+          "Onboarding personalizado",
+          "Informes para la gestión"
+        ],
+        "cta": "Hablar con un Especialista"
+      }
+    }
+  },
+  "finalCta": {
+    "title": "Todo alumno merece <hl>contenido adaptado</hl>",
+    "subtitle": "Sube cualquier material y recibe versiones accesibles para 9 perfiles. Gratis para empezar, sin tarjeta de crédito.",
+    "tagline": "La inclusión empieza con un clic.",
+    "primary": "Adaptar Mi Primer Material",
+    "secondary": "Hablar con un Especialista"
+  },
+  "faq": {
+    "badge": "Preguntas Frecuentes",
+    "title": "Dudas sobre <hl>adaptación educativa</hl>",
+    "items": [
+      {
+        "q": "¿Qué es AdaptaEDU?",
+        "a": "AdaptaEDU es una plataforma de inteligencia artificial que adapta automáticamente materiales educativos para 9 perfiles de accesibilidad: TEA, TDAH, TPAC, discapacidad intelectual, baja visión, dislexia, discalculia, disgrafía y altas capacidades/superdotación. Los docentes suben PDF o DOCX y reciben versiones adaptadas en minutos."
+      },
+      {
+        "q": "¿Para quién es AdaptaEDU?",
+        "a": "AdaptaEDU está pensado para docentes del aula regular, docentes de AEE (Atención Educativa Especializada), coordinadores pedagógicos y directivos de escuelas privadas y públicas, además de redes educativas. El docente adapta por su cuenta con el plan Docente; la escuela centraliza docentes, contenidos y métricas con el plan Escuela."
+      },
+      {
+        "q": "¿Cómo funciona la adaptación por WhatsApp?",
+        "a": "El docente fotografía la página del libro, la lista de ejercicios o la prueba, envía la foto al WhatsApp de AdaptaEDU e indica el perfil del alumno, por ejemplo \"adaptar para dislexia\". En minutos recibe, en la misma conversación, el material adaptado en PDF."
+      },
+      {
+        "q": "¿Cómo adaptar material escolar para alumnos con TEA?",
+        "a": "Para alumnos con Trastorno del Espectro Autista (TEA), AdaptaEDU aplica automáticamente una estructura visual predecible, menos estímulos excesivos, instrucciones claras y literales y apoyos visuales consistentes. Basta con subir el material y seleccionar el perfil TEA."
+      },
+      {
+        "q": "¿Qué es el AEE y cómo ayuda AdaptaEDU?",
+        "a": "El AEE (Atendimento Educacional Especializado, o Atención Educativa Especializada) es el servicio de la educación brasileña que garantiza a los estudiantes con discapacidad, TEA y altas capacidades el acceso a lo que aprende el resto de la clase, generalmente en las salas de recursos multifuncionales (SRM) y en el contraturno. AdaptaEDU automatiza la etapa que más tiempo consume del AEE: transformar cada material en versiones accesibles para el perfil del alumno, preservando el objetivo pedagógico."
+      },
+      {
+        "q": "¿AdaptaEDU cumple la legislación de educación inclusiva?",
+        "a": "Sí. AdaptaEDU fue desarrollado conforme al Decreto brasileño 12.773/25 y a la legislación brasileña de educación inclusiva, que garantiza a los estudiantes con discapacidad el derecho a materiales didácticos accesibles y tecnologías de apoyo en todas las etapas de la educación básica."
+      },
+      {
+        "q": "¿Cuánto cuesta AdaptaEDU para escuelas?",
+        "a": "El plan Docente cuesta R$150/mes (reales brasileños) con 30 adaptaciones mensuales y 3 adaptaciones de prueba incluidas. El plan Escuela cuesta R$1.250/mes, con 250 adaptaciones mensuales, 5 adaptaciones de prueba incluidas, multi-tenant con gestión de docentes, los 9 perfiles de accesibilidad y panel de métricas. Las redes educativas tienen precio a consultar."
+      },
+      {
+        "q": "¿Qué tipos de archivo acepta AdaptaEDU?",
+        "a": "AdaptaEDU acepta PDF, documentos DOCX e imágenes. El material adaptado se puede exportar en PDF o DOCX, listo para entregar a los alumnos."
+      },
+      {
+        "q": "¿Cómo ayuda AdaptaEDU a las escuelas privadas?",
+        "a": "Para escuelas privadas, AdaptaEDU ofrece una cuenta administrativa con gestión centralizada de docentes, control de uso, paquetes de contenido por nivel (primaria, secundaria y bachillerato) y panel de métricas — un diferencial competitivo que responde a la demanda de las familias por una inclusión real."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Transforma el contenido educativo con accesibilidad. IA que adapta materiales para alumnos con distintos perfiles de necesidad, de docente para docente.",
+    "product": "Producto",
+    "productLinks": {
+      "perfis": "Perfiles",
+      "pipeline": "Pipeline",
+      "conteudo": "Tipos de Contenido",
+      "integracoes": "Integraciones",
+      "api": "API"
+    },
+    "schools": "Para Escuelas",
+    "schoolLinks": {
+      "particulares": "Privadas",
+      "publicas": "Públicas",
+      "redes": "Redes educativas",
+      "pacotes": "Paquetes",
+      "onboarding": "Onboarding"
+    },
+    "resources": "Recursos",
+    "resourceLinks": {
+      "docs": "Documentación",
+      "tutoriais": "Tutoriales",
+      "blog": "Blog (en portugués)",
+      "webinars": "Webinars",
+      "suporte": "Soporte"
+    },
+    "legal": "Legal",
+    "legalLinks": {
+      "privacidade": "Privacidad",
+      "termos": "Términos de Uso",
+      "lgpd": "LGPD",
+      "quemSomos": "Quiénes somos",
+      "acessibilidade": "Accesibilidad",
+      "cookies": "Cookies"
+    },
+    "ptOnlyNote": "Los documentos legales y el blog están disponibles solo en portugués. La versión en portugués de los documentos legales es la que tiene validez.",
+    "copyright": "© 2026 AdaptaEDU. Todos los derechos reservados.",
+    "socialAria": "AdaptaEDU en {network}",
+    "contact": "Contáctanos"
+  },
+  "whatsapp": {
+    "badge": "La forma más rápida de adaptar",
+    "title": "Adaptación en la palma de tu mano, <hl>por WhatsApp</hl>",
+    "subtitle": "No necesitas abrir la computadora, escanear nada ni salir de la aplicación que ya usas todo el día. Fotografías, envías y lo recibes adaptado — para cualquiera de los 9 perfiles de accesibilidad.",
+    "steps": [
+      {
+        "title": "Fotografía",
+        "text": "La página del libro, la lista de ejercicios, la prueba. Desde tu escritorio, con el celular."
+      },
+      {
+        "title": "Envía",
+        "text": "Mándalo al WhatsApp de AdaptaEDU e indica el perfil: \"adaptar para dislexia\"."
+      },
+      {
+        "title": "Recíbelo adaptado",
+        "text": "Vuelve listo para cualquiera de los 9 perfiles, en minutos, en el mismo lugar."
+      }
+    ],
+    "footnote": "De la foto al material listo, sin cambiar de pantalla.",
+    "chat": {
+      "online": "en línea",
+      "photo": "foto de la página 47",
+      "request": "Adaptar para dislexia",
+      "received": "¡Recibido! Adaptando la página para <strong>Dislexia</strong> — fuente más grande, más espaciado y frases más cortas. Un momento.",
+      "fileName": "pagina-47-dislexia.pdf",
+      "fileMeta": "PDF · 2 páginas",
+      "done": "¡Listo! ¿Quieres el mismo contenido para otro perfil?",
+      "caption": "Ilustración del flujo de la conversación"
+    }
+  },
+  "aee": {
+    "badge": "Atención Educativa Especializada (AEE)",
+    "title": "Adaptar no es facilitar. <hl>Es abrir camino.</hl>",
+    "subtitle": "El AEE (Atención Educativa Especializada, el servicio de apoyo brasileño para estudiantes con discapacidad) existe para que todo estudiante tenga acceso a lo que aprende toda la clase. Pero, con el ajetreo de la semana, queda la pregunta: ¿por dónde empezar? Estos son los cuatro pasos que hacen que una adaptación funcione.",
+    "stepLabel": "Paso {number}",
+    "steps": {
+      "aluno": {
+        "title": "Empieza por el alumno, no por la actividad",
+        "text": "Antes de tocar cualquier hoja, mira a quién la va a recibir. La adaptación correcta nace de las respuestas a tres preguntas:",
+        "items": [
+          "¿Qué hace ya con autonomía?",
+          "¿Qué habilidades todavía están en construcción?",
+          "¿De qué forma aprende mejor?"
+        ]
+      },
+      "barreira": {
+        "title": "Ponle nombre a la barrera",
+        "text": "Cuando la actividad no funciona, casi nunca el problema es el alumno — es algo en el camino entre él y el contenido. Y cada barrera pide una respuesta diferente."
+      },
+      "adapte": {
+        "title": "Adapta sin perder el sentido",
+        "text": "Menos preguntas, consignas más directas, otro formato: todo vale, siempre que el objetivo pedagógico siga ahí. Adaptar es cambiar el camino, nunca el destino.",
+        "items": [
+          "Reduce la cantidad o la complejidad — nunca el objetivo esencial.",
+          "Usa apoyos visuales y materiales concretos.",
+          "Apóyate en la tecnología de apoyo: teclados adaptados, mouses especiales, software de lectura."
+        ]
+      },
+      "junto": {
+        "title": "Hazlo en equipo",
+        "text": "La inclusión no es tarea de una sola persona. Cada docente tiene su papel — y es la colaboración lo que hace avanzar al alumno."
+      }
+    },
+    "barriers": {
+      "cognitiva": {
+        "name": "Cognitiva",
+        "sign": "Cuesta entender el contenido o lo que se pide."
+      },
+      "sensorial": {
+        "name": "Sensorial",
+        "sign": "Materiales o estímulos molestan o lo impiden."
+      },
+      "motora": {
+        "name": "Motora",
+        "sign": "Escribir, sostener o manipular objetos es difícil."
+      },
+      "comunicacao": {
+        "name": "De comunicación",
+        "sign": "Sabe la respuesta, pero no logra expresarla."
+      }
+    },
+    "roles": {
+      "comum": {
+        "who": "Docente del aula regular",
+        "does": "Conduce la clase y adapta el contenido del grupo."
+      },
+      "aee": {
+        "who": "Docente de AEE",
+        "does": "Trabaja tras bambalinas y en el contraturno: orienta, produce materiales accesibles y sugiere estrategias."
+      }
+    },
+    "cta": {
+      "eyebrow": "Dónde entra AdaptaEDU",
+      "title": "El paso 3 es el que más tiempo consume. Déjanoslo a nosotros.",
+      "text": "Envía el material, elige el perfil del alumno y recibe la versión adaptada — con el objetivo pedagógico preservado — en minutos. Te queda tiempo para lo que ninguna IA reemplaza: conocer al alumno y planificar en equipo.",
+      "button": "Adaptar mi primer material"
+    }
+  },
+  "quemSomos": {
+    "badge": "Quiénes somos",
+    "title": "Nacimos en un <hl>aula</hl>",
+    "subtitle": "AdaptaEDU existe porque adaptar material para cada alumno es demasiado trabajo para caber en la rutina de un docente — y demasiado importante para quedar fuera de ella.",
+    "missionTitle": "Misión",
+    "mission": "Poner material didáctico accesible en manos de todo docente, en minutos — para que la adaptación deje de depender del tiempo que nadie tiene y pase a ser parte natural de la preparación de la clase.",
+    "visionTitle": "Visión",
+    "vision": "Una escuela en la que ningún alumno quede fuera de la clase por falta de material adecuado a su forma de aprender — y en la que la accesibilidad sea rutina, no excepción.",
+    "teamTitle": "Quiénes están detrás",
+    "portraitAlt": "Retrato de {name}",
+    "linkedin": "Perfil en LinkedIn",
+    "people": {
+      "andrea": {
+        "cargo": "Cofundadora",
+        "credencial": "Pedagoga (USP), especialista en inclusión (UNICAMP)",
+        "bio": [
+          "Su encuentro con la inclusión empezó en 1993, en una de las escuelas pioneras de Brasil. Es pedagoga por la Universidad de São Paulo (USP) y especialista en inclusión por la UNICAMP y por el Centro de Referencia en Trastornos del Aprendizaje.",
+          "Es coautora de “Caminhos pedagógicos da inclusão” (Caminos pedagógicos de la inclusión), sobre cómo se implementa una educación de calidad para todos en las escuelas brasileñas (Editora Memnon). Hoy enseña en los primeros años y en el AEE, la atención educativa especializada.",
+          "Suya es la fundamentación pedagógica que hace posible la adaptación para cada perfil de alumno."
+        ]
+      },
+      "fernando": {
+        "cargo": "Cofundador",
+        "credencial": "Python, IA generativa y automatización",
+        "bio": [
+          "Se especializó en inteligencia artificial en Canadá, en 2017. Dos años después fundó Bettrads, un hub de IA generativa cuyos resultados superaron benchmarks de GPT-3.",
+          "Hoy es CPO y cofundador de MyDataAgent, la primera plataforma brasileña de agentes autónomos de IA. Suya es la ingeniería que hace que adaptar un material tome minutos — y siga siendo así cuando son miles."
+        ]
+      }
+    }
+  },
+  "schoolsPage": {
+    "nav": {
+      "back": "Volver",
+      "brand": "AdaptaEDU Escuelas",
+      "demo": "Agendar Demo",
+      "startFree": "Empezar Gratis"
+    },
+    "hero": {
+      "badge": "Solución para Escuelas",
+      "title": "Gestión centralizada de <hl>adaptaciones escolares</hl>",
+      "subtitle": "Un único sistema para gestionar contenidos, generar adaptaciones de accesibilidad, organizar paquetes por nivel y controlar todas las materias de tu escuela. Simple, rápido y conforme a la legislación.",
+      "demo": "Agendar Demostración",
+      "panel": "Ver el Panel en Acción"
+    },
+    "dashboard": {
+      "school": "Colégio Sapiens",
+      "adminPanel": "Panel Administrativo",
+      "online": "En línea",
+      "recent": "Adaptaciones Recientes",
+      "stats": {
+        "contents": "Contenidos Registrados",
+        "adaptations": "Adaptaciones Generadas",
+        "teachers": "Docentes Activos",
+        "profiles": "Perfiles Atendidos"
+      },
+      "badgeAdaptations": "Adaptaciones",
+      "badgeProfiles": "Perfiles Activos",
+      "search": "Buscar contenido...",
+      "plan": "Plan Escuela",
+      "newContent": "Nuevo Contenido",
+      "sidebar": {
+        "dashboard": "Panel",
+        "contents": "Contenidos",
+        "packages": "Paquetes",
+        "subjects": "Materias",
+        "teachers": "Docentes",
+        "reports": "Informes",
+        "settings": "Configuración"
+      },
+      "seeAll": "Ver todas",
+      "profileLabel": "Perfil: {profile}",
+      "statusDone": "Completada",
+      "statusInProgress": "En curso",
+      "recentItems": [
+        {
+          "subject": "matematica",
+          "grade": "6.º grado",
+          "profile": "TEA",
+          "inProgress": false,
+          "time": "hace 2 min"
+        },
+        {
+          "subject": "portugues",
+          "grade": "3.º grado",
+          "profile": "Dislexia",
+          "inProgress": false,
+          "time": "hace 15 min"
+        },
+        {
+          "subject": "ciencias",
+          "grade": "5.º grado",
+          "profile": "TDAH",
+          "inProgress": false,
+          "time": "hace 32 min"
+        },
+        {
+          "subject": "historia",
+          "grade": "7.º grado",
+          "profile": "Baja Visión",
+          "inProgress": true,
+          "time": "Ahora"
+        },
+        {
+          "subject": "geografia",
+          "grade": "4.º grado",
+          "profile": "DI",
+          "inProgress": false,
+          "time": "hace 1 h"
+        }
+      ]
+    },
+    "subjects": {
+      "matematica": "Matemáticas",
+      "portugues": "Lengua",
+      "ciencias": "Ciencias",
+      "historia": "Historia",
+      "geografia": "Geografía",
+      "artes": "Artes"
+    },
+    "control": {
+      "title": "Todo centralizado en <hl>un único sistema</hl>",
+      "subtitle": "Acaba con la fragmentación. Contenidos, adaptaciones, paquetes y materias — todo gestionado desde una plataforma unificada diseñada para escuelas.",
+      "items": {
+        "painel": {
+          "title": "Panel Centralizado",
+          "desc": "Accede a todas las funciones de la escuela en un único panel. Visualiza adaptaciones, contenidos, docentes y métricas de uso en tiempo real, sin alternar entre sistemas distintos."
+        },
+        "conteudos": {
+          "title": "Gestión de Contenidos",
+          "desc": "Organiza todo el material didáctico de la escuela por materia, grado y nivel. Sube en lote, clasifica automáticamente y mantén un repositorio centralizado al alcance de todo el equipo pedagógico."
+        },
+        "pacotes": {
+          "title": "Gestión de Paquetes",
+          "desc": "Crea y gestiona paquetes de contenidos por nivel educativo (primaria, secundaria, bachillerato). Activa o desactiva paquetes según lo que necesite la escuela, con un clic."
+        },
+        "materias": {
+          "title": "Gestión de Materias",
+          "desc": "Registra y organiza todas las materias del plan de estudios. Define docentes responsables, vincula contenidos y sigue las adaptaciones generadas por materia en tiempo real."
+        },
+        "usuarios": {
+          "title": "Gestión de Usuarios",
+          "desc": "Agrega docentes, coordinadores y administradores con perfiles de acceso personalizados. Controla quién puede crear, editar o ver cada tipo de contenido y adaptación."
+        },
+        "relatorios": {
+          "title": "Informes y Métricas",
+          "desc": "Sigue el uso de la plataforma con paneles detallados. Ve qué perfiles de accesibilidad se atienden más, qué materias tienen más adaptaciones e identifica oportunidades de mejora."
+        }
+      }
+    },
+    "subjectsSection": {
+      "title": "Gestión de <hl>Materias</hl>",
+      "subtitle": "Organiza todas las materias del plan de estudios en un solo lugar. Registra materias, vincula contenidos y sigue las adaptaciones generadas por materia.",
+      "contents": "contenidos",
+      "adaptations": "adaptaciones",
+      "manage": "Haz clic para gestionar"
+    },
+    "packages": {
+      "title": "Gestión de <hl>Paquetes</hl>",
+      "subtitle": "Crea paquetes de contenidos por nivel educativo. Activa, desactiva y personaliza paquetes según la estructura de tu escuela, con control total sobre lo que recibe cada nivel.",
+      "active": "Activo",
+      "included": "Materias incluidas",
+      "generated": "adaptaciones generadas",
+      "addContent": "Contenido",
+      "items": {
+        "fund1": {
+          "name": "Primaria",
+          "grades": "1.º a 5.º grado"
+        },
+        "fund2": {
+          "name": "Secundaria",
+          "grades": "6.º a 9.º grado"
+        },
+        "medio": {
+          "name": "Bachillerato",
+          "grades": "1.º a 3.º año"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "Cómo <hl>funciona</hl>",
+      "subtitle": "En pocos pasos, tu escuela está lista para generar adaptaciones de accesibilidad de forma automatizada y centralizada.",
+      "steps": [
+        {
+          "title": "Registro de la Escuela",
+          "desc": "Registra tu escuela, configura los niveles educativos e invita a los docentes a la plataforma."
+        },
+        {
+          "title": "Organización de los Contenidos",
+          "desc": "Sube los materiales y organízalos por materia, grado y paquete. La IA reconoce la estructura automáticamente."
+        },
+        {
+          "title": "Generación de Adaptaciones",
+          "desc": "Selecciona el perfil de accesibilidad y genera adaptaciones con un clic. Combina estrategias según sea necesario."
+        },
+        {
+          "title": "Distribución y Seguimiento",
+          "desc": "Comparte los materiales adaptados con docentes y alumnos, y sigue el uso en tiempo real desde el panel."
+        }
+      ]
+    },
+    "panel": {
+      "title": "Tu panel, <hl>tu control</hl>",
+      "subtitle": "Visualiza y gestiona todo en un panel intuitivo diseñado para directores y coordinadores pedagógicos."
+    },
+    "benefits": {
+      "title": "Por qué las escuelas <hl>eligen AdaptaEDU</hl>",
+      "items": {
+        "tempo": {
+          "title": "Ahorro de tiempo",
+          "desc": "Los docentes ahorran en promedio 4 horas por semana con adaptaciones automatizadas. El tiempo que antes se dedicaba a adaptar a mano ahora puede invertirse en enseñar."
+        },
+        "legal": {
+          "title": "Cumplimiento legal",
+          "desc": "Alineación automática con la Ley Brasileña de Inclusión (LBI), la BNCC/ADE y las normas de AEE y SRM. Tu escuela cumple siempre la legislación de educación inclusiva."
+        },
+        "dados": {
+          "title": "Seguridad de los datos",
+          "desc": "Datos aislados por escuela con cifrado de última generación. Cumplimiento total de la LGPD y control granular de acceso por perfil de usuario."
+        },
+        "metricas": {
+          "title": "Métricas en tiempo real",
+          "desc": "Paneles que muestran el uso de la plataforma, los perfiles más atendidos, las materias con más adaptaciones y las oportunidades de mejora en la inclusión escolar."
+        }
+      }
+    },
+    "cta": {
+      "title": "¿Listo para centralizar las adaptaciones de tu escuela?",
+      "subtitle": "Agenda una demostración gratuita y descubre cómo AdaptaEDU puede transformar la gestión del contenido inclusivo en tu escuela.",
+      "demo": "Agendar Demostración",
+      "start": "Empezar Gratis"
+    },
+    "footer": {
+      "home": "Inicio",
+      "privacy": "Política de Privacidad (PT)",
+      "terms": "Términos de Uso (PT)",
+      "lgpd": "LGPD (PT)",
+      "copyright": "2026 AdaptaEDU. Todos los derechos reservados."
+    }
+  },
+  "overload": {
+    "eyebrow": "El costo que no aparece en la planilla",
+    "title": "Un docente sobrecargado no es un problema solo del docente.",
+    "subtitle": "Toda escuela inclusiva necesita material adaptado. Cuando esa carga cae entera sobre el docente — después de clase, después de corregir pruebas, el domingo por la noche — no se queda solo con él. <strong>Se extiende por toda la escuela.</strong>",
+    "dominoTitle": "El efecto dominó",
+    "domino": {
+      "sobrecarga": {
+        "title": "Sobrecarga",
+        "text": "Noches y fines de semana adaptando actividad por actividad, alumno por alumno."
+      },
+      "saude": {
+        "title": "Salud",
+        "text": "El cansancio se vuelve agotamiento. El agotamiento se vuelve ansiedad, insomnio, burnout."
+      },
+      "afastamento": {
+        "title": "Ausencias",
+        "text": "Llegan las licencias médicas — y, a veces, la renuncia."
+      },
+      "ruptura": {
+        "title": "Ruptura",
+        "text": "El grupo pierde su referencia. El alumno pierde a quien conocía su forma de aprender."
+      },
+      "prejuizo": {
+        "title": "Pérdidas",
+        "text": "Suplentes, cobertura, reclutamiento, capacitación — y familias que lo notan."
+      }
+    },
+    "lossesTitle": "Cuando un docente se enferma, todos pierden",
+    "losesSuffix": "{who} pierde",
+    "losses": {
+      "professor": {
+        "who": "El docente",
+        "items": [
+          "La salud",
+          "La motivación",
+          "La carrera que eligió"
+        ]
+      },
+      "turma": {
+        "who": "El alumno y el grupo",
+        "items": [
+          "El vínculo construido",
+          "La continuidad del plan de enseñanza",
+          "El progreso logrado en el AEE"
+        ]
+      },
+      "escola": {
+        "who": "La escuela",
+        "items": [
+          "El costo de sustituir y reponer a quien se va",
+          "El conocimiento que se va con el docente",
+          "La confianza de las familias — y, al final, matrículas"
+        ]
+      }
+    },
+    "ctaTitle": "Cuidar al docente es cuidar la escuela — y las finanzas.",
+    "ctaText": "AdaptaEDU le quita al equipo la parte más repetitiva de la inclusión: transformar cada material en versiones accesibles para cada perfil de alumno. El docente sigue al mando de lo pedagógico — solo que sin llevarse trabajo a casa.",
+    "ctaButton": "Agendar demostración"
+  },
+  "demoModal": {
+    "title": "Agendar demostración gratuita",
+    "description": "Elige el mejor horario para una conversación de 30 minutos con nuestro equipo.",
+    "iframeTitle": "Agenda de AdaptaEDU en Calendly",
+    "fallback": "¿No cargó la agenda? Abrir en una pestaña nueva"
+  },
+  "videoModal": {
+    "title": "Cómo funciona AdaptaEDU",
+    "description": "Video de demostración de AdaptaEDU (en portugués)"
+  },
+  "cookies": {
+    "title": "Este sitio usa cookies",
+    "body": "Usamos cookies necesarias para el funcionamiento de la plataforma y, con tu autorización, cookies de análisis y de publicidad para entender el uso del sitio y orientar campañas. Tú decides, y puedes cambiar de opinión cuando quieras.",
+    "policyLink": "Ver la política de cookies (en portugués)",
+    "alwaysOn": "(siempre activas)",
+    "acceptAll": "Aceptar todas",
+    "rejectOptional": "Rechazar opcionales",
+    "save": "Guardar opciones",
+    "customize": "Personalizar",
+    "categories": {
+      "necessarios": {
+        "title": "Necesarias",
+        "description": "Autenticación, seguridad y funcionamiento básico de la plataforma. Sin ellas no podemos mantener tu sesión iniciada."
+      },
+      "preferencias": {
+        "title": "Preferencias",
+        "description": "Recuerdan elecciones de visualización y configuraciones de la interfaz entre visitas."
+      },
+      "analiticos": {
+        "title": "Analíticas",
+        "description": "Miden el uso de las páginas de forma agregada, para entender qué funciona y qué estorba."
+      },
+      "publicidade": {
+        "title": "Publicidad",
+        "description": "Personalizan anuncios y miden el resultado de las campañas."
+      }
+    }
+  },
+  "promo": {
+    "regionLabel": "Novedades y promociones",
+    "close": "Cerrar aviso de promoción",
+    "items": {
+      "lancamento-2026": {
+        "badge": "NUEVO",
+        "message": "Prueba AdaptaEDU con 3 adaptaciones gratis — sin tarjeta de crédito.",
+        "linkLabel": "Empezar ahora"
+      }
+    }
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "text": "La dirección puede haber cambiado o ya no existe.",
+    "back": "Volver a la página de inicio"
+  },
+  "llms": {
+    "languageName": "Español",
+    "summary": "AdaptaEDU es una plataforma brasileña de inteligencia artificial que adapta materiales escolares para 9 perfiles de accesibilidad (TEA, TDAH, TPAC, discapacidad intelectual, baja visión, dislexia, discalculia, disgrafía y altas capacidades/superdotación). El docente fotografía la actividad y la envía por WhatsApp, o sube un PDF, DOCX o imagen, y recibe la versión adaptada en minutos, en PDF o DOCX.",
+    "pagesTitle": "Páginas",
+    "homeLabel": "Inicio",
+    "homeDesc": "qué es AdaptaEDU, cómo funciona la adaptación, los 9 perfiles, el AEE, planes, testimonios y preguntas frecuentes",
+    "schoolsLabel": "Para escuelas",
+    "schoolsDesc": "panel para escuelas: contenidos, materias, paquetes por nivel, docentes y métricas",
+    "factsTitle": "Datos principales",
+    "facts": [
+      "Nombre: AdaptaEDU (adaptaedu.com). Plataforma: app.adaptaedu.com.",
+      "Categoría: tecnología de apoyo con IA para la educación inclusiva.",
+      "Público: docentes del aula regular, docentes de AEE (Atención Educativa Especializada), coordinadores pedagógicos, directivos de escuelas privadas y públicas y redes educativas de Brasil.",
+      "Entrada: foto por WhatsApp, PDF, DOCX o imagen. Salida: material adaptado en PDF o DOCX.",
+      "Cumplimiento: Decreto brasileño 12.773/25 (educación inclusiva) y LGPD (Ley 13.709/2018, ley brasileña de protección de datos).",
+      "Fundadores: Andréa Monteiro (pedagoga por la USP, especialista en inclusión por la UNICAMP) y Fernando Outa (IA y automatización). Fundada en 2024 en São Paulo, Brasil.",
+      "Contacto: suporte@adaptaedu.com."
+    ],
+    "profilesTitle": "Los 9 perfiles de accesibilidad",
+    "plansTitle": "Planes y precios (en reales brasileños, BRL)",
+    "planProfessor": "Plan Docente: R$ {price}/mes, {adaptations} adaptaciones al mes, {trial} adaptaciones de prueba incluidas, adaptación por WhatsApp, todos los perfiles.",
+    "planEscola": "Plan Escuela: R$ {price}/mes, {adaptations} adaptaciones al mes, {trial} adaptaciones de prueba incluidas, multi-tenant con gestión de docentes, panel de métricas, soporte prioritario.",
+    "planRede": "Plan Red Educativa: precio a consultar, para redes municipales, estatales y grupos escolares (múltiples sedes, API de integración, SLA).",
+    "howTitle": "Cómo funciona por WhatsApp",
+    "aeeTitle": "El AEE en la práctica: los cuatro pasos de una adaptación",
+    "faqTitle": "Preguntas frecuentes",
+    "otherLanguagesTitle": "Otros idiomas",
+    "optionalTitle": "Opcional",
+    "blogDesc": "artículos sobre educación inclusiva y adaptación de materiales (en portugués)",
+    "legalDesc": "política de privacidad, términos de uso, LGPD, accesibilidad y cookies (en portugués)",
+    "fullLabel": "Versión completa para IA",
+    "fullDesc": "todo el contenido del sitio en texto, en tres idiomas"
+  }
+}

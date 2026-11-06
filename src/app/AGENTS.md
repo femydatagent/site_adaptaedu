@@ -1,24 +1,30 @@
 # src/app
 
 ## OVERVIEW
-Next.js App Router root. Four files — layout, page (router), globals.css, and one API route.
+Next.js App Router com i18n (next-intl). Três idiomas: `pt` (padrão, sem prefixo), `en` (`/en`) e `es` (`/es`).
 
-## FILES
-| File | Purpose |
-|------|---------|
-| `layout.tsx` | Root layout — Geist font, metadata (title/desc/keywords), `lang="pt-BR"` |
-| `page.tsx` | State-based router — `useState<'home' \| 'escolas'>` toggles between Landing and Escolas |
-| `globals.css` | Tailwind v4 import, CSS vars (hex palette), custom utility classes |
-| `api/route.ts` | Single API route — check before adding new endpoints |
+## ESTRUTURA
+| Caminho | O que é |
+|---------|---------|
+| `layout.tsx` | Repassa `children`; o layout real (com `<html lang>`) é `[locale]/layout.tsx`. |
+| `[locale]/layout.tsx` | Layout por idioma: fonte, metadata base, JSON-LD de Organization/WebSite, chat da Ana, providers. |
+| `[locale]/page.tsx` | Home (`/`, `/en`, `/es`). Metadata, hreflang e JSON-LD (WebPage, SoftwareApplication com preços, FAQPage). |
+| `[locale]/escolas/page.tsx` | Página para escolas: `/escolas`, `/en/schools`, `/es/escuelas` (caminhos em `src/i18n/routing.ts`). |
+| `[locale]/{privacidade,termos,lgpd,acessibilidade,cookies,blog}` | Só em português: `requirePortuguese()` devolve 404 em `/en` e `/es`. |
+| `[locale]/opengraph-image.tsx` | Imagem de compartilhamento por idioma. |
+| `sitemap.ts`, `robots.ts` | Sitemap com alternates por idioma; robots liberando buscadores e robôs de IA. |
+| `llms.txt/`, `llms-full.txt/` | Resumo e conteúdo completo para IAs, gerados das mensagens (`src/lib/llms.ts`). |
+| `api/` | Rotas de API — fora do proxy de idioma. |
 
-## CONVENTIONS
-- `page.tsx` is `'use client'` because it uses `useState`. This is intentional.
-- To add a new page: extend the union type in `page.tsx` and add a conditional render branch.
-- Metadata lives in `layout.tsx` `export const metadata`. No per-page metadata yet.
-- `globals.css` defines: `.text-gradient-warm`, `.warm-glow`, `.bg-pattern-dots`, `.bg-pattern-grid`.
+## CONVENÇÕES
+- Textos ficam em `/messages/{pt,en,es}.json`. Nunca escreva texto visível direto no componente.
+- Toda página traduzida exporta `generateMetadata` usando `buildPageMetadata` (`src/lib/seo.ts`) e chama `setRequestLocale(locale)`.
+- Página nova traduzida: crie a pasta em `[locale]/`, registre o caminho em `routing.pathnames` e adicione em `TRANSLATED_PAGES` do `sitemap.ts`.
+- Links internos entre páginas traduzidas usam `Link` de `@/i18n/navigation` (gera o caminho do idioma). Páginas só em português usam `<a href>` simples.
+- Fatos (preços, URLs, perfis) ficam em `src/lib/facts.ts` — fonte única para página, JSON-LD e llms.txt.
 
-## ANTI-PATTERNS
-- Do NOT use `useRouter` or `<Link>` — navigation is state-based.
-- Do NOT add `"use server"` or server actions.
-- Do NOT add dark mode CSS vars — `.dark` class has no theme defined.
-- Do NOT add `hsl(var(--x))` for new colors — CSS vars are hex, not HSL values.
+## ANTI-PADRÕES
+- Não redirecione por idioma do navegador (`localeDetection` fica `false`); use a sugestão em `LanguageSuggestion`.
+- Não bloqueie `/_next/` no robots: o Google precisa do CSS/JS para renderizar.
+- Não declare `aggregateRating` ou avaliações no JSON-LD sem avaliações reais e visíveis na página.
+- Não adicione dark mode: `.dark` não tem tema definido. Cores em hex, não `hsl(var(--x))`.

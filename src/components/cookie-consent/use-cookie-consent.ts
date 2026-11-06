@@ -56,26 +56,7 @@ export const ALL_GRANTED: ConsentChoices = {
   publicidade: true,
 };
 
-export const CATEGORY_LABELS: Record<ConsentCategory, { title: string; description: string }> = {
-  necessarios: {
-    title: 'Necessários',
-    description:
-      'Autenticação, segurança e funcionamento básico da plataforma. Sem eles não é possível manter você conectado à sua conta.',
-  },
-  preferencias: {
-    title: 'Preferências',
-    description: 'Lembram escolhas de exibição e configurações de interface entre visitas.',
-  },
-  analiticos: {
-    title: 'Analíticos',
-    description:
-      'Medem o uso das páginas de forma agregada, para entendermos o que funciona e o que atrapalha.',
-  },
-  publicidade: {
-    title: 'Publicidade',
-    description: 'Personalizam anúncios e medem o resultado de campanhas.',
-  },
-};
+// Nomes e descrições das categorias ficam em messages/<idioma>.json (`cookies.categories`).
 
 function isValidRecord(value: unknown): value is ConsentRecord {
   if (typeof value !== 'object' || value === null) return false;

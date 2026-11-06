@@ -1,8 +1,9 @@
 /**
  * Configuração da barra de novidades e promoções.
  *
- * Para trocar a mensagem, edite `promos` abaixo — é o único arquivo que
- * precisa mudar. A barra some sozinha quando nenhuma promoção está ativa.
+ * Para trocar a mensagem, edite `promos` abaixo e as traduções em
+ * messages/<idioma>.json (`promo.items.<id>`); sem tradução, a barra usa o
+ * texto daqui. A barra some sozinha quando nenhuma promoção está ativa.
  */
 
 export type Promo = {

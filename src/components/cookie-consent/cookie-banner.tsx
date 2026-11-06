@@ -2,9 +2,9 @@
 
 import { useId, useState } from 'react';
 import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
 import {
   useCookieConsent,
-  CATEGORY_LABELS,
   OPTIONAL_CATEGORIES,
   ALL_DENIED,
   type ConsentCategory,
@@ -22,6 +22,8 @@ import {
  * - Não fecha sozinho: sem decisão, nada opcional é carregado.
  */
 export default function CookieBanner() {
+  const t = useTranslations('cookies');
+  const isPt = useLocale() === 'pt';
   const { isReady, isOpen, acceptAll, rejectAll, save } = useCookieConsent();
   const [showDetails, setShowDetails] = useState(false);
   const [choices, setChoices] = useState<ConsentChoices>(ALL_DENIED);
@@ -42,17 +44,17 @@ export default function CookieBanner() {
         className="pointer-events-auto mx-auto w-full max-w-3xl rounded-2xl border border-border bg-white shadow-2xl shadow-black/10 p-5 sm:p-6"
       >
         <h2 id={titleId} className="text-base font-bold text-foreground mb-2">
-          Este site usa cookies
+          {t('title')}
         </h2>
         <p id={descriptionId} className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Usamos cookies necessários para o funcionamento da plataforma e, mediante a sua autorização,
-          cookies de análise e de publicidade para entender o uso do site e direcionar campanhas. Você
-          decide, e pode mudar de ideia quando quiser.{' '}
+          {t('body')}{' '}
+          {/* A política existe só em português; o link não leva prefixo de idioma. */}
           <Link
             href="/cookies"
+            hrefLang={isPt ? undefined : 'pt-BR'}
             className="text-amber-600 underline underline-offset-4 hover:text-amber-700"
           >
-            Ver a política de cookies
+            {t('policyLink')}
           </Link>
           .
         </p>
@@ -69,11 +71,11 @@ export default function CookieBanner() {
               />
               <span>
                 <span className="block text-sm font-semibold text-foreground">
-                  {CATEGORY_LABELS.necessarios.title}{' '}
-                  <span className="font-normal text-muted-foreground">(sempre ativos)</span>
+                  {t('categories.necessarios.title')}{' '}
+                  <span className="font-normal text-muted-foreground">{t('alwaysOn')}</span>
                 </span>
                 <span id={`${titleId}-necessarios`} className="block text-xs text-muted-foreground leading-relaxed mt-0.5">
-                  {CATEGORY_LABELS.necessarios.description}
+                  {t('categories.necessarios.description')}
                 </span>
               </span>
             </li>
@@ -89,10 +91,10 @@ export default function CookieBanner() {
                 />
                 <label htmlFor={`${titleId}-${category}`} className="cursor-pointer">
                   <span className="block text-sm font-semibold text-foreground">
-                    {CATEGORY_LABELS[category].title}
+                    {t(`categories.${category}.title`)}
                   </span>
                   <span className="block text-xs text-muted-foreground leading-relaxed mt-0.5">
-                    {CATEGORY_LABELS[category].description}
+                    {t(`categories.${category}.description`)}
                   </span>
                 </label>
               </li>
@@ -107,14 +109,14 @@ export default function CookieBanner() {
             onClick={acceptAll}
             className="flex-1 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-amber-600 hover:bg-amber-700 transition-colors"
           >
-            Aceitar todos
+            {t('acceptAll')}
           </button>
           <button
             type="button"
             onClick={rejectAll}
             className="flex-1 px-5 py-2.5 rounded-xl text-sm font-semibold text-amber-800 bg-amber-100 hover:bg-amber-200 border border-amber-300 transition-colors"
           >
-            Rejeitar opcionais
+            {t('rejectOptional')}
           </button>
           {showDetails ? (
             <button
@@ -122,7 +124,7 @@ export default function CookieBanner() {
               onClick={() => save(choices)}
               className="flex-1 px-5 py-2.5 rounded-xl text-sm font-semibold text-foreground bg-secondary hover:bg-muted border border-border transition-colors"
             >
-              Salvar escolhas
+              {t('save')}
             </button>
           ) : (
             <button
@@ -131,7 +133,7 @@ export default function CookieBanner() {
               aria-expanded={false}
               className="flex-1 px-5 py-2.5 rounded-xl text-sm font-semibold text-foreground bg-secondary hover:bg-muted border border-border transition-colors"
             >
-              Personalizar
+              {t('customize')}
             </button>
           )}
         </div>
