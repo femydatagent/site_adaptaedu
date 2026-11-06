@@ -3,12 +3,13 @@ import LegalPage from '@/components/legal/legal-page';
 import { CONTATO } from '@/components/legal/empresa';
 import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
 import { requirePortuguese } from '@/lib/pt-only';
+import { SITE_URL } from '@/lib/facts';
 
 export const metadata: Metadata = {
   title: 'Declaração de Acessibilidade',
   description:
     'Compromisso de acessibilidade digital do AdaptaEDU: padrões seguidos (WCAG 2.2 e eMAG), recursos implementados, limitações conhecidas e canal para relatar barreiras.',
-  alternates: { canonical: 'https://adaptaedu.com/acessibilidade' },
+  alternates: { canonical: `${SITE_URL}/acessibilidade` },
   robots: { index: true, follow: true },
 };
 

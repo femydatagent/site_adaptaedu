@@ -6,7 +6,13 @@
  * Textos traduzíveis ficam em /messages/{pt,en,es}.json.
  */
 
-export const SITE_URL = 'https://adaptaedu.com';
+/**
+ * Host canônico: produção responde em www e redireciona o domínio sem www
+ * (308). Canonical, hreflang, sitemap e JSON-LD precisam apontar para a URL
+ * final — o Google ignora hreflang cujo destino redireciona. Se o domínio
+ * principal mudar na Vercel, mude aqui.
+ */
+export const SITE_URL = 'https://www.adaptaedu.com';
 export const SITE_NAME = 'AdaptaEDU';
 
 export const APP_LOGIN_URL = 'https://app.adaptaedu.com/auth/login';

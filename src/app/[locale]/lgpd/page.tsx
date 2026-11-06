@@ -3,12 +3,13 @@ import LegalPage from '@/components/legal/legal-page';
 import { EMPRESA, CONTATO, RESPONSAVEIS, FORNECEDORES } from '@/components/legal/empresa';
 import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
 import { requirePortuguese } from '@/lib/pt-only';
+import { SITE_URL } from '@/lib/facts';
 
 export const metadata: Metadata = {
   title: 'LGPD — Proteção de Dados na Educação',
   description:
     'Como o AdaptaEDU atende à Lei Geral de Proteção de Dados: papéis de controlador e operador, dados sensíveis de estudantes, dados de crianças e adolescentes e direitos dos titulares.',
-  alternates: { canonical: 'https://adaptaedu.com/lgpd' },
+  alternates: { canonical: `${SITE_URL}/lgpd` },
   robots: { index: true, follow: true },
 };
 

@@ -6,12 +6,13 @@ import {
 } from '@/components/legal/empresa';
 import { Section, SubTitle, P, List, Table, Callout } from '@/components/legal/legal-prose';
 import { requirePortuguese } from '@/lib/pt-only';
+import { SITE_URL } from '@/lib/facts';
 
 export const metadata: Metadata = {
   title: 'Política de Privacidade',
   description:
     'Como o AdaptaEDU coleta, usa, compartilha e protege dados pessoais de professores, escolas e estudantes — no site, na plataforma e no WhatsApp — em conformidade com a LGPD (Lei 13.709/2018).',
-  alternates: { canonical: 'https://adaptaedu.com/privacidade' },
+  alternates: { canonical: `${SITE_URL}/privacidade` },
   robots: { index: true, follow: true },
 };
 

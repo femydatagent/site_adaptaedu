@@ -3,12 +3,13 @@ import LegalPage from '@/components/legal/legal-page';
 import { EMPRESA, CONTATO } from '@/components/legal/empresa';
 import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
 import { requirePortuguese } from '@/lib/pt-only';
+import { SITE_URL } from '@/lib/facts';
 
 export const metadata: Metadata = {
   title: 'Termos de Uso',
   description:
     'Condições de uso da plataforma AdaptaEDU: planos, cotas de adaptação, responsabilidades do usuário, propriedade intelectual, cancelamento e limitações.',
-  alternates: { canonical: 'https://adaptaedu.com/termos' },
+  alternates: { canonical: `${SITE_URL}/termos` },
   robots: { index: true, follow: true },
 };
 

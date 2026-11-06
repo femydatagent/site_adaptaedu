@@ -2,12 +2,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { posts } from '@/lib/posts';
 import { requirePortuguese } from '@/lib/pt-only';
+import { SITE_URL } from '@/lib/facts';
 
 export const metadata: Metadata = {
   title: 'Blog — Educação Inclusiva e Adaptação de Conteúdo | AdaptaEDU',
   description:
     'Artigos práticos sobre educação inclusiva, adaptação de materiais para TEA, TDAH, Dislexia e mais. Para professores, coordenadores e diretores de escola.',
-  alternates: { canonical: 'https://adaptaedu.com/blog' },
+  alternates: { canonical: `${SITE_URL}/blog` },
 };
 
 const categoryColors: Record<string, string> = {

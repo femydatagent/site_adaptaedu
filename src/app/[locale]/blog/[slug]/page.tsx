@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { posts, getPostBySlug } from '@/lib/posts';
 import { requirePortuguese } from '@/lib/pt-only';
+import { SITE_URL } from '@/lib/facts';
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>;
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} | AdaptaEDU`,
     description: post.description,
     keywords: post.keywords,
-    alternates: { canonical: `https://adaptaedu.com/blog/${post.slug}` },
+    alternates: { canonical: `${SITE_URL}/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.description,
@@ -85,9 +86,9 @@ export default async function BlogPost({ params }: Props) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    author: { '@type': 'Organization', name: 'AdaptaEDU', url: 'https://adaptaedu.com' },
-    publisher: { '@type': 'Organization', name: 'AdaptaEDU', url: 'https://adaptaedu.com' },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://adaptaedu.com/blog/${post.slug}` },
+    author: { '@type': 'Organization', name: 'AdaptaEDU', url: `${SITE_URL}` },
+    publisher: { '@type': 'Organization', name: 'AdaptaEDU', url: `${SITE_URL}` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${post.slug}` },
     keywords: post.keywords.join(', '),
   };
 

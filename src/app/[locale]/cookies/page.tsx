@@ -4,12 +4,13 @@ import { CONTATO, FERRAMENTAS_ANALISE, FERRAMENTAS_MARKETING } from '@/component
 import ManagePreferencesButton from '@/components/cookie-consent/manage-preferences-button';
 import { Section, SubTitle, P, List, Table, Callout, Fill } from '@/components/legal/legal-prose';
 import { requirePortuguese } from '@/lib/pt-only';
+import { SITE_URL } from '@/lib/facts';
 
 export const metadata: Metadata = {
   title: 'Política de Cookies',
   description:
     'Quais cookies o AdaptaEDU utiliza no site e na plataforma, para que servem, por quanto tempo duram e como gerenciá-los no seu navegador.',
-  alternates: { canonical: 'https://adaptaedu.com/cookies' },
+  alternates: { canonical: `${SITE_URL}/cookies` },
   robots: { index: true, follow: true },
 };
 
