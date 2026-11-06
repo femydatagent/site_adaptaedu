@@ -37,6 +37,7 @@ import {
 } from 'lucide-react';
 import FadeIn from './fade-in';
 import DemoModal from './demo-modal';
+import EscolasSobrecarga from './escolas-sobrecarga';
 import { useToast } from '@/hooks/use-toast';
 
 const subjects = [
@@ -311,6 +312,8 @@ export default function Escolas({ onNavigateHome }: { onNavigateHome: () => void
           </div>
         </div>
       </section>
+
+      <EscolasSobrecarga onAgendarDemo={() => setDemoOpen(true)} />
 
       {/* Control Features */}
       <section className="py-20 bg-white">
