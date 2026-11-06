@@ -41,6 +41,7 @@ import VideoModal from './video-modal';
 import { CONTATO } from './legal/empresa';
 import { abrirAtendente } from '@/lib/atendente';
 import QuemSomos from './quem-somos';
+import Aee from './aee';
 import Whatsapp from './whatsapp';
 import { useToast } from '@/hooks/use-toast';
 
@@ -222,6 +223,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
     { href: '#conteudo', label: 'Conteúdo' },
     { href: '#escolas', label: 'Escolas' },
     { href: '#legal', label: 'Legal' },
+    { href: '#aee', label: 'AEE' },
     { href: '#quem-somos', label: 'Quem somos' },
     { href: '#planos', label: 'Planos' },
     { href: '/blog', label: 'Blog' },
@@ -242,12 +244,12 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
               Adapta<span className="text-gradient-warm">EDU</span>
             </span>
           </a>
-          <div className="hidden md:flex items-center gap-7">
+          <div className="hidden xl:flex items-center gap-5">
             {navLinks.map(link => (
-              <a key={link.href} href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{link.label}</a>
+              <a key={link.href} href={link.href} className="whitespace-nowrap text-sm text-muted-foreground hover:text-foreground transition-colors">{link.label}</a>
             ))}
           </div>
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden xl:flex items-center gap-3 flex-shrink-0">
             <button
               onClick={onNavigateEscolas}
               aria-label="Solução para escolas particulares"
@@ -265,7 +267,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
           </div>
           {/* Mobile hamburger */}
           <button
-            className="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-md hover:bg-accent transition-colors"
+            className="xl:hidden inline-flex items-center justify-center w-9 h-9 rounded-md hover:bg-accent transition-colors"
             aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu de navegação'}
             onClick={() => setMobileMenuOpen(prev => !prev)}
           >
@@ -274,7 +276,7 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
         </nav>
         {/* Mobile nav drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-lg border-b border-border px-6 pb-4">
+          <div className="xl:hidden bg-white/95 backdrop-blur-lg border-b border-border px-6 pb-4">
             <div className="flex flex-col gap-3 pt-2">
               {navLinks.map(link => (
                 <a
@@ -287,6 +289,14 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-2 border-t border-border">
+                <button
+                  onClick={() => { setMobileMenuOpen(false); onNavigateEscolas(); }}
+                  aria-label="Solução para escolas particulares"
+                  className="inline-flex items-center justify-center text-sm font-medium transition-all h-9 rounded-md gap-1.5 px-3 border border-teal-400 text-teal-700 hover:bg-teal-50"
+                >
+                  <Building2 className="w-3.5 h-3.5" />
+                  Para Escolas
+                </button>
                 <a href={APP_LOGIN_URL} aria-label="Entrar na plataforma" className="inline-flex items-center justify-center text-sm font-medium transition-all h-9 rounded-md px-3 hover:bg-accent hover:text-accent-foreground">
                   Entrar
                 </a>
@@ -821,6 +831,8 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
             </FadeIn>
           </div>
         </section>
+
+        <Aee />
 
         <QuemSomos />
 
