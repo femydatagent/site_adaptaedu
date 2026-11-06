@@ -161,29 +161,81 @@ const plans = [
   },
 ];
 
-const testimonials = [
+type Depoimento = {
+  /** Parágrafos do depoimento, na fala da pessoa. */
+  texto: string[];
+  nome: string;
+  iniciais: string;
+  papel: string;
+  /** Trecho em destaque, usado só no depoimento principal. */
+  destaque?: string;
+};
+
+/** O primeiro item é o depoimento principal, exibido em largura total. */
+const testimonials: Depoimento[] = [
   {
-    text: 'Antes, eu levava horas para adaptar uma única atividade para meus alunos com TEA. Com o AdaptaEDU, faço o upload e em minutos tenho o material pronto. Meus alunos estão mais engajados e eu tenho tempo para o que realmente importa: estar presente com eles.',
-    name: 'Carla Mendes',
-    initials: 'CM',
-    role: 'Professora de Educação Especial',
-    school: 'EMEF Monteiro Lobato — São Paulo',
+    texto: [
+      'Como profissional que atua diretamente com o AEE e a educação inclusiva, é muito gratificante encontrar uma ferramenta tão alinhada com as nossas necessidades práticas.',
+      'A proposta do aplicativo é excelente. A facilidade de ler imagens e transformá-las em atividades adaptadas para diferentes deficiências e defasagens de aprendizagem é um grande diferencial. O design é intuitivo e as opções visuais ajudam muito a engajar os alunos.',
+      'Aplicamos a ferramenta na nossa escola em várias situações, desde o apoio pedagógico até as avaliações, e a resposta foi excelente. Notamos uma aceitação muito boa dos alunos, que participaram das atividades com mais autonomia e compreensão.',
+      'Esse tipo de iniciativa mostra como a tecnologia pode ser uma aliada real da inclusão, respeitando as individualidades e abrindo caminhos para que os alunos desenvolvam seu potencial.',
+      'Parabéns aos criadores! Recomendo o aplicativo para todas as escolas e educadores comprometidos com uma educação acessível e de qualidade.',
+    ],
+    nome: 'Laila Sati',
+    iniciais: 'LS',
+    papel: 'Professora de AEE e de Biologia — anos finais do Ensino Fundamental e Ensino Médio',
+    destaque: 'Os alunos participaram das atividades com mais autonomia e compreensão.',
   },
   {
-    text: 'Implementamos o AdaptaEDU na escola inteira. Os professores do ensino regular agora adaptam sozinhos os materiais para alunos com TDAH e dislexia. A inclusão deixou de ser uma tarefa da educação especial e passou a ser responsabilidade de todos — como deveria ser.',
-    name: 'Ricardo Almeida',
-    initials: 'RA',
-    role: 'Coordenador Pedagógico',
-    school: 'Colégio Sapiens — Curitiba',
+    texto: [
+      'A plataforma AdaptaEDU veio como um facilitador para elaboração de atividades com qualidade. Ela cria adaptações com espaçamento, suportes visuais, sequências de imagens, blocos de leitura, checklist, entre outros critérios, de acordo com o perfil de acessibilidade. Desde que comecei a usá-la, consigo organizar melhor o tempo que tenho para montar atividades adaptadas para meus alunos.',
+    ],
+    nome: 'Ana Paula Silva',
+    iniciais: 'AS',
+    papel: 'Professora — anos iniciais do Ensino Fundamental',
   },
   {
-    text: 'Na educação infantil, a adaptação precisa ser visual e muito concreta. O AdaptaEDU entende isso e gera materiais que realmente funcionam para crianças com baixa visão e deficiência intelectual. Os pais perceberam a diferença nas atividades que mandamos para casa.',
-    name: 'Ana Paula Ferreira',
-    initials: 'AF',
-    role: 'Diretora',
-    school: 'CMEI Cantinho do Saber — Belo Horizonte',
+    texto: [
+      'Eu gostei bastante da praticidade. Confesso que causa um certo estranhamento não ter a IA “conversando”, mas é uma nova forma de fazer e simplificar — gostei muito!',
+      'Achei prático, consegui adaptar atividades muito boas para as crianças! Vocês estão de parabéns!',
+    ],
+    nome: 'Victoria Tavares dos Santos',
+    iniciais: 'VS',
+    papel: 'Professora — anos iniciais do Ensino Fundamental',
+  },
+  {
+    texto: [
+      'Novos tempos pedem um pensar ampliado! Como gestora, o app AdaptaEDU também legaliza e assessora a escola no que diz respeito à remuneração dos professores na adaptação das avaliações.',
+    ],
+    nome: 'Karen Thomaz',
+    iniciais: 'KT',
+    papel: 'Diretora pedagógica',
+  },
+  {
+    texto: [
+      'A plataforma agiliza o trabalho dos professores e da coordenação, gerando as atividades para serem editadas e revisadas com maior facilidade.',
+    ],
+    nome: 'Ianina Gabriela Adamenas',
+    iniciais: 'IA',
+    papel: 'Assistente de coordenação',
   },
 ];
+
+const [principal, ...outrosDepoimentos] = testimonials;
+
+function Autor({ t }: { t: Depoimento }) {
+  return (
+    <div className="flex items-center gap-3">
+      <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+        {t.iniciais}
+      </div>
+      <div>
+        <p className="text-sm font-semibold text-foreground">{t.nome}</p>
+        <p className="text-xs text-muted-foreground">{t.papel}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () => void }) {
   const { toast } = useToast();
@@ -853,29 +905,46 @@ export default function Landing({ onNavigateEscolas }: { onNavigateEscolas: () =
                 <span className="inline-flex items-center justify-center rounded-md border font-medium mb-4 border-amber-500/30 bg-amber-500/10 text-amber-700 px-3 py-1 text-xs">
                   Depoimentos
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4"><span className="text-gradient-warm">Professores</span> aprovam</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Quem usa, <span className="text-gradient-warm">conta</span></h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Educadores de escolas públicas e particulares já transformam seus materiais com o AdaptaEDU.
+                  Professoras, coordenação e direção falam sobre como o AdaptaEDU entrou na rotina da escola.
                 </p>
               </div>
             </FadeIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {testimonials.map((t, i) => (
-                <FadeIn key={t.name} delay={i * 0.1}>
-                  <div className="p-6 rounded-xl border border-border bg-card h-full flex flex-col">
-                    <Quote className="w-8 h-8 text-amber-300 mb-4 flex-shrink-0" />
-                    <p className="text-sm text-muted-foreground leading-relaxed flex-grow mb-6">{t.text}</p>
-                    <div className="flex items-center gap-3 pt-4 border-t border-border">
-                      <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                        {t.initials}
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-foreground">{t.name}</p>
-                        <p className="text-xs text-muted-foreground">{t.role} — {t.school}</p>
-                      </div>
-                    </div>
-                  </div>
+            <FadeIn>
+              <figure className="relative overflow-hidden rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50 via-card to-card p-8 md:p-10 mb-6 grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 lg:gap-12">
+                <div className="flex flex-col">
+                  <Quote className="w-10 h-10 text-amber-400 mb-5 flex-shrink-0" aria-hidden="true" />
+                  <p className="text-2xl md:text-3xl font-bold leading-snug text-foreground mb-8 flex-grow">
+                    “{principal.destaque}”
+                  </p>
+                  <figcaption>
+                    <Autor t={principal} />
+                  </figcaption>
+                </div>
+                <blockquote className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed lg:border-l lg:border-amber-200 lg:pl-12">
+                  {principal.texto.map(paragrafo => (
+                    <p key={paragrafo}>{paragrafo}</p>
+                  ))}
+                </blockquote>
+              </figure>
+            </FadeIn>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {outrosDepoimentos.map((t, i) => (
+                <FadeIn key={t.nome} delay={i * 0.1} className="h-full">
+                  <figure className="p-6 rounded-xl border border-border bg-card h-full flex flex-col hover:border-amber-200 hover:shadow-md transition-all">
+                    <Quote className="w-7 h-7 text-amber-300 mb-4 flex-shrink-0" aria-hidden="true" />
+                    <blockquote className="space-y-3 text-sm text-muted-foreground leading-relaxed flex-grow mb-6">
+                      {t.texto.map(paragrafo => (
+                        <p key={paragrafo}>{paragrafo}</p>
+                      ))}
+                    </blockquote>
+                    <figcaption className="pt-4 border-t border-border">
+                      <Autor t={t} />
+                    </figcaption>
+                  </figure>
                 </FadeIn>
               ))}
             </div>
