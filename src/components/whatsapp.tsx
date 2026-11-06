@@ -1,7 +1,7 @@
-'use client';
-
 import { Camera, Send, Sparkles, Clock, CheckCheck } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import FadeIn from './fade-in';
+import { highlightTag } from './i18n/rich';
 
 /**
  * Seção do diferencial: adaptar pelo WhatsApp.
@@ -12,23 +12,10 @@ import FadeIn from './fade-in';
  * reconhecimento; fora dali a paleta da marca continua mandando.
  */
 
-const PASSOS = [
-  {
-    icone: Camera,
-    titulo: 'Fotografe',
-    texto: 'A página do livro, a lista de exercícios, a prova. Direto da mesa, com o celular.',
-  },
-  {
-    icone: Send,
-    titulo: 'Envie',
-    texto: 'Manda no WhatsApp do AdaptaEDU e diz o perfil: "adaptar para dislexia".',
-  },
-  {
-    icone: Sparkles,
-    titulo: 'Receba adaptado',
-    texto: 'Volta pronto para qualquer um dos 9 perfis, em minutos, no mesmo lugar.',
-  },
-];
+/** Ícones dos passos, na ordem de `whatsapp.steps` nas mensagens. */
+const STEP_ICONS = [Camera, Send, Sparkles];
+
+type Passo = { title: string; text: string };
 
 function BolhaRecebida({ children }: { children: React.ReactNode }) {
   return (
@@ -50,6 +37,10 @@ function BolhaEnviada({ children }: { children: React.ReactNode }) {
 }
 
 export default function Whatsapp() {
+  const t = useTranslations('whatsapp');
+  const passos = t.raw('steps') as Passo[];
+  const strong = (chunks: React.ReactNode) => <strong>{chunks}</strong>;
+
   return (
     <section id="whatsapp" className="relative overflow-hidden bg-slate-900 py-24 md:py-32">
       {/* brilho de fundo, para o aparelho não flutuar sobre um retângulo chapado */}
@@ -63,34 +54,31 @@ export default function Whatsapp() {
           <div>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300">
               <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-              O jeito mais rápido de adaptar
+              {t('badge')}
             </span>
 
             <h2 className="mb-5 text-3xl font-bold leading-tight text-white md:text-4xl">
-              Adaptação na palma da mão,{' '}
-              <span className="text-emerald-400">pelo WhatsApp</span>
+              {t.rich('title', { hl: highlightTag('text-emerald-400') })}
             </h2>
 
             <p className="mb-10 text-lg leading-relaxed text-slate-300">
-              Não precisa abrir o computador, escanear nada, nem sair do aplicativo que você já usa o
-              dia inteiro. Fotografou, mandou, recebeu adaptado — para qualquer um dos 9 perfis de
-              acessibilidade.
+              {t('subtitle')}
             </p>
 
             <ol className="space-y-6">
-              {PASSOS.map((passo, i) => {
-                const Icone = passo.icone;
+              {passos.map((passo, i) => {
+                const Icone = STEP_ICONS[i];
                 return (
-                  <li key={passo.titulo} className="flex gap-4">
+                  <li key={passo.title} className="flex gap-4">
                     <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400">
                       <Icone className="h-5 w-5" aria-hidden="true" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-white">
                         <span className="mr-2 text-emerald-400/70">{i + 1}.</span>
-                        {passo.titulo}
+                        {passo.title}
                       </h3>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-400">{passo.texto}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-slate-400">{passo.text}</p>
                     </div>
                   </li>
                 );
@@ -100,7 +88,7 @@ export default function Whatsapp() {
             <div className="mt-10">
               <p className="flex items-center gap-2 text-sm text-slate-400">
                 <Clock className="h-4 w-4 text-emerald-400" aria-hidden="true" />
-                Da foto ao material pronto, sem trocar de tela.
+                {t('footnote')}
               </p>
             </div>
           </div>
@@ -123,7 +111,7 @@ export default function Whatsapp() {
                   />
                   <div className="leading-tight">
                     <p className="text-sm font-semibold text-white">AdaptaEDU</p>
-                    <p className="text-[11px] text-emerald-100">online</p>
+                    <p className="text-[11px] text-emerald-100">{t('chat.online')}</p>
                   </div>
                 </div>
 
@@ -131,14 +119,13 @@ export default function Whatsapp() {
                   <BolhaEnviada>
                     <span className="mb-1.5 flex h-24 items-center justify-center rounded-lg bg-slate-200 text-[11px] text-slate-500">
                       <Camera className="mr-1.5 h-4 w-4" aria-hidden="true" />
-                      foto da página 47
+                      {t('chat.photo')}
                     </span>
-                    Adaptar para dislexia
+                    {t('chat.request')}
                   </BolhaEnviada>
 
                   <BolhaRecebida>
-                    Recebi! Adaptando a página para <strong>Dislexia</strong> — fonte ampliada,
-                    espaçamento maior e frases mais curtas. Só um instante.
+                    {t.rich('chat.received', { strong })}
                   </BolhaRecebida>
 
                   <BolhaRecebida>
@@ -148,19 +135,19 @@ export default function Whatsapp() {
                       </span>
                       <span className="leading-tight">
                         <span className="block text-[12px] font-medium text-slate-700">
-                          pagina-47-dislexia.pdf
+                          {t('chat.fileName')}
                         </span>
-                        <span className="text-[10px] text-slate-500">PDF · 2 páginas</span>
+                        <span className="text-[10px] text-slate-500">{t('chat.fileMeta')}</span>
                       </span>
                     </span>
-                    Pronto! Quer o mesmo conteúdo em outro perfil?
+                    {t('chat.done')}
                   </BolhaRecebida>
                 </div>
               </div>
             </div>
 
             <p className="mt-5 text-center text-xs text-slate-500">
-              Ilustração do fluxo de conversa
+              {t('chat.caption')}
             </p>
           </div>
         </FadeIn>

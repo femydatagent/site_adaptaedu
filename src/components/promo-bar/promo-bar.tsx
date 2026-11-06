@@ -2,6 +2,7 @@
 
 import { useEffect, useSyncExternalStore } from 'react';
 import { X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { getActivePromo } from './promo-config';
 
 /**
@@ -52,6 +53,7 @@ function readDismissed(promoId: string): string {
 }
 
 export default function PromoBar() {
+  const t = useTranslations('promo');
   const promo = getActivePromo();
   const promoId = promo?.id ?? '';
 
@@ -72,6 +74,13 @@ export default function PromoBar() {
 
   if (!promo || !isVisible) return null;
 
+  // Textos traduzidos por id da campanha; sem tradução, vale o texto da config.
+  const key = `items.${promo.id}`;
+  const translated = t.has(key);
+  const badge = translated && t.has(`${key}.badge`) ? t(`${key}.badge`) : promo.badge;
+  const message = translated ? t(`${key}.message`) : promo.message;
+  const linkLabel = translated && t.has(`${key}.linkLabel`) ? t(`${key}.linkLabel`) : promo.linkLabel;
+
   const dismiss = () => {
     try {
       window.localStorage.setItem(`${DISMISS_KEY_PREFIX}${promo.id}`, '1');
@@ -83,11 +92,11 @@ export default function PromoBar() {
 
   const content = (
     <>
-      {promo.badge && <strong className="font-extrabold tracking-wide">{promo.badge}</strong>}
-      <span className="truncate">{promo.message}</span>
-      {promo.href && promo.linkLabel && (
+      {badge && <strong className="font-extrabold tracking-wide">{badge}</strong>}
+      <span className="truncate">{message}</span>
+      {promo.href && linkLabel && (
         <span className="hidden sm:inline whitespace-nowrap font-bold underline underline-offset-2">
-          {promo.linkLabel} →
+          {linkLabel} →
         </span>
       )}
     </>
@@ -98,7 +107,7 @@ export default function PromoBar() {
 
   return (
     <aside
-      aria-label="Novidades e promoções"
+      aria-label={t('regionLabel')}
       style={{ height: BAR_HEIGHT_PX }}
       className="fixed top-0 inset-x-0 z-[60] overflow-hidden bg-gradient-to-r from-amber-800 via-orange-700 to-amber-800 text-white"
     >
@@ -113,7 +122,7 @@ export default function PromoBar() {
       <button
         type="button"
         onClick={dismiss}
-        aria-label="Fechar aviso de promoção"
+        aria-label={t('close')}
         style={{ width: CLOSE_HIT_WIDTH_PX }}
         className="absolute right-0 top-0 flex h-full items-center justify-center text-white/75 hover:bg-white/20 hover:text-white transition-colors"
       >

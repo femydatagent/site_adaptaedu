@@ -6,6 +6,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog';
+import { useTranslations } from 'next-intl';
 
 interface VideoModalProps {
   open: boolean;
@@ -15,11 +16,12 @@ interface VideoModalProps {
 }
 
 export default function VideoModal({ open, onOpenChange, videoId, title }: VideoModalProps) {
+  const t = useTranslations('videoModal');
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-4xl p-0 overflow-hidden bg-black border-0 gap-0 [&>button]:text-white [&>button]:bg-black/60 [&>button]:rounded-full [&>button]:p-1.5 [&>button]:top-3 [&>button]:right-3 [&>button]:z-10">
         <DialogTitle className="sr-only">{title}</DialogTitle>
-        <DialogDescription className="sr-only">Vídeo de demonstração do AdaptaEDU</DialogDescription>
+        <DialogDescription className="sr-only">{t('description')}</DialogDescription>
         <div className="relative w-full aspect-video">
           {/* Só monta o iframe aberto: ao fechar, o vídeo para de tocar */}
           {open && (
